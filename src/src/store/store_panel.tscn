@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://p5qr8ge3v6y5"]
+
+[ext_resource type="Script" path="res://src/store/store_panel.gd" id="1_k6nii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iloyx"]
+
+[node name="StorePanel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_iloyx")
+script = ExtResource("1_k6nii")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 10

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd81g2vvmtvgm"]
+
+[ext_resource type="Texture2D" uid="uid://c2rsk42xrbddl" path="res://resources/textures/GUI/ItemOptionBG.png" id="1_b3d7y"]
+[ext_resource type="Texture2D" uid="uid://q2brbqx4hebd" path="res://resources/textures/GUI/ItemOptionBG_Pressed.png" id="2_7yl2c"]
+[ext_resource type="Texture2D" uid="uid://bjk22hbhxupsa" path="res://resources/textures/GUI/ItemOptionBG_Hover.png" id="3_720tj"]
+[ext_resource type="Script" path="res://src/utilities/texture_button_base.gd" id="4_rsg2g"]
+[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_t64l5"]
+[ext_resource type="AudioStream" uid="uid://dcw7ge5gpamm5" path="res://resources/audio/GUI/hover.wav" id="6_muber"]
+[ext_resource type="AudioStream" uid="uid://2jyaxnmpxshf" path="res://resources/audio/GUI/click.wav" id="7_pu8rj"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 2048.0
+offset_bottom = 1024.0
+scale = Vector2(0.0634654, 0.04965)
+texture_normal = ExtResource("1_b3d7y")
+texture_pressed = ExtResource("2_7yl2c")
+texture_hover = ExtResource("3_720tj")
+texture_disabled = ExtResource("1_b3d7y")
+script = ExtResource("4_rsg2g")
+
+[node name="SoundHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_muber")
+volume_db = -15.22
+
+[node name="SoundClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pu8rj")
+volume_db = -16.637
+
+[node name="Label" type="Label" parent="."]
+offset_top = 11.0
+offset_right = 2023.0
+offset_bottom = 902.0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.356863, 0.360784, 1)
+theme_override_colors/font_outline_color = Color(0, 0.356863, 0.360784, 1)
+theme_override_constants/shadow_offset_y = 20
+theme_override_fonts/font = ExtResource("4_t64l5")
+theme_override_font_sizes/font_size = 300
+text = "Text
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="finished" from="SoundClick" to="." method="_on_sound_click_finished"]

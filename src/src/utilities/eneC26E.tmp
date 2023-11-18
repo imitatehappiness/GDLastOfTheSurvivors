@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsual7i82tfdq"]
+
+[ext_resource type="Script" path="res://src/utilities/enemy_circle_spawner.gd" id="1_uwn84"]
+
+[node name="EnemyCircleSpawner" type="Node2D"]
+script = ExtResource("1_uwn84")
+
+[node name="FreeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="FreeTimer" to="." method="_on_free_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

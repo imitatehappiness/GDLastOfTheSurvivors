@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://cnmptukyskdd0"]
+
+[ext_resource type="Script" path="res://src/character/attack/splash.gd" id="1_h4a7f"]
+[ext_resource type="Texture2D" uid="uid://7d1ixn0jaewu" path="res://resources/textures/Items/Weapons/splash_sprite.png" id="2_be2n0"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_qshlh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8yfy"]
+atlas = ExtResource("2_be2n0")
+region = Rect2(0, 0, 106, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i6yr"]
+atlas = ExtResource("2_be2n0")
+region = Rect2(106, 0, 106, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywegt"]
+atlas = ExtResource("2_be2n0")
+region = Rect2(212, 0, 106, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e2p4"]
+atlas = ExtResource("2_be2n0")
+region = Rect2(318, 0, 106, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55cx4"]
+atlas = ExtResource("2_be2n0")
+region = Rect2(424, 0, 106, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voksq"]
+atlas = ExtResource("2_be2n0")
+region = Rect2(530, 0, 106, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2q7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8yfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i6yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywegt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55cx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voksq")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sl366"]
+height = 120.0
+
+[sub_resource type="Animation" id="Animation_dgrve"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuqpi"]
+_data = {
+"Idle": SubResource("Animation_dgrve")
+}
+
+[node name="Splash" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_h4a7f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(1.14811, 0.942092)
+sprite_frames = SubResource("SpriteFrames_i2q7c")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.90735e-06)
+rotation = 1.5708
+scale = Vector2(1.00001, 0.890524)
+shape = SubResource("CapsuleShape2D_sl366")
+
+[node name="SoundPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qshlh")
+volume_db = -22.175
+pitch_scale = 5.0
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_kuqpi")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

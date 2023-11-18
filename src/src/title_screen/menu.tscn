@@ -1,0 +1,207 @@
+[gd_scene load_steps=17 format=3 uid="uid://bsoobkicar0wf"]
+
+[ext_resource type="Script" path="res://src/title_screen/menu.gd" id="1_uoygh"]
+[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_vfojl"]
+[ext_resource type="Texture2D" uid="uid://dcs3fsrciav1v" path="res://resources/textures/Background_0.png" id="4_1acrj"]
+[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_q03ts"]
+[ext_resource type="Texture2D" uid="uid://cxtnglibs2ix0" path="res://resources/textures/Background_1.png" id="5_ors41"]
+[ext_resource type="AudioStream" uid="uid://rjhcdlk8pqs1" path="res://resources/audio/Music/Title-Screen.ogg" id="7_ist8j"]
+[ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="8_28112"]
+[ext_resource type="Texture2D" uid="uid://dvcwuxt5tmku5" path="res://resources/textures/GUI/loading.png" id="10_8mm0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaxga"]
+atlas = ExtResource("10_8mm0w")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlnrj"]
+atlas = ExtResource("10_8mm0w")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bdgg"]
+atlas = ExtResource("10_8mm0w")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63dg8"]
+atlas = ExtResource("10_8mm0w")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqu57"]
+atlas = ExtResource("10_8mm0w")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlftl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaxga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlnrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bdgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63dg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqu57")
+}],
+"loop": false,
+"name": &"Load",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_k5y3e"]
+length = 0.625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Load"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0doo"]
+_data = {
+"Load": SubResource("Animation_k5y3e")
+}
+
+[node name="Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uoygh")
+metadata/_edit_vertical_guides_ = [320.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 359.0
+color = Color(0.0666667, 0.270588, 0.192157, 1)
+
+[node name="TextureRectBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 416.0
+scale = Vector2(0.900625, 0.995312)
+texture = ExtResource("4_1acrj")
+
+[node name="TextureRectBG2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 416.0
+scale = Vector2(1.02057, 1.2444)
+texture = ExtResource("5_ors41")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 642.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.356863, 0.360784, 1)
+theme_override_colors/font_outline_color = Color(0, 0.356863, 0.360784, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("4_q03ts")
+theme_override_font_sizes/font_size = 50
+text = "Last of the Survivors
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ist8j")
+volume_db = -30.0
+autoplay = true
+
+[node name="Load" type="Node2D" parent="."]
+position = Vector2(320, 209)
+scale = Vector2(3.85862, 3.6296)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Load"]
+visible = false
+position = Vector2(-1.03663, -7.62939e-06)
+sprite_frames = SubResource("SpriteFrames_tlftl")
+animation = &"Load"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Load"]
+libraries = {
+"": SubResource("AnimationLibrary_i0doo")
+}
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(184, 113)
+scale = Vector2(0.529906, 0.323108)
+color = Color(0, 0.654902, 0.658824, 1)
+energy = 0.7
+shadow_enabled = true
+texture = ExtResource("2_vfojl")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+position = Vector2(530, 263)
+scale = Vector2(0.665143, 0.450651)
+color = Color(0.823529, 0.47451, 0.0901961, 1)
+energy = 7.72
+shadow_enabled = true
+texture = ExtResource("2_vfojl")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Light"]
+position = Vector2(599, 160)
+scale = Vector2(0.529906, 0.323108)
+color = Color(0.823529, 0.47451, 0.0901961, 1)
+energy = 2.96
+texture = ExtResource("2_vfojl")
+
+[node name="PlayTextureButton" parent="." instance=ExtResource("8_28112")]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 122.0
+offset_right = 2200.0
+offset_bottom = 1146.0
+scale = Vector2(0.0794806, 0.0794806)
+label_text = "PLAY"
+
+[node name="QuitTextureButton" parent="." instance=ExtResource("8_28112")]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 214.0
+offset_right = 2285.0
+offset_bottom = 1238.0
+scale = Vector2(0.0824743, 0.0754972)
+label_text = "QUIT"
+
+[node name="StoreTextureButton" parent="." instance=ExtResource("8_28112")]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 122.0
+offset_right = 2374.0
+offset_bottom = 1146.0
+scale = Vector2(0.0788221, 0.0788221)
+label_text = "STORE"
+
+[connection signal="pressed" from="PlayTextureButton" to="." method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="QuitTextureButton" to="." method="_on_quit_texture_button_pressed"]
+[connection signal="pressed" from="StoreTextureButton" to="." method="_on_store_texture_button_pressed"]

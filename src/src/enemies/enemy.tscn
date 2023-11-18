@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh6eliw5jewgq"]
+
+[ext_resource type="Script" path="res://src/enemies/enemy.gd" id="1_trjki"]
+[ext_resource type="PackedScene" uid="uid://6qsaq4c7hwg3" path="res://src/utilities/hit_box.tscn" id="2_c4lgs"]
+[ext_resource type="PackedScene" uid="uid://bbk6ewi6mecli" path="res://src/utilities/hurt_box.tscn" id="3_hejso"]
+[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_km4co"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhxwo"]
+
+[sub_resource type="Theme" id="Theme_xcrt1"]
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("transform_adjustment")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_trjki")
+transform_adjustment = NodePath("TransformAdjustment")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="TransformAdjustment" type="Node2D" parent="."]
+z_index = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransformAdjustment"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TransformAdjustment"]
+sprite_frames = SubResource("SpriteFrames_jhxwo")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_hejso")]
+collision_mask = 4
+hurt_box_type = 1
+
+[node name="HitBox" parent="." instance=ExtResource("2_c4lgs")]
+
+[node name="DamageLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 4
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 16.0
+theme = SubResource("Theme_xcrt1")
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_colors/font_outline_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_km4co")
+theme_override_font_sizes/font_size = 10
+text = "
+"
+horizontal_alignment = 1
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="GetDamageSound" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

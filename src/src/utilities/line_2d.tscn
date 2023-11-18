@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3828d8lnjefp"]
+
+[ext_resource type="Script" path="res://src/utilities/line_2d.gd" id="1_8ffmh"]
+
+[node name="Line2D" type="Line2D"]
+script = ExtResource("1_8ffmh")
+lenght = 100

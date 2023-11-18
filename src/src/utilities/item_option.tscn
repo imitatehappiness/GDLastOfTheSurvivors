@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgi5l8rcbpd5h"]
+
+[ext_resource type="Script" path="res://src/utilities/item_option.gd" id="1_ibt62"]
+[ext_resource type="Texture2D" uid="uid://c2rsk42xrbddl" path="res://resources/textures/GUI/ItemOptionBG.png" id="2_loudv"]
+[ext_resource type="Texture2D" uid="uid://c0duxrih5h78y" path="res://resources/textures/GUI/UpgradeItemBG.png" id="2_vhdt5"]
+[ext_resource type="Texture2D" uid="uid://q2brbqx4hebd" path="res://resources/textures/GUI/ItemOptionBG_Pressed.png" id="3_0kkon"]
+[ext_resource type="Texture2D" uid="uid://bjk22hbhxupsa" path="res://resources/textures/GUI/ItemOptionBG_Hover.png" id="4_u4vt5"]
+[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="6_poux0"]
+
+[node name="ItemOption" type="ColorRect"]
+custom_minimum_size = Vector2(200, 60)
+anchors_preset = -1
+anchor_right = 0.141
+anchor_bottom = 0.079
+offset_right = 19.52
+offset_bottom = 9.44
+scale = Vector2(0.911, 1)
+color = Color(0.756863, 0.294118, 0.52549, 0)
+script = ExtResource("1_ibt62")
+metadata/_edit_horizontal_guides_ = [19.0]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 2049.0
+offset_bottom = 1025.0
+scale = Vector2(0.0968698, 0.0587739)
+texture_normal = ExtResource("2_loudv")
+texture_pressed = ExtResource("3_0kkon")
+texture_hover = ExtResource("4_u4vt5")
+
+[node name="ItemIconBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 7.68386
+offset_top = 6.0
+offset_right = 72.6839
+offset_bottom = 83.0
+scale = Vector2(0.739267, 0.593564)
+texture = ExtResource("2_vhdt5")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 58.0
+offset_bottom = 61.0
+scale = Vector2(0.7, 0.575)
+
+[node name="DescriptionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 23.0
+offset_right = 190.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_poux0")
+theme_override_font_sizes/font_size = 6
+text = "Description item"
+autowrap_mode = 3
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 161.361
+offset_top = 10.0
+offset_right = 210.361
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("6_poux0")
+theme_override_font_sizes/font_size = 8
+text = "Level: 1"
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 11.0
+offset_right = 159.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("6_poux0")
+theme_override_font_sizes/font_size = 8
+text = "Name"
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

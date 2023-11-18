@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3evv0li4vp0w"]
+
+[ext_resource type="AudioStream" uid="uid://dcw7ge5gpamm5" path="res://resources/audio/GUI/hover.wav" id="1_3asci"]
+[ext_resource type="FontFile" uid="uid://ut3kpxnivdng" path="res://resources/font/tenderness.otf" id="1_cc4t8"]
+[ext_resource type="Script" path="res://src/utilities/basci_button.gd" id="2_qvknd"]
+[ext_resource type="AudioStream" uid="uid://2jyaxnmpxshf" path="res://resources/audio/GUI/click.wav" id="2_tjbgg"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(80, 30)
+offset_right = 20.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("1_cc4t8")
+theme_override_font_sizes/font_size = 20
+text = "Example"
+script = ExtResource("2_qvknd")
+
+[node name="SoundHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3asci")
+volume_db = -15.22
+
+[node name="SoundClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tjbgg")
+volume_db = -16.637
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="finished" from="SoundClick" to="." method="_on_sound_click_finished"]

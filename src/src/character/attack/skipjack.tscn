@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://c8daswq8y56gs"]
+
+[ext_resource type="Script" path="res://src/character/attack/skipjack.gd" id="1_ly3rc"]
+[ext_resource type="Texture2D" uid="uid://cue4oc4401cly" path="res://resources/textures/Items/Weapons/skipjack.png" id="2_rjt6b"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_485bc"]
+[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_bc84b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1mt8"]
+atlas = ExtResource("2_rjt6b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq2ij"]
+atlas = ExtResource("2_rjt6b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mbch"]
+atlas = ExtResource("2_rjt6b")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef20a"]
+atlas = ExtResource("2_rjt6b")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2q7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1mt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq2ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mbch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef20a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ctus"]
+
+[sub_resource type="Animation" id="Animation_dgrve"]
+length = 0.571429
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuqpi"]
+_data = {
+"Idle": SubResource("Animation_dgrve")
+}
+
+[node name="Skipjack" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.0243338, 0.0279533)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ly3rc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.14811, 0.942092)
+sprite_frames = SubResource("SpriteFrames_i2q7c")
+animation = &"Idle"
+frame_progress = 0.974543
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.68221e-07, 2.98023e-07)
+shape = SubResource("RectangleShape2D_7ctus")
+
+[node name="SoundPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_485bc")
+volume_db = -22.175
+pitch_scale = 5.0
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.0289455, 0.0258659)
+color = Color(0, 0.611765, 0.615686, 1)
+energy = 2.0
+texture = ExtResource("5_bc84b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_kuqpi")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

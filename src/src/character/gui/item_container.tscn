@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ty186rp8p6h"]
+
+[ext_resource type="Texture2D" uid="uid://d342p0jsxllnb" path="res://resources/textures/Items/Weapons/frame.png" id="1_wl47y"]
+[ext_resource type="Script" path="res://src/character/gui/item_container.gd" id="2_ywg5j"]
+
+[node name="ItemContainer" type="TextureRect"]
+offset_right = 12.0
+offset_bottom = 12.0
+scale = Vector2(0.178212, 0.166075)
+texture = ExtResource("1_wl47y")
+script = ExtResource("2_ywg5j")
+metadata/_edit_vertical_guides_ = [0.0]
+metadata/_edit_horizontal_guides_ = []
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 34.0
+offset_bottom = 34.0
+scale = Vector2(0.304615, 0.3025)

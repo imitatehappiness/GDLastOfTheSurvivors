@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ghcvxgt73nua"
+path="res://.godot/imported/Weapon Bow Recoil Elastic 3 - QuickSounds.com.mp3-c9a31a86727aab77a5a9984c56fd1f61.mp3str"
+
+[deps]
+
+source_file="res://resources/audio/SoundEffect/Enemy/ArcaneArcher/Weapon Bow Recoil Elastic 3 - QuickSounds.com.mp3"
+dest_files=["res://.godot/imported/Weapon Bow Recoil Elastic 3 - QuickSounds.com.mp3-c9a31a86727aab77a5a9984c56fd1f61.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

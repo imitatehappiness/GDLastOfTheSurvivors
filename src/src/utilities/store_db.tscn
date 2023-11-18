@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpuk5mk032ftd"]
+
+[ext_resource type="Script" path="res://src/utilities/store_db.gd" id="1_ob63i"]
+
+[node name="StoreDB" type="Node"]
+script = ExtResource("1_ob63i")

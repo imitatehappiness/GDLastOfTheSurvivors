@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8y1c8ewsa2fh"]
+
+[ext_resource type="Script" path="res://src/character/attack/boomerang.gd" id="1_h8fy5"]
+[ext_resource type="Texture2D" uid="uid://cim20a08xgru1" path="res://resources/textures/Items/Weapons/boomerang/BFX003_01.png" id="2_f3a1f"]
+[ext_resource type="Texture2D" uid="uid://b85l1gdavxvd6" path="res://resources/textures/Items/Weapons/boomerang/BFX003_02.png" id="3_fc366"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_gmxdy"]
+[ext_resource type="Texture2D" uid="uid://5w4qsiwoudrt" path="res://resources/textures/Items/Weapons/boomerang/BFX003_03.png" id="4_vsbda"]
+[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_e51fy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2q7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f3a1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fc366")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vsbda")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qp5e2"]
+height = 125.221
+
+[sub_resource type="Animation" id="Animation_dgrve"]
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Idle"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuqpi"]
+_data = {
+"Idle": SubResource("Animation_dgrve")
+}
+
+[node name="Boomerang" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.0456337, 0.0477945)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_h8fy5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.547)
+sprite_frames = SubResource("SpriteFrames_i2q7c")
+animation = &"Idle"
+frame_progress = 0.72348
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.65, 0.65)
+shape = SubResource("CapsuleShape2D_qp5e2")
+
+[node name="SoundPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gmxdy")
+volume_db = -22.175
+pitch_scale = 5.0
+autoplay = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+rotation = -0.785398
+scale = Vector2(0.0212267, 0.0620781)
+color = Color(0, 0.611765, 0.615686, 1)
+energy = 2.0
+texture = ExtResource("5_e51fy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_kuqpi")
+}
