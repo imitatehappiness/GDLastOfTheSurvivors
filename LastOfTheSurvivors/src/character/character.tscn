@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbk6ewi6mecli" path="res://src/utilities/hurt_box.tscn" id="3_ymp8k"]
 [ext_resource type="Texture2D" uid="uid://dxf0r2e2btmga" path="res://resources/textures/GUI/exp_bar.png" id="4_jwoex"]
 [ext_resource type="Texture2D" uid="uid://cve5xx6cl1njw" path="res://resources/textures/GUI/exp_bar_over.png" id="5_eqxls"]
-[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="7_c5i48"]
+[ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="7_c5i48"]
 [ext_resource type="AudioStream" uid="uid://xd550xu3p3ih" path="res://resources/audio/SoundEffect/levelup.ogg" id="7_gfyjg"]
 [ext_resource type="Texture2D" uid="uid://cqm20ey3v51bv" path="res://resources/textures/GUI/exp_bar_progress.png" id="7_t2qlu"]
 [ext_resource type="Texture2D" uid="uid://cqiqs0okqwv23" path="res://resources/textures/GUI/health_bar.png" id="8_0fplp"]
@@ -797,13 +797,13 @@ additional_attack: "
 [node name="Time" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 295.0
+offset_left = 300.0
 offset_top = 9.0
-offset_right = 355.0
+offset_right = 360.0
 offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("7_c5i48")
 theme_override_font_sizes/font_size = 20
-text = "00: 00"
+text = "00:00"
 
 [node name="LevelLabel" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true

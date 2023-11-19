@@ -10,7 +10,10 @@ func _ready():
 	$AudioStreamPlayer.play()
 
 func _on_quit_texture_button_pressed():
-	get_tree().quit()
+	if OS.get_name() == "HTML5":
+		print("Quit not supported in HTML5. Please reload the browser tab.")
+	else:
+		get_tree().quit()
 
 func _on_play_texture_button_pressed():
 	$QuitTextureButton.visible = false
@@ -24,3 +27,4 @@ func _on_play_texture_button_pressed():
 	
 func _on_store_texture_button_pressed():
 	get_tree().change_scene_to_file(store)
+	

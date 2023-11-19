@@ -3,7 +3,7 @@ extends CharacterBody2D
 var time = 0
 var game_time_limit = 60*7
 
-var movement_speed = 70.0 + Global.get_character_store_upgrades()["speed"]
+var movement_speed = 80.0 + Global.get_character_store_upgrades()["speed"]
 var max_health = 50 + Global.get_character_store_upgrades()["health"]
 var health = max_health
 var last_movement = Vector2.UP
@@ -717,7 +717,7 @@ func _on_timer_timeout():
 
 	var min = str(time / 60) if time / 60 > 9 else "0" + str(time / 60)
 	var sec = str(time % 60) if time % 60 > 9 else "0" + str(time % 60)
-	game_time_label.text = min + ": " + sec
+	game_time_label.text = min + ":" + sec
 	
 # =================================================================== GUI
 # Обработчик кнопки "Меню".

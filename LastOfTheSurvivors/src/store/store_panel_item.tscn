@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btg536br2c8ym" path="res://resources/textures/Items/Upgrades/scroll_2.png" id="2_l8u7f"]
 [ext_resource type="Texture2D" uid="uid://d342p0jsxllnb" path="res://resources/textures/Items/Weapons/frame.png" id="3_wrl0p"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="5_4iyda"]
-[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="7_chv55"]
+[ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="7_chv55"]
 [ext_resource type="Texture2D" uid="uid://ukhr2qwj5nm7" path="res://resources/textures/Items/Gold/coin_05d.png" id="8_drmbc"]
 
 [sub_resource type="Theme" id="Theme_b0tjg"]
@@ -55,7 +55,7 @@ offset_bottom = 44.0
 scale = Vector2(0.800521, 0.899883)
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_fonts/font = ExtResource("7_chv55")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 14
 text = "LEVEL: 1"
 
 [node name="NameLabel" type="Label" parent="."]
@@ -68,7 +68,7 @@ offset_bottom = 26.0
 scale = Vector2(0.800521, 0.899883)
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_fonts/font = ExtResource("7_chv55")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "NAME"
 
 [node name="DescriptionLabel" type="Label" parent="."]
@@ -81,16 +81,16 @@ offset_bottom = 79.0
 scale = Vector2(0.800521, 0.899883)
 theme_override_colors/font_color = Color(1, 1, 1, 0.784314)
 theme_override_fonts/font = ExtResource("7_chv55")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "Description"
 autowrap_mode = 3
 
 [node name="Cost" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 75.0
-offset_top = 77.0
+offset_top = 76.0
 offset_right = 152.0
-offset_bottom = 110.0
+offset_bottom = 109.0
 scale = Vector2(0.963621, 0.843528)
 
 [node name="GoldIcon" type="TextureRect" parent="Cost"]
@@ -102,7 +102,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_fonts/font = ExtResource("7_chv55")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "123"
 
 [connection signal="pressed" from="BuyTextureButton" to="." method="_on_buy_texture_button_pressed"]

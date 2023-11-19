@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p5qr8ge3v6y5" path="res://src/store/store_panel.tscn" id="7_bnryi"]
 [ext_resource type="Texture2D" uid="uid://ukhr2qwj5nm7" path="res://resources/textures/Items/Gold/coin_05d.png" id="7_u3iil"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="8_i2q2c"]
-[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="8_lux0e"]
+[ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="8_lux0e"]
 [ext_resource type="PackedScene" uid="uid://bcoghkpisf3oh" path="res://src/store/store_panel_item.tscn" id="8_vxys1"]
 
 [node name="Store" type="Node2D"]
@@ -31,9 +31,9 @@ texture = ExtResource("3_2c347")
 light_mask = 0
 offset_left = 29.0
 offset_top = 26.0
-offset_right = 120.0
+offset_right = 116.0
 offset_bottom = 66.0
-scale = Vector2(1.37401, 0.881329)
+scale = Vector2(1.21455, 0.939381)
 
 [node name="GoldIcon" type="TextureRect" parent="HBoxContainer"]
 light_mask = 0
@@ -44,7 +44,7 @@ texture = ExtResource("7_u3iil")
 light_mask = 0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_lux0e")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "123"
 
 [node name="StorePanel" parent="." instance=ExtResource("7_bnryi")]
