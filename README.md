@@ -6,7 +6,7 @@ Last of the Survivors is a casual horror game with rogue—lite elements, in whi
 ## Demo
 > [!NOTE]
 > When refreshing the web page, the game data is not being saved.
-<a href="https://example.com](https://imitatehappiness.itch.io/last-of-the-survivors">
+<a href="https://imitatehappiness.itch.io/last-of-the-survivors">
   <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/a02c49bd-511a-4867-9a40-68fa6b53ea3f" alt="image">
 </a>
 
