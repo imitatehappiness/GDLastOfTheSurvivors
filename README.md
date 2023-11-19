@@ -28,8 +28,8 @@ In Last of the Survivors, the player's goal is to survive against the advancing 
   
   <ul>
     <li> [x] Blue Slime</li>
-    <li> [x] Green Slime</li>
     <li> [x] Blue Slime Strong</li>
+    <li> [x] Green Slime</li>
     <li> [x] Arcane Archer</li>
     <li> [x] Bringer Of Death</li>
     <li> [x] Night Borne</li>
