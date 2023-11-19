@@ -1,8 +1,11 @@
 # Last of the survivors
 
 ## Description
-
 Last of the Survivors is a casual horror game with rogue—lite elements, in which your choice can allow you to quickly surpass the strength of hundreds of monsters that attack you.
+
+[DEMO LastOfTheSurvivors]( https://imitatehappiness.itch.io/last-of-the-survivors) 
+> [!NOTE]
+> When refreshing the web page, the game data is not being saved.
 
 ## Gameplay
 
