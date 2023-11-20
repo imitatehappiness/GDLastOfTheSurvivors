@@ -1,4 +1,5 @@
-# Last of the survivors
+
+![header](https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/25be2e2a-028d-402a-a16f-7e3a310835fd)
 
 ## Description
 Last of the Survivors is a casual horror game with rogue—lite elements, in which your choice can allow you to quickly surpass the strength of hundreds of monsters that attack you.
