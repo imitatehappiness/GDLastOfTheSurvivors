@@ -1,6 +1,11 @@
 
 ![header](https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/25be2e2a-028d-402a-a16f-7e3a310835fd)
 
+
+![Godot Engine](https://img.shields.io/badge/GODOT-094047.svg?style=for-the-badge&logo=godot-engine&Color=EEE&logoColor=EEE)
+![Itch.io](https://img.shields.io/badge/Itch.IO-094047.svg?style=for-the-badge&logo=Itch.io&logoColor=white&Color=EEE)
+![Top_Down](https://img.shields.io/badge/Top_Down-094047?style=for-the-badge&logo=GitHub-Sponsors&logoColor=EEE&Color=EEE)
+![Survival](https://img.shields.io/badge/Survival-094047?style=for-the-badge&logo=GitHub-Sponsors&logoColor=EEE&Color=EEE)
 ## Description
 Last of the Survivors is a casual horror game with rogue—lite elements, in which your choice can allow you to quickly surpass the strength of hundreds of monsters that attack you.
 
@@ -21,6 +26,8 @@ In Last of the Survivors, the player's goal is to survive against the advancing 
     <li> [x] Skipjack <br> <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/c399fa8f-a9aa-4795-ae97-4d264098304b" alt=""> </li>
     <li> [x] Boomerang <br> <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/ccc5aee7-4091-4a1a-a722-d6ffaee485eb" alt=""> </li>
     <li> [x] Trap <br> <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/803bc3f5-743e-4603-93ed-b8f0fb931e7a" alt=""> </li>
+    ![top-down](https://img.shields.io/badge/top_down-0f0f0f?&style=for-the-badge&logo=&logoColor=white)
+    ![survival](https://img.shields.io/badge/survival-0f0f0f?&style=for-the-badge&logo=&logoColor=white)
   </ul>
 </details>
 
@@ -78,13 +85,16 @@ In Last of the Survivors, the player's goal is to survive against the advancing 
 </details>
 -->
 
+
 ## Demo
 > [!NOTE]
 > When refreshing the web page, the game data is not being saved.
 <a href="https://imitatehappiness.itch.io/last-of-the-survivors">
-  <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/72bedb96-4568-4dd6-a19d-fafa437f487d" alt="image">
+  <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/3fd2c52f-109b-4de3-922a-3d3fd29aed2e" alt="image">
 </a>
+
 
 ## Preview
 https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/af0596c3-a472-421a-a13e-8685aa458dbd
+
 
