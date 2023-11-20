@@ -117,8 +117,10 @@ texture = ExtResource("5_ors41")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
+offset_left = 1.0
+offset_top = 5.0
 offset_right = 642.0
-offset_bottom = 113.0
+offset_bottom = 89.0
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.356863, 0.360784, 1)
 theme_override_colors/font_outline_color = Color(0, 0.356863, 0.360784, 1)
@@ -164,7 +166,7 @@ texture = ExtResource("2_vfojl")
 position = Vector2(530, 263)
 scale = Vector2(0.665143, 0.450651)
 color = Color(0.823529, 0.47451, 0.0901961, 1)
-energy = 7.72
+energy = 3.0
 shadow_enabled = true
 texture = ExtResource("2_vfojl")
 
@@ -185,7 +187,6 @@ scale = Vector2(0.0794806, 0.0794806)
 label_text = "PLAY"
 
 [node name="QuitTextureButton" parent="." instance=ExtResource("8_28112")]
-visible = false
 layout_mode = 0
 offset_left = 237.0
 offset_top = 214.0
