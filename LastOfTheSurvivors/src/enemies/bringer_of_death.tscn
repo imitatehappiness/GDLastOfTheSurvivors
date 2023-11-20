@@ -11,7 +11,6 @@
 size = Vector2(15.3771, 38.3137)
 
 [sub_resource type="Animation" id="Animation_ing33"]
-length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -19,7 +18,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667),
+"times": PackedFloat32Array(0, 0.111111, 0.222222, 0.333333, 0.444444, 0.555556, 0.666667, 0.777778, 0.888889),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -43,7 +42,7 @@ tracks/2/path = NodePath("SwordHitBox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7),
+"times": PackedFloat32Array(0, 0.4, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -55,7 +54,7 @@ tracks/3/path = NodePath("../Sounds/SwordAttakSound:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -384,7 +383,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack",
-"speed": 12.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -482,11 +481,13 @@ size = Vector2(21.3676, 21.96)
 scale = Vector2(0.680259, 0.610556)
 script = ExtResource("2_tf6u3")
 movement_speed = 50
-max_health = 300
+max_health = 100
 damage = 5
 sword_damage = 20
+experience = 40
 spell_damage = 20
 spell_scale = 1.0
+coins = 20
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1.75241e-07, -6.55141)

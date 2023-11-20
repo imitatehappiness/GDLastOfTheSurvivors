@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var ammo = 2
 @export var arrow_attack_reload = 4
 @export var arrow_damage = 20
+@export var coins = 15
 
 var knockback: Vector2 = Vector2.ZERO
 
@@ -93,6 +94,7 @@ func death_state():
 	var gold_chance = randf()
 	if gold_chance <= 0.10:
 		var new_gold = gold.instantiate()
+		new_gold.gold = coins
 		new_gold.global_position = global_position
 		new_gold.global_position.y -= 15
 		loot_base.call_deferred("add_child", new_gold)

@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ghcvxgt73nua" path="res://resources/audio/SoundEffect/Enemy/ArcaneArcher/Weapon Bow Recoil Elastic 3 - QuickSounds.com.mp3" id="5_h0lkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ot27f"]
-size = Vector2(17.7578, 54.2093)
+size = Vector2(8.35663, 26.1008)
 
 [sub_resource type="Animation" id="Animation_uq7t0"]
 length = 0.7
@@ -397,17 +397,18 @@ size = Vector2(12.7821, 19.5689)
 
 [node name="ArcaneArcher" instance=ExtResource("1_uxu1v")]
 scale = Vector2(1.25175, 0.970929)
-collision_mask = 0
 script = ExtResource("2_jspqa")
-movement_speed = 60.0
+movement_speed = 50.0
 health = 100
+experience = 40
 arrow_scale = 1.4
 ammo = 2
 arrow_attack_reload = 4
 arrow_damage = 20
+coins = 15
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0.399441, -4.63474)
+position = Vector2(5.96046e-08, -6.17965)
 scale = Vector2(0.764788, 0.512982)
 shape = SubResource("RectangleShape2D_ot27f")
 
@@ -430,7 +431,7 @@ libraries = {
 position = Vector2(0, 3.58385)
 scale = Vector2(1, 1.26825)
 sprite_frames = SubResource("SpriteFrames_vyb65")
-animation = &"Attack"
+animation = &"Walk"
 autoplay = "Walk"
 flip_h = true
 

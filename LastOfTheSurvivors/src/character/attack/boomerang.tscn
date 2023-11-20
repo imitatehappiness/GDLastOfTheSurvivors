@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://src/character/attack/boomerang.gd" id="1_h8fy5"]
 [ext_resource type="Texture2D" uid="uid://cim20a08xgru1" path="res://resources/textures/Items/Weapons/boomerang/BFX003_01.png" id="2_f3a1f"]
 [ext_resource type="Texture2D" uid="uid://b85l1gdavxvd6" path="res://resources/textures/Items/Weapons/boomerang/BFX003_02.png" id="3_fc366"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_gmxdy"]
 [ext_resource type="Texture2D" uid="uid://5w4qsiwoudrt" path="res://resources/textures/Items/Weapons/boomerang/BFX003_03.png" id="4_vsbda"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_e51fy"]
+[ext_resource type="AudioStream" uid="uid://bbv4gjjp6b0r8" path="res://resources/audio/SoundEffect/attack/boomerang_attack.ogg" id="5_nhvxa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2q7c"]
 animations = [{
@@ -79,10 +79,11 @@ scale = Vector2(0.65, 0.65)
 shape = SubResource("CapsuleShape2D_qp5e2")
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_gmxdy")
-volume_db = -22.175
-pitch_scale = 5.0
+stream = ExtResource("5_nhvxa")
+volume_db = -25.0
+pitch_scale = 1.06
 autoplay = true
+max_polyphony = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

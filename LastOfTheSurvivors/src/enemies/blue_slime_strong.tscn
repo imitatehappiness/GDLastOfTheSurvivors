@@ -387,7 +387,7 @@ radius = 53.419
 height = 106.838
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htj1b"]
-size = Vector2(71.2253, 38.0004)
+size = Vector2(40.361, 30.1768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl5q"]
 size = Vector2(21.3676, 21.96)
@@ -395,14 +395,15 @@ size = Vector2(21.3676, 21.96)
 [node name="BlueSlimeStrong" instance=ExtResource("1_501fb")]
 scale = Vector2(0.842397, 0.894726)
 script = ExtResource("2_cvtiv")
-movement_speed = 70
-max_health = 300
+movement_speed = 80
+max_health = 100
 damage = 5
 sword_damage = 20
 experience = 25
+coins = 10
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-3.56127, -5.5883)
+position = Vector2(1.18709, -5.5883)
 scale = Vector2(0.764788, 0.512982)
 shape = SubResource("RectangleShape2D_bkxas")
 
@@ -456,7 +457,7 @@ shape = SubResource("CapsuleShape2D_ex4mi")
 position = Vector2(0, -4)
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(-3.56127, -1.58832)
+position = Vector2(-1.1321e-06, -1.02947)
 shape = SubResource("RectangleShape2D_htj1b")
 
 [node name="HitBox" parent="." index="3"]

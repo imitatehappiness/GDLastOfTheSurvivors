@@ -1,7 +1,7 @@
 # Класс "ice_spear" представляет собой объект, который представляет ледяное оружие в игре.
 extends Area2D
 
-var speed = 300
+var speed = 250
 var damage = 20 
 var attack_size = 1.0 
 

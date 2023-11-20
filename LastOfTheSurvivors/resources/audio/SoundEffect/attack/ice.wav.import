@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://corfafv61yjjj"
-path="res://.godot/imported/ice.wav-3cd008007b62ae42c2e8b85c9dba85b9.sample"
+path="res://.godot/imported/ice.wav-2385d8bed2c6756e830e28a8e29f76e7.sample"
 
 [deps]
 
-source_file="res://resources/audio/SoundEffect/ice.wav"
-dest_files=["res://.godot/imported/ice.wav-3cd008007b62ae42c2e8b85c9dba85b9.sample"]
+source_file="res://resources/audio/SoundEffect/attack/ice.wav"
+dest_files=["res://.godot/imported/ice.wav-2385d8bed2c6756e830e28a8e29f76e7.sample"]
 
 [params]
 

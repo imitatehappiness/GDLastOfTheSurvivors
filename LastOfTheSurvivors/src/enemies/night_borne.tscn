@@ -599,10 +599,12 @@ size = Vector2(21.3676, 21.96)
 [node name="NightBorne" instance=ExtResource("1_q671g")]
 scale = Vector2(0.842397, 0.894726)
 script = ExtResource("2_leunl")
-movement_speed = 80
-max_health = 200
+movement_speed = 140
+max_health = 300
 damage = 5
 sword_damage = 20
+experience = 50
+coins = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(5.66048e-07, -9.50012)

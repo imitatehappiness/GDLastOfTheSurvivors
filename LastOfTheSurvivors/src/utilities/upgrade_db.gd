@@ -15,7 +15,7 @@ const UPGRADES = {
 	"icespear2": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "An addition Ice Spear is thrown",
+		"details": "Damage +1",
 		"level": "Level: 2",
 		"prerequisite": ["icespear1"],
 		"type": "weapon"
@@ -23,7 +23,7 @@ const UPGRADES = {
 	"icespear3": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Ice Spears now pass through another enemy and do + 3 damage",
+		"details": "Damage +2",
 		"level": "Level: 3",
 		"prerequisite": ["icespear2"],
 		"type": "weapon"
@@ -31,7 +31,7 @@ const UPGRADES = {
 	"icespear4": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "An additional 2 Ice Spears are thrown",
+		"details": "Damage +2",
 		"level": "Level: 4",
 		"prerequisite": ["icespear3"],
 		"type": "weapon"
@@ -81,7 +81,7 @@ const UPGRADES = {
 	"tornado2": {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
-		"details": "An additional Tornado is created",
+		"details": "damage + 1",
 		"level": "Level: 2",
 		"prerequisite": ["tornado1"],
 		"type": "weapon"
@@ -89,7 +89,7 @@ const UPGRADES = {
 	"tornado3": {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
-		"details": "The Tornado cooldown is reduced by 0.5 seconds",
+		"details": "damage + 2",
 		"level": "Level: 3",
 		"prerequisite": ["tornado2"],
 		"type": "weapon"
@@ -97,7 +97,7 @@ const UPGRADES = {
 	"tornado4": {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
-		"details": "An additional tornado is created and the knockback is increased by 25 per.",
+		"details": "damage + 2",
 		"level": "Level: 4",
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
@@ -213,7 +213,7 @@ const UPGRADES = {
 	"boomerang2": {
 		"icon": WEAPON_PATH + "boomerang.png",
 		"displayname": "Boomerang",
-		"details": "attack + 2, ammo + 1",
+		"details": "damage + 2",
 		"level": "Level: 2",
 		"prerequisite": ["boomerang1"],
 		"type": "weapon"
@@ -221,7 +221,7 @@ const UPGRADES = {
 	"boomerang3": {
 		"icon": WEAPON_PATH + "boomerang.png",
 		"displayname": "Boomerang",
-		"details": "attack + 3",
+		"details": "damage + 3",
 		"level": "Level: 3",
 		"prerequisite": ["boomerang2"],
 		"type": "weapon"
@@ -229,7 +229,7 @@ const UPGRADES = {
 	"boomerang4": {
 		"icon": WEAPON_PATH + "boomerang.png",
 		"displayname": "Boomerang",
-		"details": "attack + 2, ammo + 1",
+		"details": "damage + 2",
 		"level": "Level: 4",
 		"prerequisite": ["boomerang3"],
 		"type": "weapon"
@@ -246,7 +246,7 @@ const UPGRADES = {
 	"trap2": {
 		"icon": WEAPON_PATH + "trap.png",
 		"displayname": "Trap",
-		"details": "attack + 2, attack time + 1",
+		"details": "damage + 2, attack time + 1",
 		"level": "Level: 2",
 		"prerequisite": ["trap1"],
 		"type": "weapon"
@@ -254,7 +254,7 @@ const UPGRADES = {
 	"trap3": {
 		"icon": WEAPON_PATH + "trap.png",
 		"displayname": "Trap",
-		"details": "attack + 2, attack time + 1",
+		"details": "damage + 2, attack time + 1",
 		"level": "Level: 3",
 		"prerequisite": ["trap2"],
 		"type": "weapon"
@@ -262,7 +262,7 @@ const UPGRADES = {
 	"trap4": {
 		"icon": WEAPON_PATH + "trap.png",
 		"displayname": "Trap",
-		"details": "attack + 2, attack time + 1",
+		"details": "damage + 2, attack time + 1",
 		"level": "Level: 4",
 		"prerequisite": ["trap3"],
 		"type": "weapon"

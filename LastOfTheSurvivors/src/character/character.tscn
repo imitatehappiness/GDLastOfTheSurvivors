@@ -781,18 +781,19 @@ label_text = "Resume"
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 7.0
-offset_top = 267.0
+offset_top = 199.0
 offset_right = 149.0
-offset_bottom = 423.0
+offset_bottom = 351.0
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 0.627451)
 theme_override_fonts/font = ExtResource("7_c5i48")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "movement_speed: 
 max_healt: 
 armor: 
 spell_cooldown: 
 spell_size: 
 additional_attack: "
+vertical_alignment = 2
 
 [node name="Time" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
@@ -834,6 +835,18 @@ offset_top = 14.0
 offset_right = 163.0
 offset_bottom = 30.0
 columns = 3
+
+[node name="VersionLabel" type="Label" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+offset_left = 551.0
+offset_top = 340.0
+offset_right = 633.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 0.627451)
+theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 10
+text = "version: "
+horizontal_alignment = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(4, -15)

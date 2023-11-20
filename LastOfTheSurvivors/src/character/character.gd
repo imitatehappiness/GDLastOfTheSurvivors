@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var time = 0
-var game_time_limit = 60*7
+var game_time_limit = 60*6
 
 var movement_speed = 80.0 + Global.get_character_store_upgrades()["speed"]
 var max_health = 50 + Global.get_character_store_upgrades()["health"]
@@ -64,7 +64,7 @@ var ice_spear_level = 0
 
 #Tornado
 var tornado_ammo = 0
-var tornado_base_ammo = 0
+var tornado_base_ammo = 1
 var tornado_attack_spead = 3
 var tornado_level = 0
 
@@ -129,6 +129,7 @@ var enemy_close = []
 
 @onready var pause_panel = get_node("%PausePanel")
 @onready var gold_label = get_node("%GoldLabel")
+@onready var version_label = get_node("%VersionLabel")
 
 enum {
 	IDLE,
@@ -161,6 +162,7 @@ var state: int = IDLE:
 
 
 func _ready():
+	version_label.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
 
@@ -507,16 +509,16 @@ func upgrade_character(upgrade):
 		# ====================================== icespear
 		"icespear1":
 			ice_spear_level = 1
-			ice_spear_base_ammo += 1
+			#ice_spear_base_ammo += 1
 		"icespear2":
 			ice_spear_level = 2
-			ice_spear_base_ammo += 1
+			#ice_spear_base_ammo += 1
 		"icespear3":
 			ice_spear_level = 3
-			ice_spear_base_ammo += 1
+			#ice_spear_base_ammo += 1
 		"icespear4":
 			ice_spear_level = 4
-			ice_spear_base_ammo += 1
+			#ice_spear_base_ammo += 1
 		# ====================================== aura_water
 		"aura_water1":
 			aura_water_level = 1
@@ -533,16 +535,16 @@ func upgrade_character(upgrade):
 		# ====================================== tornado
 		"tornado1":
 			tornado_level = 1
-			tornado_base_ammo += 1
+			#tornado_base_ammo += 1
 		"tornado2":
 			tornado_level = 2
-			tornado_base_ammo += 1
+			#tornado_base_ammo += 1
 		"tornado3":
 			tornado_level = 3
-			tornado_attack_spead -= 0.5
+			#tornado_attack_spead -= 0.5
 		"tornado4":
 			tornado_level = 4
-			tornado_base_ammo += 1
+			#tornado_base_ammo += 1
 		# ====================================== splash
 		"splash1":
 			splash_level = 1
@@ -564,27 +566,27 @@ func upgrade_character(upgrade):
 		# ====================================== skipjack
 		"skipjack1":
 			skipjack_level = 1
-			skipjack_base_ammo += 1
+			#skipjack_base_ammo += 1
 		"skipjack2":
 			skipjack_level = 2
-			skipjack_base_ammo += 1
+			#skipjack_base_ammo += 1
 		"skipjack3":
 			skipjack_level = 3
-			skipjack_base_ammo += 1
+			#skipjack_base_ammo += 1
 		"skipjack4":
 			skipjack_level = 4
-			skipjack_base_ammo += 1
+			#skipjack_base_ammo += 1
 		# ====================================== boomerang
 		"boomerang1":
 			boomerang_level = 1
 		"boomerang2":
 			boomerang_level = 2
-			boomerang_base_ammo += 1
+			#boomerang_base_ammo += 1
 		"boomerang3":
 			boomerang_level = 3
 		"boomerang4":
 			boomerang_level = 4
-			boomerang_base_ammo += 1
+			#boomerang_base_ammo += 1
 		# ====================================== trap
 		"trap1":
 			trap_level = 1

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/enemies/attack/archer_arrow.gd" id="1_f23ps"]
 [ext_resource type="Texture2D" uid="uid://brab10qb1arhp" path="res://resources/textures/Enemy/Attack/Retro Impact Effect Pack 5 B.png" id="2_ybni0"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="3_c8r2u"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="3_c8r2u"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_6aphq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x61de"]

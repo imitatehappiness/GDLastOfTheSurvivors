@@ -51,6 +51,7 @@ func _physics_process(delta):
 	position += angle * speed * delta
 	
 func enemy_hit(charge = 1):
+	$HitSound.play()
 	health -= charge
 	if health <= 0:
 		emit_signal("remove_from_array", self)

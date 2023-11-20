@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=28 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://drcrf1wak4m67" path="res://src/enemies/bringer_of_death.tscn" id="9_qxykq"]
 [ext_resource type="Script" path="res://src/utilities/spawn_circle_info.gd" id="10_jmi8b"]
 [ext_resource type="PackedScene" uid="uid://bprv5rt3kcexg" path="res://src/enemies/night_borne.tscn" id="10_pqo0y"]
+[ext_resource type="PackedScene" uid="uid://omhyjw0vvl7n" path="res://src/enemies/slime_red.tscn" id="11_u42gw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcvhc"]
 texture = ExtResource("1_cvuiv")
@@ -7515,38 +7516,47 @@ enemy_spawn_delay = 1
 [sub_resource type="Resource" id="Resource_rguer"]
 script = ExtResource("7_xmxlg")
 enemy_name = "Blue Slime Strong"
-time_start = 0
-time_end = 1000
+time_start = 60
+time_end = 120
 enemy = ExtResource("8_x3c00")
-enemy_num = 2
-enemy_spawn_delay = 60
+enemy_num = 1
+enemy_spawn_delay = 20
 
 [sub_resource type="Resource" id="Resource_yg01l"]
 script = ExtResource("7_xmxlg")
 enemy_name = "Arcane Archer"
-time_start = 0
-time_end = 1000
+time_start = 120
+time_end = 180
 enemy = ExtResource("8_bjnv2")
 enemy_num = 2
-enemy_spawn_delay = 60
+enemy_spawn_delay = 20
 
 [sub_resource type="Resource" id="Resource_sic06"]
 script = ExtResource("7_xmxlg")
 enemy_name = "Bringer of Death"
-time_start = 0
-time_end = 1000
+time_start = 220
+time_end = 260
 enemy = ExtResource("9_qxykq")
-enemy_num = 3
-enemy_spawn_delay = 100
+enemy_num = 2
+enemy_spawn_delay = 20
 
 [sub_resource type="Resource" id="Resource_u06um"]
 script = ExtResource("7_xmxlg")
 enemy_name = "Night Borne"
-time_start = 0
-time_end = 1000
+time_start = 280
+time_end = 240
 enemy = ExtResource("10_pqo0y")
-enemy_num = 3
-enemy_spawn_delay = 300
+enemy_num = 1
+enemy_spawn_delay = 20
+
+[sub_resource type="Resource" id="Resource_ighn2"]
+script = ExtResource("7_xmxlg")
+enemy_name = "Red Slime"
+time_start = 270
+time_end = 271
+enemy = ExtResource("11_u42gw")
+enemy_num = 30
+enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_wgna7"]
 script = ExtResource("10_jmi8b")
@@ -7614,7 +7624,7 @@ position = Vector2(2, -6)
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="EnemySpawner" parent="Spawner" instance=ExtResource("5_kwfgq")]
-spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um")])
+spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um"), SubResource("Resource_ighn2")])
 
 [node name="EnemyCircleSpawner120" parent="Spawner" instance=ExtResource("8_s6acm")]
 spawn_info = SubResource("Resource_wgna7")

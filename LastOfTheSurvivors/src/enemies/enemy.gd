@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var knockback_recovery = 0.5
 @export var damage = 3
 @export var experience = 1
+@export var coins = 7
+
 var knockback: Vector2 = Vector2.ZERO
 
 @export_group("internal Nodes")
@@ -78,6 +80,7 @@ func death_state():
 	var gold_chance = randf()
 	if gold_chance <= 0.10:
 		var new_gold = gold.instantiate()
+		new_gold.gold = coins
 		new_gold.global_position = global_position
 		new_gold.global_position.y -= 15
 		loot_base.call_deferred("add_child", new_gold)

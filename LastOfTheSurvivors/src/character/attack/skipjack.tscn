@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8daswq8y56gs"]
+[gd_scene load_steps=14 format=3 uid="uid://c8daswq8y56gs"]
 
 [ext_resource type="Script" path="res://src/character/attack/skipjack.gd" id="1_ly3rc"]
 [ext_resource type="Texture2D" uid="uid://cue4oc4401cly" path="res://resources/textures/Items/Weapons/skipjack.png" id="2_rjt6b"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_485bc"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="4_485bc"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_bc84b"]
+[ext_resource type="AudioStream" uid="uid://bix227jq0vhqt" path="res://resources/audio/SoundEffect/attack/skipjack_hit.ogg" id="5_w6w6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1mt8"]
 atlas = ExtResource("2_rjt6b")
@@ -87,7 +88,6 @@ script = ExtResource("1_ly3rc")
 scale = Vector2(1.14811, 0.942092)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
-frame_progress = 0.974543
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.68221e-07, 2.98023e-07)
@@ -115,5 +115,11 @@ root_node = NodePath("../CollisionShape2D")
 libraries = {
 "": SubResource("AnimationLibrary_kuqpi")
 }
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_w6w6k")
+volume_db = -20.0
+max_distance = 1000.0
+attenuation = 1.1487
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

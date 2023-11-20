@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var damage = 5
 @export var sword_damage = 20
 @export var experience = 1
+@export var coins = 30
+
 var knockback: Vector2 = Vector2.ZERO
 
 var health
@@ -47,7 +49,6 @@ var state: int = WALK:
 				damage_state()
 
 func _ready():
-	movement_speed = character.movement_speed
 	health = max_health
 	$HitBox.damage = damage
 	$TransformAdjustment/SwordHitBox.damage = sword_damage
@@ -85,6 +86,7 @@ func death_state():
 	var gold_chance = randf()
 	if gold_chance <= 0.10:
 		var new_gold = gold.instantiate()
+		new_gold.gold = coins
 		new_gold.global_position = global_position
 		new_gold.global_position.y -= 15
 		loot_base.call_deferred("add_child", new_gold)

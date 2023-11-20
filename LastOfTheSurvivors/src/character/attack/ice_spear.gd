@@ -31,7 +31,7 @@ func _ready():
 		2:
 			health = 1 
 			speed = 100
-			damage = 5
+			damage = 6
 			knockback_amount = 30
 			attack_size = 1.0 * (1 + character.spell_size)
 		3:
@@ -43,7 +43,7 @@ func _ready():
 		4:
 			health = 2 
 			speed = 100
-			damage = 8
+			damage = 10
 			knockback_amount = 30
 			attack_size = 1.0 * (1 + character.spell_size)
 	

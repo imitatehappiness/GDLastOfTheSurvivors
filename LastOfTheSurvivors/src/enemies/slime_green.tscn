@@ -207,18 +207,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htj1b"]
-size = Vector2(15.9776, 13.3892)
+size = Vector2(13.2252, 11.4792)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl5q"]
 size = Vector2(12.7821, 8.15479)
 
 [node name="SlimeGreen" instance=ExtResource("1_xk0o2")]
-scale = Vector2(1.25175, 0.970929)
+scale = Vector2(1.25551, 0.932631)
 collision_mask = 0
 movement_speed = 5.0
-health = 50
+health = 100
 damage = 5
 experience = 3
+coins = 4
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, -5.96046e-08)
@@ -231,9 +232,8 @@ position = Vector2(0.798882, -8.23953)
 
 [node name="PointLight2D" type="PointLight2D" parent="TransformAdjustment" index="0"]
 position = Vector2(-0.999947, 7.26689)
-scale = Vector2(0.0344551, 0.0410544)
+scale = Vector2(0.019753, 0.0195376)
 color = Color(0, 0.847059, 0.305882, 1)
-energy = 1.5
 texture = ExtResource("2_jm7mv")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
@@ -254,7 +254,7 @@ flip_h = true
 position = Vector2(0, -4)
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(-2.38085e-08, 3.48503)
+position = Vector2(-7.88286e-07, 3.72669)
 scale = Vector2(1, 0.999999)
 shape = SubResource("RectangleShape2D_htj1b")
 

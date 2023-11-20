@@ -23,25 +23,21 @@ func _ready():
 			health = 999 
 			speed = 100.0
 			damage = 5
-			knockback_amount = 50
 			attack_size = 1.0 * (1 + character.spell_size)
 		2:
 			health = 999 
 			speed = 100.0
-			damage = 5
-			knockback_amount = 50
+			damage = 6
 			attack_size = 1.0 * (1 + character.spell_size)
 		3:
 			health = 999 
 			speed = 100.0
-			damage = 5
-			knockback_amount = 50
+			damage = 8
 			attack_size = 1.0 * (1 + character.spell_size)
 		4:
 			health = 999 
 			speed = 100.0
-			damage = 5
-			knockback_amount = 75
+			damage = 10
 			attack_size = 1.0 * (1 + character.spell_size)
 			
 	var move_to_less = Vector2.ZERO
