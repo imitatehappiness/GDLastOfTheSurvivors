@@ -93,8 +93,8 @@ In Last of the Survivors, the player's goal is to survive against the advancing 
   <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/3fd2c52f-109b-4de3-922a-3d3fd29aed2e" alt="image">
 </a>
 
-
+<!--
 ## Preview
 https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/af0596c3-a472-421a-a13e-8685aa458dbd
-
+-->
 
