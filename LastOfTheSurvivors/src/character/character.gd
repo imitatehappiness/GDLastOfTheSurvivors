@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 var time = 0
-var game_time_limit = 60*6
+var game_time_limit = 60*6.5
 
-var movement_speed = 80.0 + Global.get_character_store_upgrades()["speed"]
+var movement_speed = 90.0 + Global.get_character_store_upgrades()["speed"]
 var max_health = 50 + Global.get_character_store_upgrades()["health"]
 var health = max_health
 var last_movement = Vector2.UP
@@ -165,7 +165,6 @@ func _ready():
 	version_label.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
-
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)
@@ -414,7 +413,7 @@ func respawn_state():
 	$TransformAdjustment/AnimatedSprite2D.visible = false
 	$TransformAdjustment/RespawnAnimatedSprite2D.visible = true
 	
-	$TransformAdjustment/RespawnAnimatedSprite2D.play("Respawn_shield")
+	$TransformAdjustment/RespawnAnimatedSprite2D.play("Respawn")
 	await $TransformAdjustment/RespawnAnimatedSprite2D.animation_finished
 	
 	$TransformAdjustment/AnimatedSprite2D.visible = true

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q2brbqx4hebd" path="res://resources/textures/GUI/ItemOptionBG_Pressed.png" id="2_7yl2c"]
 [ext_resource type="Texture2D" uid="uid://bjk22hbhxupsa" path="res://resources/textures/GUI/ItemOptionBG_Hover.png" id="3_720tj"]
 [ext_resource type="Script" path="res://src/utilities/texture_button_base.gd" id="4_rsg2g"]
-[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_t64l5"]
+[ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_t64l5"]
 [ext_resource type="AudioStream" uid="uid://dcw7ge5gpamm5" path="res://resources/audio/GUI/hover.wav" id="6_muber"]
 [ext_resource type="AudioStream" uid="uid://2jyaxnmpxshf" path="res://resources/audio/GUI/click.wav" id="7_pu8rj"]
 
@@ -27,15 +27,17 @@ stream = ExtResource("7_pu8rj")
 volume_db = -16.637
 
 [node name="Label" type="Label" parent="."]
-offset_top = 11.0
-offset_right = 2023.0
-offset_bottom = 902.0
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 2039.0
+offset_bottom = 886.0
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.356863, 0.360784, 1)
 theme_override_colors/font_outline_color = Color(0, 0.356863, 0.360784, 1)
 theme_override_constants/shadow_offset_y = 20
 theme_override_fonts/font = ExtResource("4_t64l5")
-theme_override_font_sizes/font_size = 300
+theme_override_font_sizes/font_size = 400
 text = "Text
 
 "

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/character/attack/tornado.gd" id="1_558wc"]
 [ext_resource type="Texture2D" uid="uid://bwikqrhp2hp5k" path="res://resources/textures/Items/Weapons/tornado.png" id="1_kgg33"]
-[ext_resource type="AudioStream" uid="uid://bgseg1eu1uhb3" path="res://resources/audio/SoundEffect/tornado.ogg" id="3_ee7do"]
+[ext_resource type="AudioStream" uid="uid://bgseg1eu1uhb3" path="res://resources/audio/SoundEffect/attack/tornado.ogg" id="3_ee7do"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_m2co3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqbty"]
@@ -80,7 +80,7 @@ autostart = true
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ee7do")
-volume_db = -26.38
+volume_db = -20.0
 pitch_scale = 1.11
 autoplay = true
 

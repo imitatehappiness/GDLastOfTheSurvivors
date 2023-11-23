@@ -478,6 +478,7 @@ size = Vector2(39.1739, 46.9417)
 size = Vector2(21.3676, 21.96)
 
 [node name="BringerOfDeath" instance=ExtResource("1_wekgr")]
+position = Vector2(7, 10)
 scale = Vector2(0.680259, 0.610556)
 script = ExtResource("2_tf6u3")
 movement_speed = 50
@@ -563,8 +564,13 @@ scale = Vector2(1.18709, 1.11766)
 stream = ExtResource("6_rhmxa")
 volume_db = -30.0
 
+[node name="AttackSpellTimer" type="Timer" parent="." index="6"]
+unique_name_in_owner = true
+wait_time = 5.0
+
 [connection signal="body_entered" from="TransformAdjustment/AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="timeout" from="TransformAdjustment/AttackRange/AttackRangeDisableTimer" to="." method="_on_attack_range_disable_timer_timeout"]
+[connection signal="timeout" from="AttackSpellTimer" to="." method="_on_attack_spell_timer_timeout"]
 
 [editable path="TransformAdjustment/SwordHitBox"]
 [editable path="HurtBox"]

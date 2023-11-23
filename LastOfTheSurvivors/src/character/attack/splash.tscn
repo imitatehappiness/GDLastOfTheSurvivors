@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/character/attack/splash.gd" id="1_h4a7f"]
 [ext_resource type="Texture2D" uid="uid://7d1ixn0jaewu" path="res://resources/textures/Items/Weapons/splash_sprite.png" id="2_be2n0"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_qshlh"]
+[ext_resource type="AudioStream" uid="uid://s4fhas7gq10y" path="res://resources/audio/SoundEffect/attack/splash.ogg" id="3_tenbx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8yfy"]
 atlas = ExtResource("2_be2n0")
@@ -109,9 +109,8 @@ scale = Vector2(1.00001, 0.890524)
 shape = SubResource("CapsuleShape2D_sl366")
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_qshlh")
-volume_db = -22.175
-pitch_scale = 5.0
+stream = ExtResource("3_tenbx")
+volume_db = -30.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]

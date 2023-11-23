@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp0d2ioay52f"
-path="res://.godot/imported/respawn_effect_2.png-d6a3ca8eeca60237fd284c0c4ce042c4.ctex"
+uid="uid://bhikgac165u68"
+path="res://.godot/imported/spr_NecromancerWalkWithBkg_strip10.png-f83e7e1cd1667688fe0a273421f6d4e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Player/Respawn/respawn_effect_2.png"
-dest_files=["res://.godot/imported/respawn_effect_2.png-d6a3ca8eeca60237fd284c0c4ce042c4.ctex"]
+source_file="res://resources/textures/Player/Walk/spr_NecromancerWalkWithBkg_strip10.png"
+dest_files=["res://.godot/imported/spr_NecromancerWalkWithBkg_strip10.png-f83e7e1cd1667688fe0a273421f6d4e0.ctex"]
 
 [params]
 

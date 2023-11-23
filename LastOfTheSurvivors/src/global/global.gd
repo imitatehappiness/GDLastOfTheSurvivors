@@ -75,7 +75,6 @@ func load_character_store_upgrades():
 
 func save_character_store_upgrades():
 	for key in character_store_upgrades.keys():
-		print(key, ": ", character_store_upgrades[key])
 		config.set_value("CHARACTER_STORE_UPGRADES", key, character_store_upgrades[key])
 	config.save(config_path_file)
 

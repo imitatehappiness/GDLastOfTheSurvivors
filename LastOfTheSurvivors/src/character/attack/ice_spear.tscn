@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/character/attack/ice_spear.gd" id="1_bmian"]
 [ext_resource type="Texture2D" uid="uid://o7x486gr4drp" path="res://resources/textures/Items/Weapons/ice_spear_new.png" id="2_isr8r"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="3_qcsfm"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="3_qcsfm"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_odwkr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amtf1"]

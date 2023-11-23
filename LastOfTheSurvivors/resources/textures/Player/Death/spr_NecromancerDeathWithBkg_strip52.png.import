@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bre0xytipg0a3"
-path="res://.godot/imported/floor_and_deoratives.png-145846fce91a403f54b1adfcdb1d81f1.ctex"
+uid="uid://bfarh07p3348c"
+path="res://.godot/imported/spr_NecromancerDeathWithBkg_strip52.png-4765d0e4c153f740cadf769b72d4bec1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/floor_and_deoratives.png"
-dest_files=["res://.godot/imported/floor_and_deoratives.png-145846fce91a403f54b1adfcdb1d81f1.ctex"]
+source_file="res://resources/textures/Player/Death/spr_NecromancerDeathWithBkg_strip52.png"
+dest_files=["res://.godot/imported/spr_NecromancerDeathWithBkg_strip52.png-4765d0e4c153f740cadf769b72d4bec1.ctex"]
 
 [params]
 

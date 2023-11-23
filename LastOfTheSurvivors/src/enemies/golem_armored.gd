@@ -99,7 +99,6 @@ func death_state():
 	queue_free()
 
 func damage_state():
-	print(health, " ", max_health)
 	if health <= max_health / 2:
 		armor = false
 		

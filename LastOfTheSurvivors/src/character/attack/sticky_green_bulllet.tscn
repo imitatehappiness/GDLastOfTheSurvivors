@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/character/attack/sticky_green_bulllet.gd" id="1_bwixp"]
 [ext_resource type="Texture2D" uid="uid://ctr75wa47e1qs" path="res://resources/textures/Items/Weapons/slime_green.png" id="2_7p1fi"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_oupog"]
+[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="4_oupog"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_kp6sv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkdqx"]

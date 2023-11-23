@@ -43,7 +43,6 @@ func _ready():
 
 func _physics_process(delta):
 	var distance_to_character = global_position.distance_to(character.global_position)
-	print(distance_to_character)
 	if distance_to_character > 250:
 		is_back = true
 		speed = back_speed

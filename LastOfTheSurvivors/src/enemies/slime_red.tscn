@@ -213,7 +213,7 @@ size = Vector2(14.8606, 14.4939)
 size = Vector2(14.7786, 8.15479)
 
 [node name="SlimeRed" instance=ExtResource("1_6eeho")]
-scale = Vector2(1.95758, 2.09558)
+scale = Vector2(2.17934, 2.00217)
 health = 80
 damage = 5
 
@@ -229,7 +229,7 @@ scale = Vector2(1.60027, 1.53126)
 [node name="PointLight2D" type="PointLight2D" parent="TransformAdjustment" index="0"]
 position = Vector2(0.741805, 15.3279)
 scale = Vector2(0.0371671, 0.0352089)
-color = Color(0, 0.666667, 0.666667, 1)
+color = Color(0.905882, 0.407843, 0.380392, 1)
 texture = ExtResource("2_sqnim")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]

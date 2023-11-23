@@ -55,7 +55,6 @@ func is_max_level():
 		return false
 
 func upgrade(item_name, item_level):
-	print(item_name, item_level)
 	match item_name:
 		"Health":
 			match item_level:

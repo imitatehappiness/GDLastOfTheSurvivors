@@ -3,8 +3,10 @@ extends TextureButton
 signal click_end()
 
 @export var label_text = ""
+@export var font_size = 300
 
 func _ready():
+	$Label.add_theme_font_size_override("font:size", font_size)
 	set_label_text()
 
 func set_label_text(text = label_text):

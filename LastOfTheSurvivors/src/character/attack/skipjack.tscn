@@ -118,7 +118,7 @@ libraries = {
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_w6w6k")
-volume_db = -20.0
+volume_db = -15.0
 max_distance = 1000.0
 attenuation = 1.1487
 

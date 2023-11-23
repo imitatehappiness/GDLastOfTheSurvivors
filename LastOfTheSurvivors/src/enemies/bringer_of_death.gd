@@ -19,8 +19,10 @@ var health
 
 @onready var animation = $TransformAdjustment/AnimationPlayer
 @onready var character = get_tree().get_first_node_in_group("character")
-@onready var get_damage_label = get_node("%DamageLabel")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
+
+@onready var get_damage_label = get_node("%DamageLabel")
+@onready var attack_spell_timer = get_node("%AttackSpellTimer")
 
 signal remove_from_array(object)
 
@@ -50,25 +52,28 @@ var state: int = WALK:
 				damage_state()
 
 func _ready():
+	attack_spell_timer.start()
+
 	health = max_health
 	$HitBox.damage = damage
 	$TransformAdjustment/SwordHitBox.damage = sword_damage
 
 func _physics_process(_delta):
-	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
-	
-	if state != DAMAGE and state != ATTACK:
-		state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
-	
-	var direction =  Vector2(0,0)
-	if state != ATTACK:
-		direction = global_position.direction_to(character.global_position)
-	
-	velocity = direction * movement_speed
-	velocity += knockback
-	
-	set_character_facing_direction(direction)
-	move_and_slide()
+	if state != DEATH:
+		knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
+		
+		if state != DAMAGE and state != ATTACK:
+			state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
+		
+		var direction =  Vector2(0,0)
+		if state != ATTACK:
+			direction = global_position.direction_to(character.global_position)
+		
+		velocity = direction * movement_speed
+		velocity += knockback
+		
+		set_character_facing_direction(direction)
+		move_and_slide()
 
 func idle_state():
 	pass
@@ -77,6 +82,7 @@ func walk_state():
 	animation.play("Walk")
 
 func death_state():
+	await animation.animation_finished
 	var gem_chance = randf()
 	if gem_chance <= 0.80:
 		var new_gem = exp_gem.instantiate()
@@ -102,7 +108,6 @@ func damage_state():
 		$HitBox/CollisionShape2D.call_deferred("set", "disabled", true)
 		$CollisionShape2D.call_deferred("set", "disabled", true)
 		animation.play("Death")
-		await animation.animation_finished
 		state = DEATH
 	else:
 		if state!=ATTACK:
@@ -126,17 +131,25 @@ func _on_hurt_box_hurt(damage, _angle, _knockback_amount):
 	if state != ATTACK:
 		state = DAMAGE
 
-func _on_attack_range_body_entered(body):
-	animation.play("Attack")
-	state = ATTACK
-	await animation.animation_finished
-	$TransformAdjustment/AttackRange/AttackRangeDisableTimer.start()
-	state = WALK
-	$TransformAdjustment/SwordHitBox.tempdisabled()
+func _on_attack_range_body_entered(_body):
+	if state != DEATH:
+		animation.play("Attack")
+		state = ATTACK
+		await animation.animation_finished
+		$TransformAdjustment/AttackRange/AttackRangeDisableTimer.start()
+		state = WALK
+		$TransformAdjustment/SwordHitBox.tempdisabled()
 
 
 func _on_attack_range_disable_timer_timeout():
 	$TransformAdjustment/AttackRange/CollisionShape2D.disabled = true
 	$TransformAdjustment/AttackRange/CollisionShape2D.disabled = false
 
+func _on_attack_spell_timer_timeout():
+	init_spell()
 
+func init_spell():
+	var new_spell = spell.instantiate()
+	new_spell.target = character.global_position
+	add_child(new_spell)
+	attack_spell_timer.start()

@@ -1,0 +1,23 @@
+# Version 1
+
+
+[20.11.2023]
+	1. [x] Changed attack sound for boomerang
+	2. [x] Changed hit sound for skipjack
+[21.11.2023]
+	1. [x] Add Spell for "Bringer Of Death"
+	2. [x] Add Spell for "Night Borne"
+[22.11.2023]
+	1. [x] Fixed a bug (enemy attack after death if the character was in the radius of his attack)
+[23.11.2023]
+	1. [x] Changed the set of sprites for the character
+	2. [x] Changed Hurt Sound for character 
+	3. [x] Changed the set of sprites for the respawn character
+	4. [x] Changed attack sound for splash
+	5. [x] Changed attack sound for trap
+	6. [x] Update Map
+
+
+
+
+//------------------------------

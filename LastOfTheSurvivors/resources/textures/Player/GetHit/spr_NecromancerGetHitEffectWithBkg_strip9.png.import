@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqkfttxpieqtm"
-path="res://.godot/imported/respawn_effect.png-23ddfb465a34ac3d1792a34243a8ebc8.ctex"
+uid="uid://cqoncg5ga4o6q"
+path="res://.godot/imported/spr_NecromancerGetHitEffectWithBkg_strip9.png-890c11038dc6b7aa0dbbef3b2550e7f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Player/Respawn/respawn_effect.png"
-dest_files=["res://.godot/imported/respawn_effect.png-23ddfb465a34ac3d1792a34243a8ebc8.ctex"]
+source_file="res://resources/textures/Player/GetHit/spr_NecromancerGetHitEffectWithBkg_strip9.png"
+dest_files=["res://.godot/imported/spr_NecromancerGetHitEffectWithBkg_strip9.png-890c11038dc6b7aa0dbbef3b2550e7f9.ctex"]
 
 [params]
 

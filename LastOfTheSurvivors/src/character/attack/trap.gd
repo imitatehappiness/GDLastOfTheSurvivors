@@ -43,6 +43,7 @@ func _ready():
 	global_position = character.global_position
 
 	animation.play("Preparation")
+	$AttackSound.play()
 	await animation.animation_finished
 	collision.disabled = false
 	animation.play("Attack")

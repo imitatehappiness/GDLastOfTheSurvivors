@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/character/attack/trap.gd" id="1_yn7xv"]
 [ext_resource type="Texture2D" uid="uid://c3pvwpf26vhlo" path="res://resources/textures/Items/Weapons/trap/attack.png" id="2_ofshg"]
 [ext_resource type="Texture2D" uid="uid://ck08xcaf3b3nr" path="res://resources/textures/Items/Weapons/trap/preparation.png" id="3_wwfd2"]
-[ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/ice.wav" id="4_s6sxp"]
+[ext_resource type="AudioStream" uid="uid://ddqctmr7e7log" path="res://resources/audio/SoundEffect/attack/trap_attack.ogg" id="4_yyryj"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_tphsu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2jg"]
@@ -296,10 +296,10 @@ animation = &"Attack"
 scale = Vector2(1.1, 1.1)
 shape = SubResource("CircleShape2D_12br6")
 
-[node name="SoundPlay" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_s6sxp")
-volume_db = -22.175
-pitch_scale = 5.0
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yyryj")
+volume_db = -25.0
+pitch_scale = 1.2
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]

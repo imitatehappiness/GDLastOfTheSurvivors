@@ -58,21 +58,22 @@ func _ready():
 
 
 func _physics_process(_delta):
-	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
-	
-	if state != DAMAGE and state != ATTACK:
-		state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
-
-	var direction =  Vector2(0,0)
-	if state != ATTACK:
-		direction = global_position.direction_to(character.global_position)
+	if state != DEATH:
+		knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
 		
-	velocity = direction * movement_speed
-	velocity += knockback
-	
-	set_character_facing_direction(direction)
-	
-	move_and_slide()
+		if state != DAMAGE and state != ATTACK:
+			state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
+
+		var direction =  Vector2(0,0)
+		if state != ATTACK:
+			direction = global_position.direction_to(character.global_position)
+			
+		velocity = direction * movement_speed
+		velocity += knockback
+		
+		set_character_facing_direction(direction)
+		
+		move_and_slide()
 
 
 func idle_state():
@@ -84,6 +85,7 @@ func walk_state():
 	animation.play("Walk")
 
 func death_state():
+	await animation.animation_finished
 	var gem_chance = randf()
 	if gem_chance <= 0.80:
 		var new_gem = exp_gem.instantiate()
@@ -110,7 +112,6 @@ func damage_state():
 		$HitBox/CollisionShape2D.call_deferred("set", "disabled", true)
 		$CollisionShape2D.call_deferred("set", "disabled", true)
 		animation.play("Death")
-		await animation.animation_finished
 		state = DEATH
 	else:
 		if state != ATTACK:
@@ -134,12 +135,13 @@ func _on_hurt_box_hurt(damage, _angle, _knockback_amount):
 		state = DAMAGE
 
 func _on_arrow_attack_timer_timeout():
-	for i in range(ammo):
-		state = ATTACK
-		animation.play("Attack")
-		await animation.animation_finished
-	state = WALK
-	arrow_attack_timer.start()
+	if state != DEATH:
+		for i in range(ammo):
+			state = ATTACK
+			animation.play("Attack")
+			await animation.animation_finished
+		state = WALK
+		arrow_attack_timer.start()
 
 func arrow_attack():
 	var attack = arrow.instantiate()
