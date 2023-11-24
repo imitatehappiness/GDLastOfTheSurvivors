@@ -45,7 +45,6 @@ func _ready():
 	animation.play("Preparation")
 	$AttackSound.play()
 	await animation.animation_finished
-	collision.disabled = false
 	animation.play("Attack")
 	attack_timer.set_wait_time(attack_time)
 	attack_timer.start()

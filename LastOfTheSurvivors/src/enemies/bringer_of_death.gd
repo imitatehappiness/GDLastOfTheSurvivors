@@ -36,6 +36,7 @@ enum {
 	DEATH,
 	DAMAGE,
 	ATTACK,
+	SPELL
 }
 
 var state: int = WALK:
@@ -62,11 +63,11 @@ func _physics_process(_delta):
 	if state != DEATH:
 		knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
 		
-		if state != DAMAGE and state != ATTACK:
+		if state != DAMAGE and state != ATTACK and state != SPELL:
 			state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
 		
 		var direction =  Vector2(0,0)
-		if state != ATTACK:
+		if state != ATTACK and state != SPELL:
 			direction = global_position.direction_to(character.global_position)
 		
 		velocity = direction * movement_speed
@@ -77,7 +78,7 @@ func _physics_process(_delta):
 
 func idle_state():
 	pass
-
+	
 func walk_state():
 	animation.play("Walk")
 
@@ -110,7 +111,7 @@ func damage_state():
 		animation.play("Death")
 		state = DEATH
 	else:
-		if state!=ATTACK:
+		if state!=ATTACK and state!=SPELL:
 			animation.play("Hit")
 			await animation.animation_finished
 		state = WALK
@@ -128,11 +129,11 @@ func _on_hurt_box_hurt(damage, _angle, _knockback_amount):
 	get_damage_label.text = str(damage)
 	get_damage_label.modulate.a = 255
 	health -= damage
-	if state != ATTACK:
+	if state != ATTACK and state != SPELL:
 		state = DAMAGE
 
 func _on_attack_range_body_entered(_body):
-	if state != DEATH:
+	if state != DEATH and state != SPELL:
 		animation.play("Attack")
 		state = ATTACK
 		await animation.animation_finished
@@ -146,10 +147,17 @@ func _on_attack_range_disable_timer_timeout():
 	$TransformAdjustment/AttackRange/CollisionShape2D.disabled = false
 
 func _on_attack_spell_timer_timeout():
-	init_spell()
+	if state != DEATH:
+		velocity = Vector2(0,0)
+		state = SPELL
+		animation.play("Spell")
+		await animation.animation_finished
 
 func init_spell():
 	var new_spell = spell.instantiate()
 	new_spell.target = character.global_position
 	add_child(new_spell)
 	attack_spell_timer.start()
+
+func end_spell():
+	state = WALK

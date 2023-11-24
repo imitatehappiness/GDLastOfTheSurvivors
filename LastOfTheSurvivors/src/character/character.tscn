@@ -1148,6 +1148,7 @@ radius = 50.0
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("transform_adjustment") groups=["character"]]
 z_index = 2
+scale = Vector2(0.802692, 0.772799)
 collision_layer = 3
 collision_mask = 3
 motion_mode = 1
@@ -1305,10 +1306,10 @@ tint_progress = Color(0.0509804, 0.45098, 0.517647, 1)
 unique_name_in_owner = true
 z_index = -1
 layout_mode = 0
-offset_left = 304.0
-offset_top = 203.0
-offset_right = 336.0
-offset_bottom = 214.0
+offset_left = 305.0
+offset_top = 200.0
+offset_right = 337.0
+offset_bottom = 211.0
 scale = Vector2(0.900081, 1.1895)
 value = 50.0
 texture_under = ExtResource("8_0fplp")

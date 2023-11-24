@@ -16,9 +16,9 @@ func _on_quit_texture_button_pressed():
 		get_tree().quit()
 
 func _on_play_texture_button_pressed():
-	$QuitTextureButton.visible = false
-	$PlayTextureButton.visible = false
-	$StoreTextureButton.visible = false
+	$GridContainer/QuitTextureButton.visible = false
+	$GridContainer/PlayTextureButton.visible = false
+	$GridContainer/StoreTextureButton.visible = false
 	sprite.visible = true
 	animation.play("Load")
 	await animation.animation_finished

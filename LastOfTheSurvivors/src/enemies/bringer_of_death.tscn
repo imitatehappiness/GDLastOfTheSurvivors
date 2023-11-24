@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://drcrf1wak4m67"]
+[gd_scene load_steps=68 format=3 uid="uid://drcrf1wak4m67"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_wekgr"]
 [ext_resource type="Script" path="res://src/enemies/bringer_of_death.gd" id="2_tf6u3"]
@@ -193,6 +193,51 @@ tracks/1/keys = {
 "values": ["Run"]
 }
 
+[sub_resource type="Animation" id="Animation_2hknq"]
+length = 2.125
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75, 1.875, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Spell"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"init_spell"
+}, {
+"args": [],
+"method": &"end_spell"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_ha4vk"]
 length = 0.8
 loop_mode = 1
@@ -228,6 +273,7 @@ _data = {
 "Hit": SubResource("Animation_rxbvk"),
 "RESET": SubResource("Animation_rxcvk"),
 "Run": SubResource("Animation_842js"),
+"Spell": SubResource("Animation_2hknq"),
 "Walk": SubResource("Animation_ha4vk")
 }
 
@@ -318,6 +364,74 @@ region = Rect2(420, 279, 140, 93)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8iqj"]
 atlas = ExtResource("4_lhit7")
 region = Rect2(560, 279, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u8bw"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(980, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_478tv"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(0, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeraw"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(140, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ffc"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(280, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55m60"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(420, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgetv"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(0, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7vko"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(140, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neb1x"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(280, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf7fp"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(420, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k44y7"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(0, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3kvs"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(140, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfdfb"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(280, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk0uh"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(420, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kcr5"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(560, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w3im"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(700, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n46s"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(840, 465, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hjef"]
+atlas = ExtResource("4_lhit7")
+region = Rect2(980, 465, 140, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a84i8"]
 atlas = ExtResource("4_lhit7")
@@ -436,6 +550,62 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4u8bw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_478tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeraw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ffc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55m60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgetv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7vko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neb1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf7fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k44y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3kvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfdfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk0uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kcr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w3im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n46s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hjef")
+}],
+"loop": true,
+"name": &"Spell",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_a84i8")
 }, {
 "duration": 1.0,
@@ -515,9 +685,9 @@ libraries = {
 position = Vector2(-62.9157, -37.3534)
 scale = Vector2(1.53672, 1.51789)
 sprite_frames = SubResource("SpriteFrames_vyb65")
-animation = &"Attack"
+animation = &"Spell"
 autoplay = "Walk"
-frame = 8
+frame = 2
 
 [node name="SwordHitBox" parent="TransformAdjustment" index="3" instance=ExtResource("5_osdsh")]
 

@@ -23,6 +23,7 @@ func _physics_process(_delta):
 	global_position = target
 
 func _on_timer_timeout():
+	$PointLight2D.enabled = false
 	queue_free()
 
 

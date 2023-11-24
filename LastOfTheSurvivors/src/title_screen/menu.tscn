@@ -1,13 +1,161 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsoobkicar0wf"]
+[gd_scene load_steps=38 format=3 uid="uid://bsoobkicar0wf"]
 
 [ext_resource type="Script" path="res://src/title_screen/menu.gd" id="1_uoygh"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_vfojl"]
-[ext_resource type="Texture2D" uid="uid://dcs3fsrciav1v" path="res://resources/textures/Background_0.png" id="4_1acrj"]
+[ext_resource type="Texture2D" uid="uid://bllnxutjl3r1y" path="res://resources/textures/BG/Ruins 5.png" id="2_1ac1y"]
+[ext_resource type="Texture2D" uid="uid://cxsp4ypykun2o" path="res://resources/textures/Player/Idle/spr_NecromancerIdle_strip50.png" id="3_cnorm"]
+[ext_resource type="Texture2D" uid="uid://d4iin3mcrgdar" path="res://resources/textures/Player/character_one_sprite_walk.png" id="3_xxdfw"]
 [ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_xjbxv"]
-[ext_resource type="Texture2D" uid="uid://cxtnglibs2ix0" path="res://resources/textures/Background_1.png" id="5_ors41"]
 [ext_resource type="AudioStream" uid="uid://rjhcdlk8pqs1" path="res://resources/audio/Music/Title-Screen.ogg" id="7_ist8j"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="8_28112"]
 [ext_resource type="Texture2D" uid="uid://dvcwuxt5tmku5" path="res://resources/textures/GUI/loading.png" id="10_8mm0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdaov"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2112, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7aj2"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2208, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoabm"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2304, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l3qv"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2400, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txjkv"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2496, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xetm2"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2592, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncpnx"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2688, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb24m"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2784, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1pf8"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2880, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jhcf"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(2976, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70gau"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3072, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fb15"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3168, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5be1"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3264, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxfj0"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3360, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in60n"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3456, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c48h0"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3552, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt1xw"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3648, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qtmf"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3744, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifxng"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3840, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_854n4"]
+atlas = ExtResource("3_cnorm")
+region = Rect2(3936, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqldg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdaov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7aj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoabm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l3qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txjkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xetm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncpnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb24m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1pf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jhcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70gau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fb15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5be1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxfj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in60n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c48h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt1xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qtmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifxng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_854n4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xaxga"]
 atlas = ExtResource("10_8mm0w")
@@ -96,6 +244,7 @@ script = ExtResource("1_uoygh")
 metadata/_edit_vertical_guides_ = [320.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 359.0
@@ -103,17 +252,39 @@ color = Color(0.0666667, 0.270588, 0.192157, 1)
 
 [node name="TextureRectBG" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 768.0
-offset_bottom = 416.0
-scale = Vector2(0.900625, 0.995312)
-texture = ExtResource("4_1acrj")
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 2330.0
+offset_bottom = 1550.0
+scale = Vector2(0.277343, 0.234492)
+texture = ExtResource("2_1ac1y")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.509804)
+layout_mode = 0
+offset_left = 471.0
+offset_top = 384.0
+offset_right = 526.0
+offset_bottom = 591.0
+rotation = 3.18706
+scale = Vector2(1.7152, 0.196416)
+texture = ExtResource("3_xxdfw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(421.057, 327.417)
+scale = Vector2(1.12618, 1.27952)
+sprite_frames = SubResource("SpriteFrames_eqldg")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.14534
+flip_h = true
 
 [node name="TextureRectBG2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 768.0
 offset_bottom = 416.0
 scale = Vector2(1.02057, 1.2444)
-texture = ExtResource("5_ors41")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -152,58 +323,28 @@ libraries = {
 "": SubResource("AnimationLibrary_i0doo")
 }
 
-[node name="Light" type="Node2D" parent="."]
-
-[node name="PointLight2D" type="PointLight2D" parent="Light"]
-position = Vector2(184, 113)
-scale = Vector2(0.529906, 0.323108)
-color = Color(0, 0.654902, 0.658824, 1)
-energy = 0.7
-shadow_enabled = true
-texture = ExtResource("2_vfojl")
-
-[node name="PointLight2D2" type="PointLight2D" parent="Light"]
-position = Vector2(530, 263)
-scale = Vector2(0.665143, 0.450651)
-color = Color(0.823529, 0.47451, 0.0901961, 1)
-energy = 3.0
-shadow_enabled = true
-texture = ExtResource("2_vfojl")
-
-[node name="PointLight2D3" type="PointLight2D" parent="Light"]
-position = Vector2(599, 160)
-scale = Vector2(0.529906, 0.323108)
-color = Color(0.823529, 0.47451, 0.0901961, 1)
-energy = 2.96
-texture = ExtResource("2_vfojl")
-
-[node name="PlayTextureButton" parent="." instance=ExtResource("8_28112")]
+[node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 122.0
-offset_right = 2200.0
-offset_bottom = 1146.0
-scale = Vector2(0.0794806, 0.0794806)
+offset_left = 151.0
+offset_top = 85.0
+offset_right = 6895.0
+offset_bottom = 3165.0
+scale = Vector2(0.05, 0.05)
+theme_override_constants/h_separation = 300
+columns = 3
+
+[node name="PlayTextureButton" parent="GridContainer" instance=ExtResource("8_28112")]
+layout_mode = 2
 label_text = "PLAY"
 
-[node name="QuitTextureButton" parent="." instance=ExtResource("8_28112")]
-layout_mode = 0
-offset_left = 237.0
-offset_top = 214.0
-offset_right = 2285.0
-offset_bottom = 1238.0
-scale = Vector2(0.0824743, 0.0754972)
-label_text = "QUIT"
-
-[node name="StoreTextureButton" parent="." instance=ExtResource("8_28112")]
-layout_mode = 0
-offset_left = 326.0
-offset_top = 122.0
-offset_right = 2374.0
-offset_bottom = 1146.0
-scale = Vector2(0.0788221, 0.0788221)
+[node name="StoreTextureButton" parent="GridContainer" instance=ExtResource("8_28112")]
+layout_mode = 2
 label_text = "STORE"
 
-[connection signal="pressed" from="PlayTextureButton" to="." method="_on_play_texture_button_pressed"]
-[connection signal="pressed" from="QuitTextureButton" to="." method="_on_quit_texture_button_pressed"]
-[connection signal="pressed" from="StoreTextureButton" to="." method="_on_store_texture_button_pressed"]
+[node name="QuitTextureButton" parent="GridContainer" instance=ExtResource("8_28112")]
+layout_mode = 2
+label_text = "QUIT"
+
+[connection signal="pressed" from="GridContainer/PlayTextureButton" to="." method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/StoreTextureButton" to="." method="_on_store_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/QuitTextureButton" to="." method="_on_quit_texture_button_pressed"]

@@ -16,8 +16,12 @@
 	4. [x] Changed attack sound for splash
 	5. [x] Changed attack sound for trap
 	6. [x] Update Map
-
-
+[24.11.2023]
+	1. [x] Fix trap
+	1. [x] Update attack trap
+	3. [x] Update interface store
+	4. [x] Update interface menu
+	5. [x] Update Spell for "Bringer Of Death"
 
 
 //------------------------------
