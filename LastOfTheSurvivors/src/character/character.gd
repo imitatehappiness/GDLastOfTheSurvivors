@@ -85,7 +85,7 @@ var sticky_green_bullet_attack_speed = 3
 var skipjack_ammo = 0
 var skipjack_base_ammo = 1 
 var skipjack_attack_spead = 2
-var skipjack_level = 0
+var skipjack_level = 1
 
 # Boomerang 
 var boomerang_ammo = 0
@@ -165,6 +165,7 @@ func _ready():
 	version_label.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
+	upgrade_character("skipjack1")
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)

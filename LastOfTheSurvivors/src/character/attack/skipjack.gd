@@ -27,19 +27,19 @@ func _ready():
 			health = 2
 		2:
 			speed = 200
-			damage = 5
+			damage = 6
 			attack_size = 1.0 * (1 + character.spell_size)
 			health = 3
 		3:
 			speed = 200
-			damage = 8
+			damage = 7
 			attack_size = 1.0 * (1 + character.spell_size)
-			health = 3
+			health = 4
 		4:
 			speed = 200
 			damage = 8
 			attack_size = 1.0 * (1 + character.spell_size)
-			health = 4
+			health = 5
 	
 	
 	var tween = create_tween()

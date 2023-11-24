@@ -53,6 +53,8 @@ var state: int = WALK:
 				damage_state()
 
 func _ready():
+	
+	attack_spell_timer.set_wait_time(randi() % 10 + 5)
 	attack_spell_timer.start()
 
 	health = max_health

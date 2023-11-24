@@ -15,7 +15,7 @@ const UPGRADES = {
 	"icespear2": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Damage +1",
+		"details": "Damage +1, health + 1",
 		"level": "Level: 2",
 		"prerequisite": ["icespear1"],
 		"type": "weapon"
@@ -23,7 +23,7 @@ const UPGRADES = {
 	"icespear3": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Damage +2",
+		"details": "Damage +2, health + 1, speed + 50",
 		"level": "Level: 3",
 		"prerequisite": ["icespear2"],
 		"type": "weapon"
@@ -31,7 +31,7 @@ const UPGRADES = {
 	"icespear4": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Damage +2",
+		"details": "Damage +2, health + 1",
 		"level": "Level: 4",
 		"prerequisite": ["icespear3"],
 		"type": "weapon"
@@ -147,7 +147,7 @@ const UPGRADES = {
 	"sticky_green_bullet2": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "health + 3, finish_radius + 0.3",
+		"details": "Damage + 2, health + 3, finish_radius + 0.3",
 		"level": "Level: 2",
 		"prerequisite": ["sticky_green_bullet1"],
 		"type": "weapon"
@@ -155,7 +155,7 @@ const UPGRADES = {
 	"sticky_green_bullet3": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "health + 2, finish_radius + 0.4",
+		"details": "Damage + 2, health + 2, finish_radius + 0.4",
 		"level": "Level: 3",
 		"prerequisite": ["sticky_green_bullet2"],
 		"type": "weapon"
@@ -163,7 +163,7 @@ const UPGRADES = {
 	"sticky_green_bullet4": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "health + 5, finish_radius + 0.4",
+		"details": "Damage + 2, health + 5, finish_radius + 0.4",
 		"level": "Level: 4",
 		"prerequisite": ["sticky_green_bullet3"],
 		"type": "weapon"
@@ -180,7 +180,7 @@ const UPGRADES = {
 	"skipjack2": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "health + 1",
+		"details": "Damage + 1, health + 1",
 		"level": "Level: 2",
 		"prerequisite": ["skipjack1"],
 		"type": "weapon"
@@ -188,7 +188,7 @@ const UPGRADES = {
 	"skipjack3": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "health + 1, damage + 3",
+		"details": "Damage + 1, health + 1",
 		"level": "Level: 3",
 		"prerequisite": ["skipjack2"],
 		"type": "weapon"
@@ -196,7 +196,7 @@ const UPGRADES = {
 	"skipjack4": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "health + 1",
+		"details": "Damage + 1, health + 1",
 		"level": "Level: 4",
 		"prerequisite": ["skipjack3"],
 		"type": "weapon"

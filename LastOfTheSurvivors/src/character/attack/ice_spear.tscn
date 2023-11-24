@@ -133,14 +133,14 @@ _data = {
 
 [node name="IceSpear" type="Area2D" groups=["attack"]]
 top_level = true
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_bmian")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -2.35619
-scale = Vector2(0.990722, 0.926912)
+scale = Vector2(2, 1.871)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
 

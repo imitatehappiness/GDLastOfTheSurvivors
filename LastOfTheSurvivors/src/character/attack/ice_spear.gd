@@ -4,7 +4,7 @@ extends Area2D
 # Переменные для настройки параметров ледяного копья
 var level = 1 # Уровень ледяного копья
 var health = 1 # Количество целей, которых ледяное копье может поразить
-var speed = 100 # Скорость движения ледяного копья
+var speed = 200 # Скорость движения ледяного копья
 var damage = 5 # Количество урона, наносимого целям
 var knockback_amount = 30 # Величина отбрасывания целей
 var attack_size = 1.0 # Размер атаки ледяного копья
@@ -23,26 +23,26 @@ func _ready():
 	rotation = angle.angle() + deg_to_rad(135)
 	match level:
 		1:
-			health = 1 
-			speed = 100
+			health = 2 
+			speed = 150
 			damage = 5
 			knockback_amount = 30
 			attack_size = 1.0 * (1 + character.spell_size)
 		2:
-			health = 1 
-			speed = 100
+			health = 3 
+			speed = 150
 			damage = 6
 			knockback_amount = 30
 			attack_size = 1.0 * (1 + character.spell_size)
 		3:
-			health = 2 
-			speed = 100
+			health = 4 
+			speed = 200
 			damage = 8
 			knockback_amount = 30
 			attack_size = 1.0 * (1 + character.spell_size)
 		4:
-			health = 2 
-			speed = 100
+			health = 5
+			speed = 200
 			damage = 10
 			knockback_amount = 30
 			attack_size = 1.0 * (1 + character.spell_size)

@@ -85,7 +85,7 @@ collision_mask = 0
 script = ExtResource("1_ly3rc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.14811, 0.942092)
+scale = Vector2(2, 1.641)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
 
