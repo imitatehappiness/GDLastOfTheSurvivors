@@ -87,10 +87,8 @@ In Last of the Survivors, the player's goal is to survive against the advancing 
 
 
 ## Demo
-> [!NOTE]
-> When refreshing the web page, the game data is not being saved.
 <a href="https://imitatehappiness.itch.io/last-of-the-survivors">
-  <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/3fd2c52f-109b-4de3-922a-3d3fd29aed2e" alt="image">
+  <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/68036dbb-dff8-4754-b10c-2ea11307b884" alt="image">
 </a>
 
 <!--
