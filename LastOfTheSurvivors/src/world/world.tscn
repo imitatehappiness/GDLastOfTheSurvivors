@@ -10127,7 +10127,7 @@ time_free = 30
 [sub_resource type="Resource" id="Resource_b4qv1"]
 script = ExtResource("15_jowxg")
 enemy_name = ""
-time_spawn = 4
+time_spawn = 100
 enemy = ExtResource("14_s4tiw")
 enemy_num = 7
 time_free = 10
