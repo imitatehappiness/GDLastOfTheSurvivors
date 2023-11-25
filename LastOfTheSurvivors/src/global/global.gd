@@ -15,6 +15,8 @@ var character_store_upgrades = {
 	"respawn": 0,
 	"double_splash": 0,
 	"speed": 0,
+	"spell_cooldown": 0,
+	"spell_size": 0,
 }
 
 func _ready():

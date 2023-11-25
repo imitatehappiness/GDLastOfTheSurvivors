@@ -98,6 +98,34 @@ func upgrade(item_name, item_level):
 					Global.character_store_upgrades["speed"] += 10
 				"MAX":
 					pass
+		"Spell Cooldown":
+			match item_level:
+				"1":
+					Global.character_store_upgrades["spell_cooldown"] += 0.02
+				"2": 
+					Global.character_store_upgrades["spell_cooldown"] += 0.02
+				"3": 
+					Global.character_store_upgrades["spell_cooldown"] += 0.02
+				"4": 
+					Global.character_store_upgrades["spell_cooldown"] += 0.02
+				"5": 
+					Global.character_store_upgrades["spell_cooldown"] += 0.02
+				"MAX":
+					pass
+		"Spell Size":
+			match item_level:
+				"1":
+					Global.character_store_upgrades["spell_size"] += 0.05
+				"2": 
+					Global.character_store_upgrades["spell_size"] += 0.05
+				"3": 
+					Global.character_store_upgrades["spell_size"] += 0.05
+				"4": 
+					Global.character_store_upgrades["spell_size"] += 0.05
+				"5": 
+					Global.character_store_upgrades["spell_size"] += 0.05
+				"MAX":
+					pass
 		"Double splash":
 			match item_level:
 				"1":

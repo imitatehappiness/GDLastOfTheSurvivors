@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://omhyjw0vvl7n"]
+[gd_scene load_steps=27 format=3 uid="uid://omhyjw0vvl7n"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_6eeho"]
+[ext_resource type="Script" path="res://src/enemies/slime_red.gd" id="2_a8cca"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_sqnim"]
 [ext_resource type="Texture2D" uid="uid://dgotisxvmnpat" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death1.png" id="3_lamj0"]
 [ext_resource type="Texture2D" uid="uid://l8cuslaxm3h3" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death2.png" id="4_3pvck"]
@@ -207,20 +208,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0n25l"]
-size = Vector2(14.8606, 14.4939)
+size = Vector2(22.3214, 14.4939)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl5q"]
 size = Vector2(14.7786, 8.15479)
 
 [node name="SlimeRed" instance=ExtResource("1_6eeho")]
-scale = Vector2(2.17934, 2.00217)
-health = 80
-damage = 5
+scale = Vector2(3.55595, 4.23747)
+script = ExtResource("2_a8cca")
+movement_speed = 220.0
+health = 50
+damage = 20
+experience = 5
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(2.38419e-07, 0)
 scale = Vector2(0.52881, 0.521663)
 shape = SubResource("RectangleShape2D_86mr2")
+disabled = true
 
 [node name="TransformAdjustment" parent="." index="1"]
 position = Vector2(-1.18709, -23.4709)
@@ -248,14 +253,14 @@ position = Vector2(0, -3.35298)
 scale = Vector2(0.994483, 0.878935)
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0.437077, 4.19752)
+position = Vector2(0.376203, 4.19753)
 shape = SubResource("RectangleShape2D_0n25l")
 
 [node name="HitBox" parent="." index="3"]
 position = Vector2(0, -4)
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0.434666, 4)
+position = Vector2(2.98023e-08, 4)
 shape = SubResource("RectangleShape2D_5xl5q")
 
 [node name="DamageLabel" parent="." index="4"]

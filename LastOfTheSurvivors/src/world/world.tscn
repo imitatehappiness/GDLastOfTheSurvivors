@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=36 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
@@ -10,11 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://caipidmq3l40p" path="res://src/enemies/arcane_archer.tscn" id="8_bjnv2"]
 [ext_resource type="PackedScene" uid="uid://dsual7i82tfdq" path="res://src/utilities/enemy_circle_spawner.tscn" id="8_s6acm"]
 [ext_resource type="PackedScene" uid="uid://26n6cwe7eckx" path="res://src/enemies/blue_slime_strong.tscn" id="8_x3c00"]
-[ext_resource type="PackedScene" uid="uid://de053yh13u0dm" path="res://src/enemies/slime_green.tscn" id="9_d67k2"]
 [ext_resource type="AudioStream" uid="uid://c4jndnsk4iksc" path="res://resources/audio/Music/GameSound.ogg" id="9_hxkjo"]
 [ext_resource type="PackedScene" uid="uid://drcrf1wak4m67" path="res://src/enemies/bringer_of_death.tscn" id="9_qxykq"]
-[ext_resource type="Script" path="res://src/utilities/spawn_circle_info.gd" id="10_jmi8b"]
 [ext_resource type="PackedScene" uid="uid://bprv5rt3kcexg" path="res://src/enemies/night_borne.tscn" id="10_pqo0y"]
+[ext_resource type="PackedScene" uid="uid://dxd2oyw4os7p7" path="res://src/utilities/enemy_diagonal_spawner.tscn" id="13_hbg4w"]
+[ext_resource type="PackedScene" uid="uid://de053yh13u0dm" path="res://src/enemies/slime_green.tscn" id="13_te82f"]
+[ext_resource type="PackedScene" uid="uid://omhyjw0vvl7n" path="res://src/enemies/slime_red.tscn" id="14_s4tiw"]
+[ext_resource type="Script" path="res://src/utilities/spawn_circle_info.gd" id="14_sjq2m"]
+[ext_resource type="Script" path="res://src/utilities/spawn_diagonal_info.gd" id="15_jowxg"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="17_gvdv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcvhc"]
@@ -10064,7 +10067,7 @@ enemy_name = "Arcane Archer"
 time_start = 120
 time_end = 201
 enemy = ExtResource("8_bjnv2")
-enemy_num = 3
+enemy_num = 2
 enemy_spawn_delay = 20
 
 [sub_resource type="Resource" id="Resource_sic06"]
@@ -10080,37 +10083,70 @@ enemy_spawn_delay = 20
 script = ExtResource("7_xmxlg")
 enemy_name = "Night Borne"
 time_start = 280
-time_end = 361
+time_end = 401
 enemy = ExtResource("10_pqo0y")
-enemy_num = 3
+enemy_num = 1
 enemy_spawn_delay = 20
 
-[sub_resource type="Resource" id="Resource_wgna7"]
-script = ExtResource("10_jmi8b")
-enemy_name = "Green Slime"
+[sub_resource type="Resource" id="Resource_1jehk"]
+script = ExtResource("7_xmxlg")
+enemy_name = ""
+time_start = 300
+time_end = 361
+enemy = ExtResource("8_bjnv2")
+enemy_num = 1
+enemy_spawn_delay = 10
+
+[sub_resource type="Resource" id="Resource_j2rsf"]
+script = ExtResource("14_sjq2m")
+enemy_name = ""
 time_spawn = 120
-enemy = ExtResource("9_d67k2")
-enemy_num = 80
-radius = 350
+enemy = ExtResource("13_te82f")
+enemy_num = 70
+radius = 330
 time_free = 30
 
-[sub_resource type="Resource" id="Resource_go5u4"]
-script = ExtResource("10_jmi8b")
-enemy_name = "Green Slime"
+[sub_resource type="Resource" id="Resource_kjjyy"]
+script = ExtResource("14_sjq2m")
+enemy_name = ""
 time_spawn = 240
-enemy = ExtResource("9_d67k2")
-enemy_num = 80
-radius = 350
+enemy = ExtResource("13_te82f")
+enemy_num = 70
+radius = 330
 time_free = 30
 
-[sub_resource type="Resource" id="Resource_q8idm"]
-script = ExtResource("10_jmi8b")
-enemy_name = "Green Slime"
+[sub_resource type="Resource" id="Resource_stx7o"]
+script = ExtResource("14_sjq2m")
+enemy_name = ""
 time_spawn = 360
-enemy = ExtResource("9_d67k2")
-enemy_num = 80
-radius = 350
+enemy = ExtResource("13_te82f")
+enemy_num = 70
+radius = 330
 time_free = 30
+
+[sub_resource type="Resource" id="Resource_b4qv1"]
+script = ExtResource("15_jowxg")
+enemy_name = ""
+time_spawn = 4
+enemy = ExtResource("14_s4tiw")
+enemy_num = 7
+time_free = 10
+
+[sub_resource type="Resource" id="Resource_27fcu"]
+script = ExtResource("15_jowxg")
+enemy_name = ""
+time_spawn = 180
+enemy = ExtResource("14_s4tiw")
+enemy_num = 7
+time_free = 10
+
+[sub_resource type="Resource" id="Resource_18gsh"]
+script = ExtResource("15_jowxg")
+enemy_name = ""
+time_spawn = 280
+enemy = ExtResource("14_s4tiw")
+enemy_num = 10
+time_free = 10
 
 [node name="World" type="Node2D"]
 metadata/_edit_vertical_guides_ = [1501.0, 5333.0, -1501.0]
@@ -10151,16 +10187,25 @@ position = Vector2(2, -6)
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="EnemySpawner" parent="Spawner" instance=ExtResource("5_kwfgq")]
-spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um")])
+spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um"), SubResource("Resource_1jehk")])
 
 [node name="EnemyCircleSpawner120" parent="Spawner" instance=ExtResource("8_s6acm")]
-spawn_info = SubResource("Resource_wgna7")
+spawn_info = SubResource("Resource_j2rsf")
 
 [node name="EnemyCircleSpawner240" parent="Spawner" instance=ExtResource("8_s6acm")]
-spawn_info = SubResource("Resource_go5u4")
+spawn_info = SubResource("Resource_kjjyy")
 
 [node name="EnemyCircleSpawner360" parent="Spawner" instance=ExtResource("8_s6acm")]
-spawn_info = SubResource("Resource_q8idm")
+spawn_info = SubResource("Resource_stx7o")
+
+[node name="EnemyDiagonalSpawner100" parent="Spawner" instance=ExtResource("13_hbg4w")]
+spawn_info = SubResource("Resource_b4qv1")
+
+[node name="EnemyDiagonalSpawner180" parent="Spawner" instance=ExtResource("13_hbg4w")]
+spawn_info = SubResource("Resource_27fcu")
+
+[node name="EnemyDiagonalSpawner280" parent="Spawner" instance=ExtResource("13_hbg4w")]
+spawn_info = SubResource("Resource_18gsh")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 

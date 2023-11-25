@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var movement_speed = 40.0
+@export var movement_speed = 250.0
 @export var health = 10
 @export var knockback_recovery = 0.5
-@export var damage = 3
-@export var experience = 1
+@export var damage = 10
+@export var experience = 5
 @export var coins = 7
 
 var knockback: Vector2 = Vector2.ZERO
@@ -22,6 +22,7 @@ signal remove_from_array(object)
 
 var exp_gem = preload("res://src/objects/experience_gem.tscn")
 var gold = preload("res://src/objects/gold.tscn")
+var direction
 
 enum {
 	IDLE,
@@ -44,6 +45,8 @@ var state: int = WALK:
 				damage_state()
 
 func _ready():
+
+	direction = global_position.direction_to(character.global_position)
 	hit_box.damage = damage
 	state = WALK
 
@@ -51,11 +54,8 @@ func _ready():
 func _physics_process(_delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
 	
-	if state != DAMAGE:
-		state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
-
-	var direction = global_position.direction_to(character.global_position)
-	velocity = direction * movement_speed
+	#velocity = direction * movement_speed
+	velocity = Vector2(0, direction.y * movement_speed)
 	velocity += knockback
 	
 	set_character_facing_direction(direction)

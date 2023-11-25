@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b4uckvjgnww48" path="res://resources/audio/SoundEffect/Enemy/NightBorne/sword_attack.ogg" id="6_ha4vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkxas"]
-size = Vector2(27.9392, 50.1113)
+size = Vector2(21.7305, 30.5025)
 
 [sub_resource type="Animation" id="Animation_ing33"]
 length = 0.642857
@@ -599,15 +599,15 @@ size = Vector2(21.3676, 21.96)
 [node name="NightBorne" instance=ExtResource("1_q671g")]
 scale = Vector2(0.842397, 0.894726)
 script = ExtResource("2_leunl")
-movement_speed = 140
-max_health = 300
-damage = 5
+movement_speed = 110
+max_health = 500
+damage = 20
 sword_damage = 20
-experience = 50
+experience = 70
 coins = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(5.66048e-07, -9.50012)
+position = Vector2(-1.18709, -7.82362)
 scale = Vector2(0.764788, 0.512982)
 shape = SubResource("RectangleShape2D_bkxas")
 

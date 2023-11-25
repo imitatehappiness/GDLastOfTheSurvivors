@@ -110,6 +110,8 @@ scale = Vector2(1, 1.065)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_jf8vs")
+damage = 20
+orbit_radius = 130
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var time = 0
-var game_time_limit = 60*6.5
+var game_time_limit = 60*7
 
 var movement_speed = 90.0 + Global.get_character_store_upgrades()["speed"]
 var max_health = 50 + Global.get_character_store_upgrades()["health"]
@@ -50,8 +50,8 @@ var collected_upgrades = []
 var upgrade_options = []
 var armor = 0 + Global.get_character_store_upgrades()["shield"]
 
-var spell_cooldown = 0
-var spell_size = 0
+var spell_cooldown = 0 + Global.get_character_store_upgrades()["spell_cooldown"]
+var spell_size = 0 + Global.get_character_store_upgrades()["spell_size"]
 var additional_attack = 0
 var grab_area_scale = 0
 var experience_multiplier = 1

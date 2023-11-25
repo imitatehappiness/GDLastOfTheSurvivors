@@ -1,6 +1,5 @@
 # Version 1
 
-
 [20.11.2023]
 	1. [x] Changed attack sound for boomerang
 	2. [x] Changed hit sound for skipjack
@@ -27,5 +26,9 @@
 	8. [x] Add time (randi() % 10 + 5) reload for spell "Bringer Of Death"
 	9. [x] Update sticky green bullet
 	10. [x] Update skipjack
-
+[25.11.2023]
+	1. [x] Add diagonal (H) spawn red slime
+	2. [x] Update Tornado
+	3. [x] Add rand timer for attack archer
+	4. [x] Update night borne
 //------------------------------

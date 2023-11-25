@@ -52,10 +52,10 @@ var state: int = WALK:
 				damage_state()
 
 func _ready():
+	arrow_attack_timer.set_wait_time(randi() % 5 + 1)
 	hit_box.damage = damage
 	arrow_attack_timer.set_wait_time(arrow_attack_reload)
 	arrow_attack_timer.start()
-
 
 func _physics_process(_delta):
 	if state != DEATH:

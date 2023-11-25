@@ -54,6 +54,7 @@ texture = ExtResource("3_8ofgf")
 flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(525, 284)
 scale = Vector2(2.34689, 2.27196)
 sprite_frames = SubResource("SpriteFrames_rlt5x")
@@ -66,7 +67,7 @@ flip_h = true
 modulate = Color(0.121569, 0.360784, 0.403922, 1)
 offset_left = 22.0
 offset_top = 65.0
-offset_right = 427.0
+offset_right = 625.0
 offset_bottom = 353.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -99,7 +100,7 @@ offset_bottom = 390.0
 scale = Vector2(0.880997, 0.877406)
 
 [node name="ScrollContainer" parent="StorePanel" index="0"]
-custom_minimum_size = Vector2(450, 320)
+custom_minimum_size = Vector2(680, 320)
 
 [node name="VBoxContainer" parent="StorePanel/ScrollContainer" index="0"]
 custom_minimum_size = Vector2(0, 320)
@@ -109,7 +110,7 @@ size_flags_vertical = 4
 [node name="GridContainer" parent="StorePanel/ScrollContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(0, 320)
 size_flags_vertical = 4
-columns = 2
+columns = 3
 
 [node name="StorePanelItemHealth" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="0" instance=ExtResource("8_vxys1")]
 light_mask = 0
@@ -123,11 +124,19 @@ item_id = "2"
 layout_mode = 2
 item_id = "1"
 
-[node name="StorePanelItemDoubleSplash" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="3" instance=ExtResource("8_vxys1")]
+[node name="StorePanelItemSpellCooldown" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="3" instance=ExtResource("8_vxys1")]
 layout_mode = 2
 item_id = "3"
 
-[node name="StorePanelItemRespawn" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="4" instance=ExtResource("8_vxys1")]
+[node name="StorePanelItemSpellSize" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="4" instance=ExtResource("8_vxys1")]
+layout_mode = 2
+item_id = "4"
+
+[node name="StorePanelItemDoubleSplash" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="5" instance=ExtResource("8_vxys1")]
+layout_mode = 2
+item_id = "9"
+
+[node name="StorePanelItemRespawn" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="6" instance=ExtResource("8_vxys1")]
 layout_mode = 2
 item_id = "10"
 

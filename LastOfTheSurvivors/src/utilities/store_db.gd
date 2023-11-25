@@ -132,15 +132,101 @@ const ITEMS = {
 		"cost": "",
 		"icon_path": ICON_PATH + "speed.png"
 	},
-	# =========================================================== double splash
+	# =========================================================== Spell Colldown
 	"STORE_ITEM_3_1": {
+		"name": "Spell Cooldown",
+		"level": "1",
+		"description": "+ 0.02 to the initial spell cooldown",
+		"cost": "100",
+		"icon_path": ICON_PATH + "spell_cooldown1.png"
+	},
+	"STORE_ITEM_3_2": {
+		"name": "Spell Cooldown",
+		"level": "2",
+		"description": "+ 0.02 to the initial spell cooldown",
+		"cost": "200",
+		"icon_path": ICON_PATH + "spell_cooldown2.png"
+	},
+	"STORE_ITEM_3_3": {
+		"name": "Spell Cooldown",
+		"level": "3",
+		"description": "+ 0.02 to the initial spell cooldown",
+		"cost": "300",
+		"icon_path": ICON_PATH + "spell_cooldown3.png"
+	},
+	"STORE_ITEM_3_4": {
+		"name": "Spell Cooldown",
+		"level": "4",
+		"description": "+ 0.02 to the initial spell cooldown",
+		"cost": "400",
+		"icon_path": ICON_PATH + "spell_cooldown4.png"
+	},
+	"STORE_ITEM_3_5": {
+		"name": "Spell Cooldown",
+		"level": "5",
+		"description": "+ 0.02 to the initial spell cooldown",
+		"cost": "500",
+		"icon_path": ICON_PATH + "spell_cooldown5.png"
+	},
+	"STORE_ITEM_3_MAX": {
+		"name": "Spell Cooldown",
+		"level": "MAX",
+		"description": "Total + 0.08 to the initial cooldown",
+		"cost": "",
+		"icon_path": ICON_PATH + "spell_cooldown5.png"
+	},
+	# =========================================================== Spell Colldown
+	"STORE_ITEM_4_1": {
+		"name": "Spell Size",
+		"level": "1",
+		"description": "+ 0.05 to the initial spell size",
+		"cost": "100",
+		"icon_path": ICON_PATH + "spell_size1.png"
+	},
+	"STORE_ITEM_4_2": {
+		"name": "Spell Size",
+		"level": "2",
+		"description": "+ 0.05 to the initial spell size",
+		"cost": "200",
+		"icon_path": ICON_PATH + "spell_size2.png"
+	},
+	"STORE_ITEM_4_3": {
+		"name": "Spell Size",
+		"level": "3",
+		"description": "+ 0.05 to the initial spell size",
+		"cost": "300",
+		"icon_path": ICON_PATH + "spell_size3.png"
+	},
+	"STORE_ITEM_4_4": {
+		"name": "Spell Size",
+		"level": "4",
+		"description": "+ 0.05 to the initial spell size",
+		"cost": "400",
+		"icon_path": ICON_PATH + "spell_size4.png"
+	},
+	"STORE_ITEM_4_5": {
+		"name": "Spell Size",
+		"level": "5",
+		"description": "+ 0.05 to the initial spell size",
+		"cost": "500",
+		"icon_path": ICON_PATH + "spell_size5.png"
+	},
+	"STORE_ITEM_4_MAX": {
+		"name": "Spell Size",
+		"level": "MAX",
+		"description": "Total + 0.2 to the initial size",
+		"cost": "",
+		"icon_path": ICON_PATH + "spell_size5.png"
+	},
+	# =========================================================== double splash
+	"STORE_ITEM_9_1": {
 		"name": "Double splash",
 		"level": "1",
 		"description": "Adds a second wave behind the character",
 		"cost": "1000",
 		"icon_path": ICON_PATH + "double_splash.png"
 	},
-	"STORE_ITEM_3_MAX": {
+	"STORE_ITEM_9_MAX": {
 		"name": "Double splash",
 		"level": "MAX",
 		"description": "Adds a second wave behind the character",
