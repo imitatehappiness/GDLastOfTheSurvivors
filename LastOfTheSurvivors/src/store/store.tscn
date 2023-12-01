@@ -112,25 +112,25 @@ custom_minimum_size = Vector2(0, 320)
 size_flags_vertical = 4
 columns = 3
 
-[node name="StorePanelItemHealth" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="0" instance=ExtResource("8_vxys1")]
-light_mask = 0
+[node name="StorePanelItemSpellCooldown" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="0" instance=ExtResource("8_vxys1")]
 layout_mode = 2
+item_id = "3"
 
-[node name="StorePanelItemSpeed" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="1" instance=ExtResource("8_vxys1")]
+[node name="StorePanelItemSpellSize" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="1" instance=ExtResource("8_vxys1")]
 layout_mode = 2
-item_id = "2"
+item_id = "4"
 
 [node name="StorePanelItemShield" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="2" instance=ExtResource("8_vxys1")]
 layout_mode = 2
 item_id = "1"
 
-[node name="StorePanelItemSpellCooldown" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="3" instance=ExtResource("8_vxys1")]
+[node name="StorePanelItemHealth" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="3" instance=ExtResource("8_vxys1")]
+light_mask = 0
 layout_mode = 2
-item_id = "3"
 
-[node name="StorePanelItemSpellSize" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="4" instance=ExtResource("8_vxys1")]
+[node name="StorePanelItemSpeed" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="4" instance=ExtResource("8_vxys1")]
 layout_mode = 2
-item_id = "4"
+item_id = "2"
 
 [node name="StorePanelItemDoubleSplash" parent="StorePanel/ScrollContainer/VBoxContainer/GridContainer" index="5" instance=ExtResource("8_vxys1")]
 layout_mode = 2

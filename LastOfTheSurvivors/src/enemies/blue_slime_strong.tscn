@@ -393,14 +393,14 @@ size = Vector2(40.361, 30.1768)
 size = Vector2(21.3676, 21.96)
 
 [node name="BlueSlimeStrong" instance=ExtResource("1_501fb")]
-scale = Vector2(0.842397, 0.894726)
+scale = Vector2(0.612252, 0.649663)
 script = ExtResource("2_cvtiv")
 movement_speed = 80
 max_health = 100
 damage = 5
 sword_damage = 20
 experience = 25
-coins = 10
+coins = 20
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(1.18709, -5.5883)

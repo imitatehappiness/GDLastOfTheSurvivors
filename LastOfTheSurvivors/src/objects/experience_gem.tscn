@@ -8,6 +8,7 @@
 size = Vector2(8, 10)
 
 [node name="ExperienceGem" type="Area2D" groups=["loot"]]
+scale = Vector2(0.856637, 0.805725)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_mc8o0")
@@ -18,7 +19,8 @@ volume_db = -30.945
 pitch_scale = 1.01
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -1)
+scale = Vector2(0.279518, 0.294961)
 texture = ExtResource("3_t447h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

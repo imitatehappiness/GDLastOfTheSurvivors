@@ -600,11 +600,11 @@ size = Vector2(21.3676, 21.96)
 scale = Vector2(0.842397, 0.894726)
 script = ExtResource("2_leunl")
 movement_speed = 110
-max_health = 500
+max_health = 400
 damage = 20
 sword_damage = 20
-experience = 70
-coins = 30
+experience = 100
+coins = 50
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1.18709, -7.82362)

@@ -171,7 +171,7 @@ const ITEMS = {
 	"STORE_ITEM_3_MAX": {
 		"name": "Spell Cooldown",
 		"level": "MAX",
-		"description": "Total + 0.08 to the initial cooldown",
+		"description": "Total + 0.1 to the initial cooldown",
 		"cost": "",
 		"icon_path": ICON_PATH + "spell_cooldown5.png"
 	},
@@ -214,7 +214,7 @@ const ITEMS = {
 	"STORE_ITEM_4_MAX": {
 		"name": "Spell Size",
 		"level": "MAX",
-		"description": "Total + 0.2 to the initial size",
+		"description": "Total + 0.25 to the initial size",
 		"cost": "",
 		"icon_path": ICON_PATH + "spell_size5.png"
 	},

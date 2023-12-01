@@ -65,7 +65,7 @@ animations = [{
 
 [node name="Tornado" type="Area2D" groups=["attack"]]
 top_level = true
-scale = Vector2(3.15507, 2.38418)
+scale = Vector2(4.16739, 3.36786)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_558wc")

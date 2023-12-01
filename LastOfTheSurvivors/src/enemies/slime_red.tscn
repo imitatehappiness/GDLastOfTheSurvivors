@@ -214,12 +214,13 @@ size = Vector2(22.3214, 14.4939)
 size = Vector2(14.7786, 8.15479)
 
 [node name="SlimeRed" instance=ExtResource("1_6eeho")]
-scale = Vector2(3.55595, 4.23747)
+scale = Vector2(2.57744, 3.12877)
 script = ExtResource("2_a8cca")
 movement_speed = 220.0
 health = 50
 damage = 20
 experience = 5
+coins = 7
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(2.38419e-07, 0)
@@ -258,6 +259,7 @@ shape = SubResource("RectangleShape2D_0n25l")
 
 [node name="HitBox" parent="." index="3"]
 position = Vector2(0, -4)
+scale = Vector2(0.867815, 0.910538)
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(2.98023e-08, 4)

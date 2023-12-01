@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=37 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
@@ -10083,7 +10083,7 @@ enemy_spawn_delay = 20
 script = ExtResource("7_xmxlg")
 enemy_name = "Night Borne"
 time_start = 280
-time_end = 401
+time_end = 360
 enemy = ExtResource("10_pqo0y")
 enemy_num = 1
 enemy_spawn_delay = 20
@@ -10148,6 +10148,14 @@ enemy = ExtResource("14_s4tiw")
 enemy_num = 10
 time_free = 10
 
+[sub_resource type="Resource" id="Resource_duvbl"]
+script = ExtResource("15_jowxg")
+enemy_name = ""
+time_spawn = 365
+enemy = ExtResource("14_s4tiw")
+enemy_num = 7
+time_free = 10
+
 [node name="World" type="Node2D"]
 metadata/_edit_vertical_guides_ = [1501.0, 5333.0, -1501.0]
 metadata/_edit_horizontal_guides_ = [1504.0, -1504.0]
@@ -10206,6 +10214,9 @@ spawn_info = SubResource("Resource_27fcu")
 
 [node name="EnemyDiagonalSpawner280" parent="Spawner" instance=ExtResource("13_hbg4w")]
 spawn_info = SubResource("Resource_18gsh")
+
+[node name="EnemyDiagonalSpawner365" parent="Spawner" instance=ExtResource("13_hbg4w")]
+spawn_info = SubResource("Resource_duvbl")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 

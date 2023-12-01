@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://d27avve3evymc"]
+[gd_scene load_steps=22 format=3 uid="uid://d27avve3evymc"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_guagb"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="3_niusy"]
-[ext_resource type="Texture2D" uid="uid://cb5mhjgv6xjud" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death1.png" id="3_sjtmx"]
 [ext_resource type="Texture2D" uid="uid://ba01ve7ntjvut" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death2.png" id="4_15sek"]
 [ext_resource type="Texture2D" uid="uid://p4l2ftanguko" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death3.png" id="5_flvxr"]
 [ext_resource type="Texture2D" uid="uid://cvv1it13vj3ug" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death4.png" id="6_qf7gn"]
@@ -10,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b8clcogmjdkue" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death6.png" id="8_7e8hm"]
 [ext_resource type="Texture2D" uid="uid://cw0u58tf5ravf" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death7.png" id="9_6bong"]
 [ext_resource type="Texture2D" uid="uid://n4yte56ccfww" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death8.png" id="10_57kw0"]
-[ext_resource type="Texture2D" uid="uid://xtn52sqmqfwk" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death9.png" id="11_287x3"]
-[ext_resource type="Texture2D" uid="uid://sl7qe8ny6fgh" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death10.png" id="12_ssnm4"]
-[ext_resource type="Texture2D" uid="uid://s7mlirm7qd5a" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Death/png/SlimeBlue_Death11.png" id="13_sbyay"]
 [ext_resource type="Texture2D" uid="uid://c4pfxx4ndlhh2" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Idle/png/SlimeBlue_Idle1.png" id="14_41kie"]
 [ext_resource type="Texture2D" uid="uid://cn38s14b5dtoh" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Idle/png/SlimeBlue_Idle2.png" id="15_labfx"]
 [ext_resource type="Texture2D" uid="uid://ddesqvoxcytaj" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Blue/Idle/png/SlimeBlue_Idle3.png" id="16_ykuhv"]
@@ -22,7 +18,7 @@
 size = Vector2(13.1515, 14.5676)
 
 [sub_resource type="Animation" id="Animation_p7uji"]
-length = 1.1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,10 +26,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,7 +50,7 @@ tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.8, 1.1),
+"times": PackedFloat32Array(0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0823529)]
@@ -73,7 +69,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rxbvk"]
-length = 0.272727
+length = 0.181818
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,10 +77,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0909091, 0.181818),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0909091),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -138,12 +134,6 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_sjtmx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_15sek")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_flvxr")
 }, {
 "duration": 1.0,
@@ -160,24 +150,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_57kw0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_287x3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_ssnm4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_sbyay")
 }],
 "loop": false,
 "name": &"Death",
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_sjtmx")
-}, {
 "duration": 1.0,
 "texture": ExtResource("4_15sek")
 }, {
@@ -213,7 +191,7 @@ size = Vector2(14.8606, 14.4939)
 size = Vector2(14.7786, 8.15479)
 
 [node name="SlimeBlue" instance=ExtResource("1_guagb")]
-scale = Vector2(1.15031, 0.994493)
+scale = Vector2(0.863106, 0.910206)
 health = 6
 damage = 5
 
@@ -227,9 +205,10 @@ position = Vector2(-1.18709, -23.4709)
 scale = Vector2(1.60027, 1.53126)
 
 [node name="PointLight2D" type="PointLight2D" parent="TransformAdjustment" index="0"]
+visible = false
 position = Vector2(0.741805, 15.3279)
 scale = Vector2(0.0371671, 0.0352089)
-color = Color(0, 0.666667, 0.666667, 1)
+color = Color(0, 0.666667, 0.666667, 0.333333)
 texture = ExtResource("3_niusy")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
@@ -240,7 +219,7 @@ libraries = {
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
 sprite_frames = SubResource("SpriteFrames_vyb65")
-animation = &"Death"
+animation = &"Walk"
 autoplay = "Walk"
 
 [node name="HurtBox" parent="." index="2"]

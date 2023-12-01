@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var experience = 1
 @export var arrow_scale = 1.4
 @export var ammo = 2
-@export var arrow_attack_reload = 4
 @export var arrow_damage = 20
 @export var coins = 15
 
@@ -52,9 +51,8 @@ var state: int = WALK:
 				damage_state()
 
 func _ready():
-	arrow_attack_timer.set_wait_time(randi() % 5 + 1)
+	arrow_attack_timer.set_wait_time(randi() % 4 + 1)
 	hit_box.damage = damage
-	arrow_attack_timer.set_wait_time(arrow_attack_reload)
 	arrow_attack_timer.start()
 
 func _physics_process(_delta):

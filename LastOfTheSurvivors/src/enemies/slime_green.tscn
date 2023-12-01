@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://de053yh13u0dm"]
+[gd_scene load_steps=23 format=3 uid="uid://de053yh13u0dm"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_xk0o2"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_jm7mv"]
@@ -10,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cw3v2mfunmwgd" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death6.png" id="8_q8u74"]
 [ext_resource type="Texture2D" uid="uid://hngblib7xt70" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death7.png" id="9_87wmr"]
 [ext_resource type="Texture2D" uid="uid://bph2han24ol8h" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death8.png" id="10_n2l8u"]
-[ext_resource type="Texture2D" uid="uid://bapj6esbhbsub" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death9.png" id="11_rmaqj"]
-[ext_resource type="Texture2D" uid="uid://dwwyvnyon03na" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death10.png" id="12_g3cbe"]
-[ext_resource type="Texture2D" uid="uid://jidketnw7tm2" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death11.png" id="13_v77yg"]
 [ext_resource type="Texture2D" uid="uid://bm0u20fqqmo8k" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle1.png" id="14_5xvge"]
 [ext_resource type="Texture2D" uid="uid://ckyawxqoqkndk" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle2.png" id="15_6ojwf"]
 [ext_resource type="Texture2D" uid="uid://8312xyc4wr8q" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle3.png" id="16_8m6ah"]
@@ -138,9 +135,6 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1gclh")
-}, {
-"duration": 1.0,
 "texture": ExtResource("4_55cit")
 }, {
 "duration": 1.0,
@@ -160,15 +154,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_n2l8u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_rmaqj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_g3cbe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_v77yg")
 }],
 "loop": false,
 "name": &"Death",
@@ -203,7 +188,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 7.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htj1b"]
@@ -246,8 +231,9 @@ libraries = {
 position = Vector2(9.53674e-07, -15.4491)
 scale = Vector2(1.24895, 1.50117)
 sprite_frames = SubResource("SpriteFrames_vyb65")
-animation = &"Death"
+animation = &"Walk"
 autoplay = "Walk"
+frame_progress = 0.264183
 flip_h = true
 
 [node name="HurtBox" parent="." index="2"]

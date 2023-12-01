@@ -21,28 +21,27 @@ func _ready():
 	match level:
 		1:
 			health = 999 
-			speed = 120.0
+			speed = 150.0
 			damage = 5
 			attack_size = 1.0 * (1 + character.spell_size)
 		2:
 			health = 999 
-			speed = 120.0
+			speed = 150.0
 			damage = 6
 			attack_size = 1.0 * (1 + character.spell_size)
 		3:
 			health = 999 
-			speed = 120.0
+			speed = 150.0
 			damage = 8
 			attack_size = 1.0 * (1 + character.spell_size)
 		4:
 			health = 999 
-			speed = 120.0
+			speed = 150.0
 			damage = 10
 			attack_size = 1.0 * (1 + character.spell_size)
 			
 	angle = last_movement
 	$AnimationPlayer.play("Idle")
-
 
 func _physics_process(delta):
 	position -= angle * speed * delta

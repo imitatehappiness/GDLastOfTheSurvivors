@@ -404,9 +404,8 @@ damage = 10
 experience = 40
 arrow_scale = 1.4
 ammo = 2
-arrow_attack_reload = 4
 arrow_damage = 20
-coins = 15
+coins = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(5.96046e-08, -6.17965)

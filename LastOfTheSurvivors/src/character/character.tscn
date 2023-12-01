@@ -1192,6 +1192,19 @@ animation = &"Respawn"
 frame = 15
 frame_progress = 1.0
 
+[node name="Upgrades" type="Node2D" parent="."]
+
+[node name="MassCollectionTimer" type="Timer" parent="Upgrades"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="InvulnerabilityTimer" type="Timer" parent="Upgrades"]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="InvulnerabilityFreeTimer" type="Timer" parent="Upgrades"]
+unique_name_in_owner = true
+
 [node name="Attack" type="Node2D" parent="."]
 
 [node name="IceSpearTimer" type="Timer" parent="Attack"]
@@ -1492,13 +1505,25 @@ offset_right = 163.0
 offset_bottom = 30.0
 columns = 3
 
+[node name="FPSLabel" type="Label" parent="GUILayer/GUI"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 347.0
+offset_right = 633.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 0.627451)
+theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 10
+text = "FPS: "
+horizontal_alignment = 2
+
 [node name="VersionLabel" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 551.0
-offset_top = 340.0
+offset_top = 336.0
 offset_right = 633.0
-offset_bottom = 366.0
+offset_bottom = 362.0
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 0.627451)
 theme_override_fonts/font = ExtResource("7_c5i48")
 theme_override_font_sizes/font_size = 10
@@ -1517,6 +1542,9 @@ stream = ExtResource("14_p621d")
 volume_db = -20.0
 pitch_scale = 0.85
 
+[connection signal="timeout" from="Upgrades/MassCollectionTimer" to="." method="_on_mass_collection_timer_timeout"]
+[connection signal="timeout" from="Upgrades/InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]
+[connection signal="timeout" from="Upgrades/InvulnerabilityFreeTimer" to="." method="_on_invulnerability_free_timer_timeout"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
 [connection signal="timeout" from="Attack/IceSpearTimer/IceSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/SkipjackTimer" to="." method="_on_skipjack_timer_timeout"]

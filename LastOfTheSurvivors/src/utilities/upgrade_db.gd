@@ -498,6 +498,48 @@ const UPGRADES = {
 		"prerequisite": ["experience_multiplier3"],
 		"type": "upgrade"
 	},
+	# =========================================================== invulnerability
+	"invulnerability1": {
+		"icon": ICON_PATH + "invulnerability_1.png",
+		"displayname": "Invulnerability",
+		"details": "The chatacter is invulnerable while active",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "upgrade"
+	},
+	"invulnerability2": {
+		"icon": ICON_PATH + "invulnerability_1.png",
+		"displayname": "Invulnerability",
+		"details": "+ 0.2 to invulnerability time",
+		"level": "Level: 1",
+		"prerequisite": ["invulnerability1"],
+		"type": "upgrade"
+	},
+	"invulnerability3": {
+		"icon": ICON_PATH + "invulnerability_1.png",
+		"displayname": "Invulnerability",
+		"details": "+ 0.2 to invulnerability time",
+		"level": "Level: 1",
+		"prerequisite": ["invulnerability2"],
+		"type": "upgrade"
+	},
+	"invulnerability4": {
+		"icon": ICON_PATH + "invulnerability_1.png",
+		"displayname": "Invulnerability",
+		"details": "+ 0.2 to invulnerability time",
+		"level": "Level: 1",
+		"prerequisite": ["invulnerability3"],
+		"type": "upgrade"
+	},
+	# =========================================================== mass_collection
+	"mass_collection": {
+		"icon": ICON_PATH + "mass_collection.png",
+		"displayname": "Mass collection",
+		"details": "Collects all the gems on the map",
+		"level": "N/A",
+		"prerequisite": [],
+		"type": "item"
+	},
 	# =========================================================== food
 	"food": {
 		"icon": ICON_PATH + "chunk.png",

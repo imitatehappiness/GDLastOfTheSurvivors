@@ -658,7 +658,7 @@ sword_damage = 20
 experience = 40
 spell_damage = 20
 spell_scale = 1.0
-coins = 20
+coins = 40
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1.75241e-07, -6.55141)

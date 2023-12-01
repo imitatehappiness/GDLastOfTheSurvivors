@@ -8,6 +8,7 @@
 size = Vector2(8, 10)
 
 [node name="Gold" type="Area2D" groups=["gold"]]
+scale = Vector2(0.792587, 0.745787)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_g02y3")

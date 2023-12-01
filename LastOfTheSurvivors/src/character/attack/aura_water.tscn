@@ -114,7 +114,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 14.0
+"speed": 7.0
 }]
 
 [sub_resource type="Animation" id="Animation_8uk2s"]
@@ -166,7 +166,7 @@ texture_filter = 2
 scale = Vector2(0.251019, 0.25023)
 sprite_frames = SubResource("SpriteFrames_fdky7")
 animation = &"Idle"
-frame_progress = 0.613334
+frame_progress = 0.824597
 
 [node name="DestroyTimer" type="Timer" parent="."]
 unique_name_in_owner = true

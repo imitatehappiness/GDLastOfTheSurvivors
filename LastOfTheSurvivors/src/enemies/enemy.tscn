@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/enemies/enemy.gd" id="1_trjki"]
 [ext_resource type="PackedScene" uid="uid://6qsaq4c7hwg3" path="res://src/utilities/hit_box.tscn" id="2_c4lgs"]
 [ext_resource type="PackedScene" uid="uid://bbk6ewi6mecli" path="res://src/utilities/hurt_box.tscn" id="3_hejso"]
-[ext_resource type="FontFile" uid="uid://is5lj7e2akmp" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_km4co"]
+[ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="4_km4co"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jhxwo"]
 
@@ -27,6 +27,7 @@ sprite_frames = SubResource("SpriteFrames_jhxwo")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_hejso")]
 collision_mask = 4
+monitorable = false
 hurt_box_type = 1
 
 [node name="HitBox" parent="." instance=ExtResource("2_c4lgs")]

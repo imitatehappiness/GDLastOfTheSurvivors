@@ -21,7 +21,8 @@ var attacks_preload = {
 	"sticky_green_bullet": preload("res://src/character/attack/sticky_green_bulllet.tscn"),
 	"skipjack": preload("res://src/character/attack/skipjack.tscn"),
 	"boomerang" : preload("res://src/character/attack/boomerang.tscn"),
-	"trap" : preload("res://src/character/attack/trap.tscn")
+	"trap" : preload("res://src/character/attack/trap.tscn"),
+	"invulnerability" : preload("res://src/character/attack/invulnerability.tscn")
 }
 
 @onready var grab_area = get_node("%GrabArea")
@@ -42,6 +43,10 @@ var attacks_preload = {
 @onready var boomerang_attack_timer = get_node("%BoomerangAttackTimer")
 @onready var trap_timer = get_node("%TrapTimer")
 
+#UpgradesNodes
+@onready var mass_collection_timer = get_node("%MassCollectionTimer")
+@onready var invulnerability_timer = get_node("%InvulnerabilityTimer")
+@onready var invulnerability_free_timer = get_node("%InvulnerabilityFreeTimer")
 #STORE UPGRADES
 var respawn = Global.get_character_store_upgrades()["respawn"]
 
@@ -55,6 +60,12 @@ var spell_size = 0 + Global.get_character_store_upgrades()["spell_size"]
 var additional_attack = 0
 var grab_area_scale = 0
 var experience_multiplier = 1
+
+# invulnerability
+var invulnerability = false
+var invulnerability_time = 1.2
+var invulnerability_level = 0
+var invulnerability_reload = 5
 
 #IceSpear
 var ice_spear_ammo = 0
@@ -96,7 +107,7 @@ var boomerang_level = 0
 # Trap 
 var trap_ammo = 0
 var trap_base_ammo = 1 
-var trap_attack_spead = 3
+var trap_attack_speed = 3
 var trap_level = 0
 
 #Enemy Related
@@ -165,11 +176,14 @@ func _ready():
 	version_label.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
+	
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)
 
 func _physics_process(_delta):
+	
+	$GUILayer/GUI/FPSLabel.text = "PFS: " + str(Engine.get_frames_per_second())
 	if Input.get_action_strength("pause"):
 		state = PAUSE
 	
@@ -202,15 +216,16 @@ func set_character_facing_direction(direction: Vector2):
 
 # Обрабатывает полученный урон и уменьшает здоровье персонажа. Если здоровье достигает нуля, устанавливается состояние смерти.
 func _on_hurt_box_hurt(damage, _angle, _knock_back):
-	if damage > 0:
-		state = DAMAGE
+	if !invulnerability:
+		if damage > 0:
+			state = DAMAGE
 
-	health -= clamp(damage - armor, 1.0, 999.0)
-	health_bar.max_value = max_health
-	health_bar.value = health
+		health -= clamp(damage - armor, 1.0, 999.0)
+		health_bar.max_value = max_health
+		health_bar.value = health
 
-	if health <= 0:
-		state = RESPAWN if respawn == 1 else DEATH
+		if health <= 0:
+			state = RESPAWN if respawn == 1 else DEATH
 	
 
 # Возвращает местоположение случайного enemy для атаки.
@@ -277,10 +292,15 @@ func attack():
 			
 	# trap
 	if trap_level > 0:
-		trap_timer.wait_time = trap_attack_spead * (1 - spell_cooldown)
+		trap_timer.wait_time = trap_attack_speed * (1 - spell_cooldown)
 		if trap_timer.is_stopped():
 			trap_timer.start()
-	
+			
+	if invulnerability_level > 0 and !invulnerability:
+		invulnerability_timer.wait_time = invulnerability_reload * (1 - spell_cooldown)
+		if invulnerability_timer.is_stopped():
+			invulnerability_timer.start()
+
 # Обработчик таймера для атаки ice_spear
 func _on_ice_spear_timer_timeout():
 	ice_spear_ammo += ice_spear_base_ammo + additional_attack
@@ -447,7 +467,7 @@ func end_state():
 	
 	gold_label.text = "Gold collected: " + str(gold)
 
-	Global.gold += gold
+	Global.update_gold(gold)
 	Global.save_gold()
 
 # Cостояние pause
@@ -618,6 +638,23 @@ func upgrade_character(upgrade):
 		# ====================================== experience_multiplier
 		"experience_multiplier1", "experience_multiplier2", "experience_multiplier3", "experience_multiplier4":
 			experience_multiplier += 0.1
+		# ====================================== invulnerability
+		"invulnerability1":
+			invulnerability_level = 1
+			invulnerability_time = 1
+		"invulnerability2":
+			invulnerability_level = 2
+			invulnerability_time += 0.2
+		"invulnerability3":
+			invulnerability_level = 3
+			invulnerability_time += 0.2
+		"invulnerability4":
+			invulnerability_level = 4
+			invulnerability_time += 0.2
+		# ====================================== mass_collection
+		"mass_collection":
+			grab_area.scale = Vector2(50,50)
+			mass_collection_timer.start()
 		# ====================================== food
 		"food":
 			health += 20
@@ -695,12 +732,10 @@ func calculate_experience(gem_experience):
 # Вычисляет верхний предел опыта для следующего уровня.
 func calculate_experience_cap():
 	var exp_cap = experience_level
-	if experience_level < 20:
+	if experience_level < 25:
 		exp_cap = experience_level * 5
-	elif experience_level < 40:
-		exp_cap = 100 * (experience_level - 19) * 8
 	else: 
-		exp_cap = 255 + (experience_level - 39) * 12
+		exp_cap = experience_level * 10
 	
 	return exp_cap
 
@@ -740,12 +775,34 @@ func _on_button_menu_click_end():
 	var _level = get_tree().change_scene_to_file("res://src/title_screen/menu.tscn")
 
 func _on_damage_received(enemy_damage):
-	if enemy_damage > 0:
-		state = DAMAGE
+	if !invulnerability:
+		if enemy_damage > 0:
+			state = DAMAGE
 
-	health -= clamp(enemy_damage - armor, 1.0, 999.0)
-	health_bar.max_value = max_health
-	health_bar.value = health
+		health -= clamp(enemy_damage - armor, 1.0, 999.0)
+		health_bar.max_value = max_health
+		health_bar.value = health
 
-	if health <= 0:
-		state = RESPAWN if respawn == 1 else DEATH
+		if health <= 0:
+			state = RESPAWN if respawn == 1 else DEATH
+
+
+func _on_mass_collection_timer_timeout():
+	grab_area.scale = Vector2(1,1)
+
+func _on_invulnerability_timer_timeout():
+	
+	invulnerability = true
+
+	var new_invulnerability = attacks_preload["invulnerability"].instantiate()
+	new_invulnerability.position = position
+	new_invulnerability.level = invulnerability_level
+	new_invulnerability.wait_time = invulnerability_time
+	add_child(new_invulnerability)
+		
+	invulnerability_free_timer.set_wait_time(invulnerability_time)
+	invulnerability_free_timer.start()
+
+func _on_invulnerability_free_timer_timeout():
+	invulnerability = false
+

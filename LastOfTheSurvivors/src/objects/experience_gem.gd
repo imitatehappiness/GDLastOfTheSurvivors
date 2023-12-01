@@ -10,6 +10,8 @@ extends Area2D
 var sprite_green = preload("res://resources/textures/Items/Gems/Gem_green.png")
 var sprite_blue = preload("res://resources/textures/Items/Gems/Gem_blue.png")
 var sprite_red = preload("res://resources/textures/Items/Gems/Gem_red.png")
+var sprite_pink = preload("res://resources/textures/Items/Gems/Gem_pink.png")
+var sprite_violet = preload("res://resources/textures/Items/Gems/Gem_violet.png")
 
 var target = null
 var speed = -1
@@ -17,10 +19,14 @@ var speed = -1
 func _ready():
 	if experience < 5:
 		return
-	elif experience < 30:
+	elif experience < 20:
 		sprite.texture = sprite_blue
-	else:
+	elif experience < 40:
 		sprite.texture = sprite_red
+	elif experience < 60:
+		sprite.texture = sprite_violet
+	else:
+		sprite.texture = sprite_pink
 
 
 func _physics_process(delta):

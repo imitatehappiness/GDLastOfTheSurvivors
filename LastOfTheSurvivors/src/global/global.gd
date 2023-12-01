@@ -33,16 +33,23 @@ func load_gold():
 	config.load(config_path_file)
 	gold = config.get_value("GOLD", "gold", 0)
 	
+	if gold == 0:
+		gold = 1
+		save_gold()
+	
 func load_version():
 	config.load(config_path_file)
 	version = config.get_value("VERSION", "version", 0)
 
 func get_gold():
 	return gold
-
+	
 func set_gold(value):
 	gold = value
-	
+
+func update_gold(value):
+	gold += value
+
 func get_store_item_level(item_id):
 	config.load(config_path_file)
 	return config.get_value("STORE_ITEM_" + item_id, "level", "1")

@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Survivors Clone"
+config/name="Last of the survivors"
 run/main_scene="res://src/title_screen/menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/show_image=false
+config/icon="res://resources/icon/icon.png"
 
 [autoload]
 
@@ -28,6 +30,12 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
+window/vsync/vsync_mode=0
+
+[editor]
+
+movie_writer/disable_vsync=true
 
 [editor_plugins]
 
@@ -66,6 +74,10 @@ pause={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_mouse_from_touch=false
+
 [layer_names]
 
 2d_physics/layer_1="World"
@@ -75,7 +87,15 @@ pause={
 2d_physics/layer_5="CharacterHurtBox"
 2d_physics/layer_6="EnemyHurtBox"
 
+[physics]
+
+common/physics_ticks_per_second=144
+common/max_physics_steps_per_frame=4
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="forward_plus"
+renderer/rendering_method.web="forward_plus"
+driver/threads/thread_model=2
+textures/lossless_compression/force_png=true

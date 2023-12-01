@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var knockback_recovery = 0.5
 @export var damage = 3
 @export var experience = 1
-@export var coins = 7
+@export var coins = 3
 
 var knockback: Vector2 = Vector2.ZERO
 
@@ -48,18 +48,18 @@ func _ready():
 	state = WALK
 
 
-func _physics_process(_delta):
+func _process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
-	
+
 	if state != DAMAGE:
-		state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
+		state = WALK if velocity.length_squared() > 0 else IDLE
 
 	var direction = global_position.direction_to(character.global_position)
 	velocity = direction * movement_speed
 	velocity += knockback
-	
+
 	set_character_facing_direction(direction)
-	
+
 	move_and_slide()
 
 
@@ -87,12 +87,15 @@ func death_state():
 		new_gold.global_position.y -= 15
 		loot_base.call_deferred("add_child", new_gold)
 	
-	queue_free()
+	hide()
+	set_process(false)
+	#queue_free()
 
 func damage_state():
 	var tween = get_damage_label.create_tween()
 	tween.tween_property(get_damage_label, "modulate:a", 0, 0.4).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
+
 	if health <= 0:
 		$HurtBox/CollisionShape2D.call_deferred("set", "disabled", true)
 		$HitBox/CollisionShape2D.call_deferred("set", "disabled", true)
@@ -107,10 +110,8 @@ func damage_state():
 
 func set_character_facing_direction(direction: Vector2):
 	var scale_x = sign(direction.x)
-	if scale_x != 0:
-		# Проверяем, находится ли враг на безопасном расстоянии от персонажа перед поворотом
-		if abs(global_position.distance_to(character.global_position)) > 10:  # Используйте свое расстояние
-			transform_adjustment.scale.x = scale_x * (-1)
+	if scale_x != 0 and abs(global_position.distance_to(character.global_position)) > 10:
+		transform_adjustment.scale.x = scale_x * (-1)
 
 func _on_hurt_box_hurt(damage, _angle, _knockback_amount):
 	get_damage_label.text = str(damage)

@@ -8,15 +8,16 @@ extends Area2D
 
 var sprite_silver = preload("res://resources/textures/Items/Gold/coin_04c.png")
 var sprite_gold = preload("res://resources/textures/Items/Gold/coin_04d.png")
+
 var sprite_diamond = preload("res://resources/textures/Items/Gold/coin_04e.png")
 
 var target = null
 var speed = -1
 
 func _ready():
-	if gold < 5:
+	if gold < 10:
 		sprite.texture = sprite_silver
-	elif gold < 15:
+	elif gold < 25:
 		sprite.texture = sprite_gold
 	else:
 		sprite.texture = sprite_diamond

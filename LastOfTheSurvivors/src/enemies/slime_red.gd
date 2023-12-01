@@ -105,7 +105,7 @@ func damage_state():
 		await animation.animation_finished
 		state = WALK
 
-func set_character_facing_direction(direction: Vector2):
+func set_character_facing_direction(_direction: Vector2):
 	var scale_x = sign(direction.x)
 	if scale_x != 0:
 		# Проверяем, находится ли враг на безопасном расстоянии от персонажа перед поворотом
