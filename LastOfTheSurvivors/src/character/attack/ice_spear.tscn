@@ -112,18 +112,6 @@ tracks/1/keys = {
 "update": 1,
 "values": ["Idle"]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../AnimatedSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0909091, 0.181818, 0.272727, 0.363636, 0.454545, 0.545455, 0.636364, 0.727273, 0.818182),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kuqpi"]
 _data = {
@@ -142,7 +130,7 @@ rotation = -2.35619
 scale = Vector2(0.8, 0.749)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
-frame = 1
+frame_progress = 0.937681
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.000831346, 0.000831641)
@@ -156,7 +144,7 @@ pitch_scale = 5.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
 autostart = true
 

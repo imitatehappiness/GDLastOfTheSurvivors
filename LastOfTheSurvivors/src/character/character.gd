@@ -32,8 +32,8 @@ var attacks_preload = {
 @onready var ice_spear_attack_timer = get_node("%IceSpearAttackTimer")
 @onready var tornado_timer = get_node("%TornadoTimer")
 @onready var tornado_attack_timer = get_node("%TornadoAttackTimer")
-@onready var javelin_base = get_node("%JavalinBase")
 @onready var aura_water_node = get_node("%AuraWater")
+@onready var sticky_green_bulllet_node = get_node("%AuraWater")
 @onready var splash_timer = get_node("%SplashTimer")
 @onready var sticky_green_bulllet_timer = get_node("%StickyGreenBulletAttackTimer")
 @onready var skipjack_timer = get_node("%SkipjackTimer")
@@ -89,6 +89,8 @@ var double_splash = Global.get_character_store_upgrades()["double_splash"]
 # sticky_green_bullet
 var sticky_green_bullet_level = 0
 var sticky_green_bullet_attack_speed = 3
+var sticky_green_bullet_base_ammo = 5
+var sticky_green_bullet_ammo = sticky_green_bullet_base_ammo
 
 #Skipjack
 var skipjack_ammo = 0
@@ -174,6 +176,7 @@ func _ready():
 	version_label.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
+
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)
@@ -265,12 +268,6 @@ func attack():
 		if splash_timer.is_stopped():
 			splash_timer.start()
 	
-	# sticky_green_bullet
-	if sticky_green_bullet_level > 0:
-		sticky_green_bulllet_timer.wait_time = sticky_green_bullet_attack_speed * (1 - spell_cooldown)
-		if sticky_green_bulllet_timer.is_stopped():
-			sticky_green_bulllet_timer.start()
-	
 	# skipjack
 	if skipjack_level > 0:
 		skipjack_timer.wait_time = skipjack_attack_spead * (1 - spell_cooldown)
@@ -340,6 +337,13 @@ func spawn_aura_water():
 	aura_water_spawn.level = aura_water_level
 	aura_water_node.add_child(aura_water_spawn)
 
+func spawn_sticky_green_bulllet():
+	for child in sticky_green_bulllet_node.get_children():
+		child.queue_free()
+
+	sticky_green_bullet_ammo = sticky_green_bullet_base_ammo
+	sticky_green_bulllet_timer.start()
+
 func _on_splash_timer_timeout():
 	var new_splash_right = attacks_preload["splash"].instantiate()
 	new_splash_right.level = splash_level
@@ -353,11 +357,14 @@ func _on_splash_timer_timeout():
 		add_child(new_splash_left)
 
 func _on_sticky_green_bullet_attack_timer_timeout():
-	var new_sticky_green_bullet = attacks_preload["sticky_green_bullet"].instantiate()
-	new_sticky_green_bullet.level = sticky_green_bullet_level
-	add_child(new_sticky_green_bullet)
+	if sticky_green_bullet_ammo > 0:
+		var new_sticky_green_bullet = attacks_preload["sticky_green_bullet"].instantiate()
+		new_sticky_green_bullet.level = sticky_green_bullet_level
+		sticky_green_bulllet_node.add_child(new_sticky_green_bullet)
+		sticky_green_bulllet_timer.start()
+		sticky_green_bullet_ammo -= 1
 	
-
+	
 func _on_skipjack_timer_timeout():
 	skipjack_ammo += skipjack_base_ammo + additional_attack
 	skipjack_attack_timer.start()
@@ -379,7 +386,6 @@ func _on_skipjack_attack_timer_timeout():
 func _on_boomerang_timer_timeout():
 	boomerang_ammo += boomerang_base_ammo + additional_attack
 	boomerang_attack_timer.start()
-
 
 func _on_boomerang_attack_timer_timeout():
 	if boomerang_ammo > 0:
@@ -563,36 +569,34 @@ func upgrade_character(upgrade):
 		# ====================================== sticky_green_bullet4
 		"sticky_green_bullet1":
 			sticky_green_bullet_level = 1
+			spawn_sticky_green_bulllet()
 		"sticky_green_bullet2":
 			sticky_green_bullet_level = 2
+			spawn_sticky_green_bulllet()
 		"sticky_green_bullet3":
 			sticky_green_bullet_level = 3
+			spawn_sticky_green_bulllet()
 		"sticky_green_bullet4":
 			sticky_green_bullet_level = 4
+			spawn_sticky_green_bulllet()
 		# ====================================== skipjack
 		"skipjack1":
 			skipjack_level = 1
-			#skipjack_base_ammo += 1
 		"skipjack2":
 			skipjack_level = 2
-			#skipjack_base_ammo += 1
 		"skipjack3":
 			skipjack_level = 3
-			#skipjack_base_ammo += 1
 		"skipjack4":
 			skipjack_level = 4
-			#skipjack_base_ammo += 1
 		# ====================================== boomerang
 		"boomerang1":
 			boomerang_level = 1
 		"boomerang2":
 			boomerang_level = 2
-			#boomerang_base_ammo += 1
 		"boomerang3":
 			boomerang_level = 3
 		"boomerang4":
 			boomerang_level = 4
-			#boomerang_base_ammo += 1
 		# ====================================== trap
 		"trap1":
 			trap_level = 1
@@ -613,6 +617,8 @@ func upgrade_character(upgrade):
 			spell_size += 0.10
 			if aura_water_level > 0:
 				spawn_aura_water()
+			if sticky_green_bullet_level > 0:
+				spawn_sticky_green_bulllet()
 		# ====================================== scroll
 		"scroll1","scroll2","scroll3","scroll4":
 			spell_cooldown += 0.05

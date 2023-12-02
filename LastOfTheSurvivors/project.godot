@@ -12,12 +12,13 @@ config_version=5
 
 config/name="Last of the survivors"
 run/main_scene="res://src/title_screen/menu.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
 run/max_fps=165
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-boot_splash/image="res://resources/another/boot_screen.png"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://resources/icon/icon.png"
-boot_splash/minimum_display_time=1
 
 [autoload]
 
@@ -38,10 +39,16 @@ window/vsync/vsync_mode=0
 [editor]
 
 movie_writer/disable_vsync=true
+run/main_run_args="–rendering-driver opengl3"
+import/use_multiple_threads=false
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
@@ -89,17 +96,22 @@ pointing/emulate_mouse_from_touch=false
 2d_physics/layer_5="CharacterHurtBox"
 2d_physics/layer_6="EnemyHurtBox"
 
+[navigation]
+
+avoidance/thread_model/avoidance_use_multiple_threads=false
+baking/thread_model/baking_use_multiple_threads=false
+
 [physics]
 
 common/physics_ticks_per_second=144
-common/max_physics_steps_per_frame=4
+common/max_physics_steps_per_frame=16
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method.mobile="forward_plus"
 renderer/rendering_method.web="forward_plus"
-driver/threads/thread_model=2
+driver/threads/thread_model=0
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 textures/lossless_compression/force_png=true

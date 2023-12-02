@@ -18,6 +18,5 @@ func set_gold(value):
 	gold = value
 
 func _on_back_texture_button_pressed():
-	queue_free()
 	get_tree().change_scene_to_file(menu)
 

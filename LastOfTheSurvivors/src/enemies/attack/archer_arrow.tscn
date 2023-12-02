@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwblw182xn2gq"]
+[gd_scene load_steps=14 format=3 uid="uid://cwblw182xn2gq"]
 
 [ext_resource type="Script" path="res://src/enemies/attack/archer_arrow.gd" id="1_f23ps"]
 [ext_resource type="Texture2D" uid="uid://brab10qb1arhp" path="res://resources/textures/Enemy/Attack/Retro Impact Effect Pack 5 B.png" id="2_ybni0"]
 [ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="3_c8r2u"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_6aphq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x61de"]
 atlas = ExtResource("2_ybni0")
@@ -100,15 +99,15 @@ collision_mask = 0
 script = ExtResource("1_f23ps")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -2)
-scale = Vector2(0.795732, 0.446873)
+position = Vector2(0, 1)
+scale = Vector2(0.478763, 0.327548)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, -3)
+position = Vector2(0, -2.38419e-07)
 rotation = -1.55558
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.355661, 1.20814)
 shape = SubResource("CapsuleShape2D_gins2")
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
@@ -121,12 +120,6 @@ autoplay = true
 wait_time = 5.0
 one_shot = true
 autostart = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -3)
-scale = Vector2(0.0585161, 0.0281739)
-color = Color(0.776471, 0.517647, 0.882353, 1)
-texture = ExtResource("4_6aphq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")

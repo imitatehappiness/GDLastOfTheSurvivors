@@ -10,8 +10,6 @@ var damage = 5
 @onready var animation = $AnimationPlayer
 @onready var collision = $CollisionShape2D
 
-@onready var destroy = get_node("%DestroyTimer")
-
 
 func _ready():
 	match level:

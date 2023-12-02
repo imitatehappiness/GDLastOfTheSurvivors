@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://duc57kfc3hkep"]
+[gd_scene load_steps=18 format=3 uid="uid://duc57kfc3hkep"]
 
 [ext_resource type="Script" path="res://src/character/attack/sticky_green_bulllet.gd" id="1_bwixp"]
 [ext_resource type="Texture2D" uid="uid://ctr75wa47e1qs" path="res://resources/textures/Items/Weapons/slime_green.png" id="2_7p1fi"]
 [ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="4_oupog"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_kp6sv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkdqx"]
 atlas = ExtResource("2_7p1fi")
@@ -33,26 +32,6 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_7p1fi")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3q1t"]
-atlas = ExtResource("2_7p1fi")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65287"]
-atlas = ExtResource("2_7p1fi")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vciul"]
-atlas = ExtResource("2_7p1fi")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_808i2"]
-atlas = ExtResource("2_7p1fi")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nqpyt"]
-atlas = ExtResource("2_7p1fi")
-region = Rect2(192, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_duq1d"]
 atlas = ExtResource("2_7p1fi")
 region = Rect2(224, 0, 32, 32)
@@ -60,10 +39,6 @@ region = Rect2(224, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j77bw"]
 atlas = ExtResource("2_7p1fi")
 region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rnod"]
-atlas = ExtResource("2_7p1fi")
-region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2q7c"]
 animations = [{
@@ -95,32 +70,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_v3usb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g3q1t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65287")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vciul")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_808i2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nqpyt")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_duq1d")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j77bw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5rnod")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 12.0
+"speed": 6.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpkac"]
@@ -154,7 +111,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_dgrve"]
-length = 0.833333
+length = 0.666667
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -163,10 +120,10 @@ tracks/0/path = NodePath("../AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -179,6 +136,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kuqpi"]
@@ -210,21 +179,8 @@ volume_db = -22.175
 pitch_scale = 5.0
 autoplay = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
-one_shot = true
-autostart = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.022575, 0.0249048)
-color = Color(0.341176, 0.92549, 0.231373, 1)
-energy = 2.0
-texture = ExtResource("5_kp6sv")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")
 libraries = {
 "": SubResource("AnimationLibrary_kuqpi")
 }
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

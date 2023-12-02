@@ -243,13 +243,6 @@ grow_vertical = 2
 script = ExtResource("1_uoygh")
 metadata/_edit_vertical_guides_ = [320.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 359.0
-color = Color(0.0666667, 0.270588, 0.192157, 1)
-
 [node name="TextureRectBG" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -3.0
@@ -278,13 +271,6 @@ animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.14534
 flip_h = true
-
-[node name="TextureRectBG2" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 416.0
-scale = Vector2(1.02057, 1.2444)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

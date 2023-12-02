@@ -3,7 +3,7 @@ extends Area2D
 
 var level = 1
 var health = 999 
-var speed = 120.0
+var speed = 300.0
 var damage = 5 
 var knockback_amount = 50 
 var attack_size = 1.0 
@@ -31,12 +31,12 @@ func _ready():
 			attack_size = 1.0 * (1 + character.spell_size)
 		3:
 			health = 999 
-			speed = 150.0
+			speed = 200.0
 			damage = 8
 			attack_size = 1.0 * (1 + character.spell_size)
 		4:
 			health = 999 
-			speed = 150.0
+			speed = 250.0
 			damage = 10
 			attack_size = 1.0 * (1 + character.spell_size)
 			

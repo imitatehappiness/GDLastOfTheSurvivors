@@ -42,7 +42,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ctus"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijkc1"]
 
 [sub_resource type="Animation" id="Animation_dgrve"]
 length = 0.571429
@@ -85,13 +85,14 @@ collision_mask = 0
 script = ExtResource("1_ly3rc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 1.641)
+scale = Vector2(1, 0.821)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.68221e-07, 2.98023e-07)
-shape = SubResource("RectangleShape2D_7ctus")
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_ijkc1")
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_485bc")
@@ -100,7 +101,7 @@ pitch_scale = 5.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 autostart = true
 

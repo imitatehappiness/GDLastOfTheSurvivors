@@ -1250,9 +1250,13 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 z_index = -1
 
+[node name="StickyGreenBullet" type="Node2D" parent="Attack"]
+unique_name_in_owner = true
+z_index = -1
+
 [node name="StickyGreenBulletAttackTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 0.3
 
 [node name="HurtBox" parent="." instance=ExtResource("3_ymp8k")]
 scale = Vector2(0.948146, 0.788351)

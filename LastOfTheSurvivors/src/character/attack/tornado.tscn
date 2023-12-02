@@ -75,7 +75,7 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_iqbty")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 autostart = true
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
