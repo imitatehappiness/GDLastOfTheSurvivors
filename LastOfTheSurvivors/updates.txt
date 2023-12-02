@@ -32,4 +32,6 @@
 	3. [x] Add rand timer for attack archer
 	4. [x] Update night borne
 	5. [x] Update store (spell cooldown, spell size)
+[02.12.2023]
+	1. [x] optimization	
 //------------------------------

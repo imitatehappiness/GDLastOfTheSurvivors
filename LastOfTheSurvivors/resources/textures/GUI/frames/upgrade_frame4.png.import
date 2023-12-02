@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df2salea6xxuc"
-path="res://.godot/imported/itch.png-4a88cc5c5379dc0e3ac0e8b16401aff3.ctex"
+uid="uid://bjm0mb25w6k05"
+path="res://.godot/imported/upgrade_frame4.png-f32f7dcb1a04d733c554c3095a6db20e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/screenshoots/itch.png"
-dest_files=["res://.godot/imported/itch.png-4a88cc5c5379dc0e3ac0e8b16401aff3.ctex"]
+source_file="res://resources/textures/GUI/frames/upgrade_frame4.png"
+dest_files=["res://.godot/imported/upgrade_frame4.png-f32f7dcb1a04d733c554c3095a6db20e.ctex"]
 
 [params]
 

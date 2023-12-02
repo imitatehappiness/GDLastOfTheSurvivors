@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://u6rgmxotf28v"]
+[gd_scene load_steps=18 format=3 uid="uid://u6rgmxotf28v"]
 
 [ext_resource type="Script" path="res://src/character/attack/ice_spear.gd" id="1_bmian"]
 [ext_resource type="Texture2D" uid="uid://o7x486gr4drp" path="res://resources/textures/Items/Weapons/ice_spear_new.png" id="2_isr8r"]
 [ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="3_qcsfm"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_odwkr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amtf1"]
 atlas = ExtResource("2_isr8r")
@@ -84,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ohv7"]
-size = Vector2(10, 29.7487)
+size = Vector2(4.92213, 19.6885)
 
 [sub_resource type="Animation" id="Animation_dgrve"]
 length = 2.0
@@ -133,19 +132,20 @@ _data = {
 
 [node name="IceSpear" type="Area2D" groups=["attack"]]
 top_level = true
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.287593, 0.287043)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_bmian")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -2.35619
-scale = Vector2(2, 1.871)
+scale = Vector2(0.8, 0.749)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.04439, 3.04439)
+position = Vector2(-0.000831346, 0.000831641)
 rotation = -0.785398
 shape = SubResource("RectangleShape2D_8ohv7")
 
@@ -156,17 +156,9 @@ pitch_scale = 5.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 3.0
 one_shot = true
 autostart = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(3.56215, 3.56216)
-rotation = -0.785398
-scale = Vector2(0.0212267, 0.0620781)
-color = Color(0, 0.611765, 0.615686, 1)
-energy = 2.0
-texture = ExtResource("4_odwkr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")

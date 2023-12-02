@@ -13,9 +13,11 @@ config_version=5
 config/name="Last of the survivors"
 run/main_scene="res://src/title_screen/menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
+run/max_fps=165
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-boot_splash/show_image=false
+boot_splash/image="res://resources/another/boot_screen.png"
 config/icon="res://resources/icon/icon.png"
+boot_splash/minimum_display_time=1
 
 [autoload]
 
@@ -98,4 +100,7 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method.mobile="forward_plus"
 renderer/rendering_method.web="forward_plus"
 driver/threads/thread_model=2
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 textures/lossless_compression/force_png=true
+textures/default_filters/anisotropic_filtering_level=0

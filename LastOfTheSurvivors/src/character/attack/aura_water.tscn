@@ -1,56 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cnqufos6yecfm"]
+[gd_scene load_steps=11 format=3 uid="uid://cnqufos6yecfm"]
 
 [ext_resource type="Script" path="res://src/character/attack/aura_water.gd" id="1_2r7gh"]
 [ext_resource type="Texture2D" uid="uid://bc7gdurqwrxsq" path="res://resources/textures/Items/Weapons/aura_water.png" id="2_cv6h7"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="3_tadfw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2wsn"]
 atlas = ExtResource("2_cv6h7")
 region = Rect2(0, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lqj32"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(192, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_81v6m"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(384, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8pp8"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(576, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qfbco"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(768, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3rmor"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(0, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xp4gh"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(192, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8e6xn"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(384, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5efy8"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(576, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_un1jm"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(768, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0toh8"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(0, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vavos"]
-atlas = ExtResource("2_cv6h7")
-region = Rect2(192, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50nxb"]
 atlas = ExtResource("2_cv6h7")
@@ -71,39 +26,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_r2wsn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lqj32")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_81v6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8pp8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qfbco")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3rmor")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xp4gh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8e6xn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5efy8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_un1jm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0toh8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vavos")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_50nxb")
 }, {
 "duration": 1.0,
@@ -114,11 +36,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 7.0
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_8uk2s"]
-length = 1.07143
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -127,10 +49,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0714286, 0.142857, 0.214286, 0.285714, 0.357143, 0.428571, 0.5, 0.571429, 0.642857, 0.714286, 0.785714, 0.857143, 0.928571, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -144,6 +66,18 @@ tracks/1/keys = {
 "update": 1,
 "values": ["Idle"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nptw3"]
 _data = {
@@ -151,7 +85,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8quvn"]
-radius = 16.4924
+radius = 21.0238
 
 [node name="AuraWater" type="Area2D" groups=["attack"]]
 z_index = -1
@@ -163,13 +97,10 @@ script = ExtResource("1_2r7gh")
 modulate = Color(1, 1, 1, 0.596078)
 self_modulate = Color(1, 1, 1, 0.392157)
 texture_filter = 2
-scale = Vector2(0.251019, 0.25023)
+scale = Vector2(0.35, 0.348)
 sprite_frames = SubResource("SpriteFrames_fdky7")
 animation = &"Idle"
-frame_progress = 0.824597
-
-[node name="DestroyTimer" type="Timer" parent="."]
-unique_name_in_owner = true
+frame_progress = 0.264473
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -178,10 +109,3 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8quvn")
-
-[node name="PointLight2D" type="PointLight2D" parent="CollisionShape2D"]
-scale = Vector2(0.0737343, 0.0685181)
-color = Color(0, 0.631373, 0.686275, 1)
-texture = ExtResource("3_tadfw")
-
-[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

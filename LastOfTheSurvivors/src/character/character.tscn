@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://n1xld431jo4h"]
+[gd_scene load_steps=168 format=3 uid="uid://n1xld431jo4h"]
 
 [ext_resource type="Script" path="res://src/character/character.gd" id="1_37qod"]
 [ext_resource type="Texture2D" uid="uid://w5r0cdsuqh4y" path="res://resources/textures/Player/GetHit/spr_NecromancerGetHit_strip9.png" id="2_m67ee"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dygri85vc1ehq" path="res://resources/textures/GUI/health_bar_progress.png" id="9_gbuj6"]
 [ext_resource type="AudioStream" uid="uid://gx58xr238mhy" path="res://resources/audio/SoundEffect/Victory.wav" id="10_gvmsg"]
 [ext_resource type="AudioStream" uid="uid://ber5rdwaolgot" path="res://resources/audio/SoundEffect/Lose.ogg" id="11_3bdrj"]
+[ext_resource type="Texture2D" uid="uid://djtvdcl18wwnv" path="res://resources/textures/GUI/10 Border 01.png" id="13_0ur7c"]
 [ext_resource type="AudioStream" uid="uid://bx7olwv4c7fi7" path="res://resources/audio/SoundEffect/get_damage.ogg" id="14_p621d"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="15_8yrhf"]
 
@@ -1242,12 +1243,6 @@ wait_time = 3.0
 unique_name_in_owner = true
 wait_time = 0.2
 
-[node name="JavalinBase" type="Node2D" parent="Attack"]
-unique_name_in_owner = true
-
-[node name="AuraWaterSpawn" type="Timer" parent="Attack"]
-unique_name_in_owner = true
-
 [node name="SplashTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
 
@@ -1333,16 +1328,27 @@ tint_progress = Color(0.847059, 0, 0.227451, 1)
 unique_name_in_owner = true
 process_mode = 2
 layout_mode = 0
-offset_left = 800.0
-offset_top = 50.0
-offset_right = 1020.0
-offset_bottom = 300.0
+offset_left = 790.0
+offset_top = 61.0
+offset_right = 1010.0
+offset_bottom = 311.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/LevelUpPanel"]
+visible = false
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(110.5, 132)
+scale = Vector2(4.04688, 4.78125)
+texture = ExtResource("13_0ur7c")
+hframes = 5
+vframes = 4
+frame = 14
 
 [node name="LevelUpLabel" type="Label" parent="GUILayer/GUI/LevelUpPanel"]
 layout_mode = 0
 offset_right = 220.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 24
 text = "Level Up"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1364,10 +1370,18 @@ volume_db = -36.02
 unique_name_in_owner = true
 process_mode = 2
 layout_mode = 0
-offset_left = 448.0
-offset_top = -272.0
-offset_right = 668.0
-offset_bottom = -22.0
+offset_left = 449.0
+offset_top = -306.0
+offset_right = 669.0
+offset_bottom = -56.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/DeathPanel"]
+position = Vector2(110, 125)
+scale = Vector2(4.26563, 4.875)
+texture = ExtResource("13_0ur7c")
+hframes = 5
+vframes = 4
+frame = 14
 
 [node name="ResultLabel" type="Label" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
@@ -1375,6 +1389,7 @@ layout_mode = 0
 offset_right = 220.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 24
 text = "Result"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1414,16 +1429,25 @@ label_text = "Menu"
 unique_name_in_owner = true
 process_mode = 2
 layout_mode = 0
-offset_left = 216.0
-offset_top = -270.0
-offset_right = 436.0
-offset_bottom = -21.0
+offset_left = 172.0
+offset_top = -307.0
+offset_right = 392.0
+offset_bottom = -58.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/PausePanel"]
+position = Vector2(110, 125)
+scale = Vector2(4.26563, 4.875)
+texture = ExtResource("13_0ur7c")
+hframes = 5
+vframes = 4
+frame = 14
 
 [node name="PauseLabel" type="Label" parent="GUILayer/GUI/PausePanel"]
 layout_mode = 0
 offset_right = 220.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 24
 text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1554,7 +1578,6 @@ pitch_scale = 0.85
 [connection signal="timeout" from="Attack/TrapTimer" to="." method="_on_trap_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer" to="." method="_on_tornado_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]
-[connection signal="timeout" from="Attack/AuraWaterSpawn" to="." method="_on_aura_water_spawn_timeout"]
 [connection signal="timeout" from="Attack/SplashTimer" to="." method="_on_splash_timer_timeout"]
 [connection signal="timeout" from="Attack/StickyGreenBulletAttackTimer" to="." method="_on_sticky_green_bullet_attack_timer_timeout"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

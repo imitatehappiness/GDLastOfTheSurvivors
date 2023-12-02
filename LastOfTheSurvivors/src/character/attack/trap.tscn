@@ -1,10 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://cxpr5lrgc0b71"]
+[gd_scene load_steps=35 format=3 uid="uid://cxpr5lrgc0b71"]
 
 [ext_resource type="Script" path="res://src/character/attack/trap.gd" id="1_yn7xv"]
 [ext_resource type="Texture2D" uid="uid://c3pvwpf26vhlo" path="res://resources/textures/Items/Weapons/trap/attack.png" id="2_ofshg"]
 [ext_resource type="Texture2D" uid="uid://ck08xcaf3b3nr" path="res://resources/textures/Items/Weapons/trap/preparation.png" id="3_wwfd2"]
 [ext_resource type="AudioStream" uid="uid://ddqctmr7e7log" path="res://resources/audio/SoundEffect/attack/trap_attack.ogg" id="4_yyryj"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="5_tphsu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2jg"]
 atlas = ExtResource("2_ofshg")
@@ -188,7 +187,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12br6"]
-radius = 54.5454
+radius = 16.9808
 
 [sub_resource type="Animation" id="Animation_vslow"]
 length = 0.7
@@ -294,18 +293,19 @@ _data = {
 
 [node name="Trap" type="Area2D" groups=["attack"]]
 top_level = true
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.0555567, 0.0555567)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_yn7xv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 1.806)
+scale = Vector2(1, 0.903)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Attack"
+frame_progress = 0.00150143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.06, 1.06)
+scale = Vector2(1.6, 1.6)
 shape = SubResource("CircleShape2D_12br6")
 disabled = true
 
@@ -318,11 +318,6 @@ autoplay = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.239314, 0.224407)
-color = Color(0.698039, 0.247059, 0.796078, 1)
-texture = ExtResource("5_tphsu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")

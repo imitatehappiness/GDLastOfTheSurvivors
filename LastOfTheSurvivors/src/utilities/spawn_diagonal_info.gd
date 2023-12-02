@@ -7,3 +7,4 @@ class_name Spawn_diagonal_information
 @export var enemy : Resource
 @export var enemy_num : int
 @export var time_free : int
+@export var space : int

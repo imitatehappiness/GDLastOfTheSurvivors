@@ -155,7 +155,7 @@ const UPGRADES = {
 	"sticky_green_bullet3": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "Damage + 2, health + 2, finish_radius + 0.4",
+		"details": "Damage + 2, health + 2, finish_radius + 0.2",
 		"level": "Level: 3",
 		"prerequisite": ["sticky_green_bullet2"],
 		"type": "weapon"
@@ -163,7 +163,7 @@ const UPGRADES = {
 	"sticky_green_bullet4": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "Damage + 2, health + 5, finish_radius + 0.4",
+		"details": "Damage + 2, health + 5, finish_radius + 0.2",
 		"level": "Level: 4",
 		"prerequisite": ["sticky_green_bullet3"],
 		"type": "weapon"

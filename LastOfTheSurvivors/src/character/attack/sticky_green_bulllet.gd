@@ -36,14 +36,14 @@ func _ready():
 		3:
 			speed = 120
 			damage = 6
-			finish_radius = 1.4 * (1 + character.spell_size)
+			finish_radius = 1.2 * (1 + character.spell_size)
 			orbit_radius = 100
 			orbit_speed = 3.0
 			health = 10
 		4:
 			speed = 120
 			damage = 8
-			finish_radius = 1.8 * (1 + character.spell_size)
+			finish_radius = 1.4 * (1 + character.spell_size)
 			orbit_radius = 100
 			orbit_speed = 3.0 
 			health = 15

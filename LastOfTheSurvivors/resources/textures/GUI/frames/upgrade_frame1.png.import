@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://voe4y3s0aevf"
-path="res://.godot/imported/ItemOptionBG_Pressed_buy.png-15da613cec26f7d6f2fee3ee6ee928ca.ctex"
+uid="uid://ql06b2g5l40e"
+path="res://.godot/imported/upgrade_frame1.png-c01656afe1057624a48928aeb7765265.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/GUI/ItemOptionBG_Pressed_buy.png"
-dest_files=["res://.godot/imported/ItemOptionBG_Pressed_buy.png-15da613cec26f7d6f2fee3ee6ee928ca.ctex"]
+source_file="res://resources/textures/GUI/frames/upgrade_frame1.png"
+dest_files=["res://.godot/imported/upgrade_frame1.png-c01656afe1057624a48928aeb7765265.ctex"]
 
 [params]
 

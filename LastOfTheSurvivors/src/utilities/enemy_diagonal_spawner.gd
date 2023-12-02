@@ -30,7 +30,7 @@ func spawn():
 			else:
 				y -= character.get_viewport_rect().size.y
 			
-			x += 110 * counter
+			x += spawn_info.space * counter
 
 			if not (x > max_distance or x < -max_distance or y > max_distance or y< -max_distance):
 				var enemy_spawn = new_enemy.instantiate()

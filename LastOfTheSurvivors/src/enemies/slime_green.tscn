@@ -1,25 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://de053yh13u0dm"]
+[gd_scene load_steps=17 format=3 uid="uid://de053yh13u0dm"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_xk0o2"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_jm7mv"]
-[ext_resource type="Texture2D" uid="uid://l24iv2alyvf0" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death1.png" id="3_1gclh"]
-[ext_resource type="Texture2D" uid="uid://bdccehr6tugxs" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death2.png" id="4_55cit"]
 [ext_resource type="Texture2D" uid="uid://bwuul2aw68tfr" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death3.png" id="5_hyu02"]
 [ext_resource type="Texture2D" uid="uid://bl88lypwd3kgv" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death4.png" id="6_r78ig"]
 [ext_resource type="Texture2D" uid="uid://baoifudpi2qy8" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death5.png" id="7_yx5aa"]
 [ext_resource type="Texture2D" uid="uid://cw3v2mfunmwgd" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death6.png" id="8_q8u74"]
 [ext_resource type="Texture2D" uid="uid://hngblib7xt70" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death7.png" id="9_87wmr"]
-[ext_resource type="Texture2D" uid="uid://bph2han24ol8h" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death8.png" id="10_n2l8u"]
-[ext_resource type="Texture2D" uid="uid://bm0u20fqqmo8k" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle1.png" id="14_5xvge"]
 [ext_resource type="Texture2D" uid="uid://ckyawxqoqkndk" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle2.png" id="15_6ojwf"]
 [ext_resource type="Texture2D" uid="uid://8312xyc4wr8q" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle3.png" id="16_8m6ah"]
-[ext_resource type="Texture2D" uid="uid://dr04abegulkqa" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Idle/png/Slime_Idle4.png" id="17_spn3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ot27f"]
 size = Vector2(3.13374, 6.02327)
 
 [sub_resource type="Animation" id="Animation_p7uji"]
-length = 1.1
+length = 0.571429
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,10 +21,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,26 +45,14 @@ tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.4, 0.9),
+"times": PackedFloat32Array(0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0823529)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PointLight2D:color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 0.965936),
-"update": 0,
-"values": [Color(0, 0.847059, 0.305882, 1), Color(0, 0.847059, 0.305882, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_rxbvk"]
-length = 0.272727
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,10 +60,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0909091, 0.181818),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -97,7 +79,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ha4vk"]
-length = 0.571429
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -106,10 +87,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -135,12 +116,6 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_55cit")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_hyu02")
-}, {
-"duration": 1.0,
 "texture": ExtResource("6_r78ig")
 }, {
 "duration": 1.0,
@@ -151,44 +126,29 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_87wmr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_n2l8u")
 }],
 "loop": false,
 "name": &"Death",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_1gclh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_55cit")
-}, {
 "duration": 1.0,
 "texture": ExtResource("5_hyu02")
 }],
 "loop": false,
 "name": &"Hit",
-"speed": 11.0
+"speed": 1.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_5xvge")
-}, {
 "duration": 1.0,
 "texture": ExtResource("15_6ojwf")
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_8m6ah")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_spn3s")
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htj1b"]
@@ -215,25 +175,18 @@ disabled = true
 [node name="TransformAdjustment" parent="." index="1"]
 position = Vector2(0.798882, -8.23953)
 
-[node name="PointLight2D" type="PointLight2D" parent="TransformAdjustment" index="0"]
-position = Vector2(-0.999947, 7.26689)
-scale = Vector2(0.019753, 0.0195376)
-color = Color(0, 0.847059, 0.305882, 1)
-texture = ExtResource("2_jm7mv")
-
-[node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
+[node name="AnimationPlayer" parent="TransformAdjustment" index="0"]
 autoplay = "Walk"
 libraries = {
 "": SubResource("AnimationLibrary_3dcus")
 }
 
-[node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
+[node name="AnimatedSprite2D" parent="TransformAdjustment" index="1"]
 position = Vector2(9.53674e-07, -15.4491)
 scale = Vector2(1.24895, 1.50117)
 sprite_frames = SubResource("SpriteFrames_vyb65")
 animation = &"Walk"
 autoplay = "Walk"
-frame_progress = 0.264183
 flip_h = true
 
 [node name="HurtBox" parent="." index="2"]

@@ -34,7 +34,6 @@ var attacks_preload = {
 @onready var tornado_attack_timer = get_node("%TornadoAttackTimer")
 @onready var javelin_base = get_node("%JavalinBase")
 @onready var aura_water_node = get_node("%AuraWater")
-@onready var aura_water_timer = get_node("%AuraWaterSpawn")
 @onready var splash_timer = get_node("%SplashTimer")
 @onready var sticky_green_bulllet_timer = get_node("%StickyGreenBulletAttackTimer")
 @onready var skipjack_timer = get_node("%SkipjackTimer")
@@ -81,7 +80,6 @@ var tornado_level = 0
 
 #Aura Water
 var aura_water_level = 0
-var can_spawn_aura_water = false
 
 #Splash
 var splash_level = 1
@@ -176,7 +174,6 @@ func _ready():
 	version_label.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
-	
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)
@@ -262,10 +259,6 @@ func attack():
 		if tornado_timer.is_stopped():
 			tornado_timer.start()
 
-	# aura_water	
-	if aura_water_level > 0 and can_spawn_aura_water:
-		aura_water_timer.start()
-
 	# splash_level
 	if splash_level > 0:
 		splash_timer.wait_time = splash_attack_speed * (1 - spell_cooldown)
@@ -346,12 +339,6 @@ func spawn_aura_water():
 	var aura_water_spawn = attacks_preload["aura_water"].instantiate()
 	aura_water_spawn.level = aura_water_level
 	aura_water_node.add_child(aura_water_spawn)
-	can_spawn_aura_water = false
-
-# Обработчик таймера для спавна aura_wate
-func _on_aura_water_spawn_timeout():
-	can_spawn_aura_water = true
-	spawn_aura_water()
 
 func _on_splash_timer_timeout():
 	var new_splash_right = attacks_preload["splash"].instantiate()
@@ -485,7 +472,7 @@ func level_up():
 	level_up_sound.play()
 	level_label.text = str("LV: ", experience_level)
 	var tween = level_panel.create_tween()
-	tween.tween_property(level_panel, "position", Vector2(220, 50), 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(level_panel, "position", Vector2(210, 60), 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
 	level_panel.visible = true
 	var options = 0
@@ -541,16 +528,16 @@ func upgrade_character(upgrade):
 		# ====================================== aura_water
 		"aura_water1":
 			aura_water_level = 1
-			can_spawn_aura_water = true
+			spawn_aura_water()
 		"aura_water2":
 			aura_water_level = 2
-			can_spawn_aura_water = true
+			spawn_aura_water()
 		"aura_water3":
 			aura_water_level = 3
-			can_spawn_aura_water = true
+			spawn_aura_water()
 		"aura_water4":
 			aura_water_level = 4
-			can_spawn_aura_water = true
+			spawn_aura_water()
 		# ====================================== tornado
 		"tornado1":
 			tornado_level = 1
@@ -624,6 +611,8 @@ func upgrade_character(upgrade):
 		# ====================================== tome
 		"tome1","tome2","tome3","tome4":
 			spell_size += 0.10
+			if aura_water_level > 0:
+				spawn_aura_water()
 		# ====================================== scroll
 		"scroll1","scroll2","scroll3","scroll4":
 			spell_cooldown += 0.05
@@ -732,10 +721,14 @@ func calculate_experience(gem_experience):
 # Вычисляет верхний предел опыта для следующего уровня.
 func calculate_experience_cap():
 	var exp_cap = experience_level
-	if experience_level < 25:
+	if experience_level < 5:
 		exp_cap = experience_level * 5
-	else: 
+	elif experience_level < 15:
+		exp_cap = experience_level * 7
+	elif experience_level < 25:
 		exp_cap = experience_level * 10
+	else: 
+		exp_cap = experience_level * 15
 	
 	return exp_cap
 
@@ -805,4 +798,3 @@ func _on_invulnerability_timer_timeout():
 
 func _on_invulnerability_free_timer_timeout():
 	invulnerability = false
-
