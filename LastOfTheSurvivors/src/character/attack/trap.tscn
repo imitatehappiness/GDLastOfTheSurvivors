@@ -302,7 +302,7 @@ script = ExtResource("1_yn7xv")
 scale = Vector2(1.4, 1.264)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Attack"
-frame_progress = 0.3119
+frame_progress = 0.969518
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.7, 1.7)

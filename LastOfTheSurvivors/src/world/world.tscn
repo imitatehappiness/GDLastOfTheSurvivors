@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=38 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://src/utilities/spawn_circle_info.gd" id="14_sjq2m"]
 [ext_resource type="Script" path="res://src/utilities/spawn_diagonal_info.gd" id="15_jowxg"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="17_gvdv3"]
-[ext_resource type="PackedScene" uid="uid://c2colp3ri7vai" path="res://src/objects/experience_gem.tscn" id="18_7syef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcvhc"]
 texture = ExtResource("1_cvuiv")
@@ -10223,9 +10222,6 @@ spawn_info = SubResource("Resource_18gsh")
 spawn_info = SubResource("Resource_duvbl")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
-
-[node name="ExperienceGem" parent="Loot" instance=ExtResource("18_7syef")]
-experience = 100
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.2

@@ -19,6 +19,7 @@ var character_store_upgrades = {
 }
 
 func _ready():
+	check_config()
 	load_character_store_upgrades()
 	load_gold()
 	load_version()
@@ -27,15 +28,11 @@ func save_gold():
 	config.load(config_path_file)
 	config.set_value("GOLD", "gold", str(gold))
 	config.save(config_path_file)
-	print(gold)
+
 	
 func load_gold():
 	config.load(config_path_file)
 	gold = int(config.get_value("GOLD", "gold", "-1"))
-	
-	if gold == -1:
-		gold = 100
-		save_gold()
 
 func load_version():
 	config.load(config_path_file)
@@ -49,14 +46,13 @@ func set_gold(value):
 
 func update_gold(value):
 	gold += value
-	print(gold)
 
 func get_store_item_level(item_id):
 	config.load(config_path_file)
-	return config.get_value("STORE_ITEM_" + item_id, "level", "1")
+	return str(config.get_value("STORE_ITEM_" + item_id, "level", "1"))
 
 func save_store_item_level(item_id, new_level):
-	config.set_value("STORE_ITEM_" + item_id, "level", new_level)
+	config.set_value("STORE_ITEM_" + item_id, "level", str(new_level))
 	config.save(config_path_file)
 	
 func get_store_item(item_id):
@@ -92,4 +88,24 @@ func get_character_store_upgrades():
 	return character_store_upgrades
 
 func get_store_item_max_level(item_id):
-	return config.get_value("STORE_ITEM_" + item_id, "max_level", 2)
+	return int(config.get_value("STORE_ITEM_" + item_id, "max_level", "2"))
+
+func check_config():
+	config.load(config_path_file)
+	gold = int(config.get_value("GOLD", "gold", "-1"))
+	if gold == -1: 
+		# Проверка и установка значений по умолчанию для каждого раздела и ключа
+		config.set_value("GOLD", "gold", "300")
+		config.set_value("VERSION", "version", "1")
+		
+		for i in range(5):  # STORE_ITEM_0 до STORE_ITEM_4
+			config.set_value( "STORE_ITEM_" + str(i), "level", "1")
+			config.set_value( "STORE_ITEM_" + str(i), "max_level", "5")
+
+		config.set_value("STORE_ITEM_9", "level", "1")
+		config.set_value( "STORE_ITEM_9", "max_level", "1")
+
+		config.set_value("STORE_ITEM_10", "level", "1")
+		config.set_value("STORE_ITEM_10", "max_level", "1")
+
+		config.save(config_path_file)
