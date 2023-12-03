@@ -34,4 +34,7 @@
 	5. [x] Update store (spell cooldown, spell size)
 [02.12.2023]
 	1. [x] optimization	
+[03.12.2023]
+	1. [x] fix config	
+
 //------------------------------

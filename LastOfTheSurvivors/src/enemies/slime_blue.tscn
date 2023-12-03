@@ -212,10 +212,10 @@ color = Color(0, 0.666667, 0.666667, 0.333333)
 texture = ExtResource("3_niusy")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
-autoplay = "Walk"
 libraries = {
 "": SubResource("AnimationLibrary_3dcus")
 }
+autoplay = "Walk"
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
 sprite_frames = SubResource("SpriteFrames_vyb65")

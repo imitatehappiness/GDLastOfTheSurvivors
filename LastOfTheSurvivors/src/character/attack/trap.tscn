@@ -187,7 +187,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12br6"]
-radius = 16.9808
+radius = 22.4995
 
 [sub_resource type="Animation" id="Animation_vslow"]
 length = 0.7
@@ -299,13 +299,13 @@ collision_mask = 0
 script = ExtResource("1_yn7xv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 0.903)
+scale = Vector2(1.4, 1.264)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Attack"
-frame_progress = 0.00150143
+frame_progress = 0.3119
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.6, 1.6)
+scale = Vector2(1.7, 1.7)
 shape = SubResource("CircleShape2D_12br6")
 disabled = true
 

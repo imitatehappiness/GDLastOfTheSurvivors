@@ -1380,8 +1380,8 @@ offset_right = 669.0
 offset_bottom = -56.0
 
 [node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/DeathPanel"]
-position = Vector2(110, 125)
-scale = Vector2(4.26563, 4.875)
+position = Vector2(112.75, 125)
+scale = Vector2(4.17969, 4.875)
 texture = ExtResource("13_0ur7c")
 hframes = 5
 vframes = 4
@@ -1439,8 +1439,8 @@ offset_right = 392.0
 offset_bottom = -58.0
 
 [node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/PausePanel"]
-position = Vector2(110, 125)
-scale = Vector2(4.26563, 4.875)
+position = Vector2(113.25, 125)
+scale = Vector2(4.16406, 4.875)
 texture = ExtResource("13_0ur7c")
 hframes = 5
 vframes = 4

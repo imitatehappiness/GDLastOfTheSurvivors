@@ -2,12 +2,11 @@ extends Node
 
 signal purchase()
 
-var config
-var version
-
-var config_path_file = "res://config.cfg"
+const config_path_file = "res://config.cfg"
+var config = ConfigFile.new()
 
 var gold : int = 0
+var version : int = 0
 
 var character_store_upgrades = {
 	"health": 0,
@@ -20,26 +19,27 @@ var character_store_upgrades = {
 }
 
 func _ready():
-	config = ConfigFile.new()
 	load_character_store_upgrades()
 	load_gold()
 	load_version()
 
 func save_gold():
-	config.set_value("GOLD", "gold", gold)
+	config.load(config_path_file)
+	config.set_value("GOLD", "gold", str(gold))
 	config.save(config_path_file)
+	print(gold)
 	
 func load_gold():
 	config.load(config_path_file)
-	gold = config.get_value("GOLD", "gold", 0)
+	gold = int(config.get_value("GOLD", "gold", "-1"))
 	
-	if gold == 0:
-		gold = 1
+	if gold == -1:
+		gold = 100
 		save_gold()
-	
+
 func load_version():
 	config.load(config_path_file)
-	version = config.get_value("VERSION", "version", 0)
+	version = int(config.get_value("VERSION", "version", "0"))
 
 func get_gold():
 	return gold
@@ -49,6 +49,7 @@ func set_gold(value):
 
 func update_gold(value):
 	gold += value
+	print(gold)
 
 func get_store_item_level(item_id):
 	config.load(config_path_file)
@@ -89,7 +90,6 @@ func save_character_store_upgrades():
 
 func get_character_store_upgrades():
 	return character_store_upgrades
-
 
 func get_store_item_max_level(item_id):
 	return config.get_value("STORE_ITEM_" + item_id, "max_level", 2)

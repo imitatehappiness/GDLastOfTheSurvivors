@@ -3,6 +3,9 @@ extends CharacterBody2D
 var time = 0
 var game_time_limit = 60*7
 
+
+var is_live = true
+
 var movement_speed = 90.0 + Global.get_character_store_upgrades()["speed"]
 var max_health = 50 + Global.get_character_store_upgrades()["health"]
 var health = max_health
@@ -33,7 +36,7 @@ var attacks_preload = {
 @onready var tornado_timer = get_node("%TornadoTimer")
 @onready var tornado_attack_timer = get_node("%TornadoAttackTimer")
 @onready var aura_water_node = get_node("%AuraWater")
-@onready var sticky_green_bulllet_node = get_node("%AuraWater")
+@onready var sticky_green_bulllet_node = get_node("%StickyGreenBullet")
 @onready var splash_timer = get_node("%SplashTimer")
 @onready var sticky_green_bulllet_timer = get_node("%StickyGreenBulletAttackTimer")
 @onready var skipjack_timer = get_node("%SkipjackTimer")
@@ -364,7 +367,6 @@ func _on_sticky_green_bullet_attack_timer_timeout():
 		sticky_green_bulllet_timer.start()
 		sticky_green_bullet_ammo -= 1
 	
-	
 func _on_skipjack_timer_timeout():
 	skipjack_ammo += skipjack_base_ammo + additional_attack
 	skipjack_attack_timer.start()
@@ -440,28 +442,31 @@ func respawn_state():
 
 # Cостояние win | lose
 func end_state():
-	if state == DEATH:
-		$HurtBox.queue_free()
-		animation_character.play("Death")
-		await animation_character.animation_finished	
+	if is_live:
+		is_live = false
+		if state == DEATH:
+			$HurtBox.queue_free()
+			animation_character.play("Death")
+			await animation_character.animation_finished	
+			
+		death_panel.visible = true
 		
-	death_panel.visible = true
-	
-	var tween = death_panel.create_tween()
-	tween.tween_property(death_panel, "position", Vector2(210, 60), 0.3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
-	if state == WIN:
-		result_label.text = "You Win"
-		victory_sound.play()
-	else:
-		result_label.text = "You Lose"
-		lose_sound.play()
-	get_tree().paused = true
-	
-	gold_label.text = "Gold collected: " + str(gold)
-
-	Global.update_gold(gold)
-	Global.save_gold()
+		var tween = death_panel.create_tween()
+		tween.tween_property(death_panel, "position", Vector2(210, 60), 0.3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.play()
+		if state == WIN:
+			result_label.text = "You Win"
+			victory_sound.play()
+		else:
+			result_label.text = "You Lose"
+			lose_sound.play()
+		get_tree().paused = true
+		
+		gold_label.text = "Gold collected: " + str(gold)
+		
+		print("total: ", gold)
+		Global.update_gold(gold)
+		Global.save_gold()
 
 # Cостояние pause
 func pause_state():
@@ -727,14 +732,14 @@ func calculate_experience(gem_experience):
 # Вычисляет верхний предел опыта для следующего уровня.
 func calculate_experience_cap():
 	var exp_cap = experience_level
-	if experience_level < 5:
+	if experience_level < 10:
 		exp_cap = experience_level * 5
-	elif experience_level < 15:
+	elif experience_level < 20:
 		exp_cap = experience_level * 7
 	elif experience_level < 25:
-		exp_cap = experience_level * 10
+		exp_cap = experience_level * 9
 	else: 
-		exp_cap = experience_level * 15
+		exp_cap = experience_level * 12
 	
 	return exp_cap
 
