@@ -2,15 +2,12 @@ extends CharacterBody2D
 
 @export var movement_speed = 40.0
 @export var health = 10
-@export var knockback_recovery = 0.5
 @export var damage = 3
 @export var experience = 1
 @export var arrow_scale = 1.4
 @export var ammo = 2
 @export var arrow_damage = 20
 @export var coins = 15
-
-var knockback: Vector2 = Vector2.ZERO
 
 @export_group("internal Nodes")
 @export var transform_adjustment: Node2D
@@ -50,15 +47,16 @@ var state: int = WALK:
 			DAMAGE: 
 				damage_state()
 
+signal death()
+
 func _ready():
+	connect("death", Callable(character, "enemy_death"))
 	arrow_attack_timer.set_wait_time(randi() % 4 + 1)
 	hit_box.damage = damage
 	arrow_attack_timer.start()
 
 func _physics_process(_delta):
 	if state != DEATH:
-		knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
-		
 		if state != DAMAGE and state != ATTACK:
 			state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
 
@@ -67,10 +65,8 @@ func _physics_process(_delta):
 			direction = global_position.direction_to(character.global_position)
 			
 		velocity = direction * movement_speed
-		velocity += knockback
 		
 		set_character_facing_direction(direction)
-		
 		move_and_slide()
 
 
@@ -110,6 +106,7 @@ func damage_state():
 		$HitBox/CollisionShape2D.call_deferred("set", "disabled", true)
 		$CollisionShape2D.call_deferred("set", "disabled", true)
 		animation.play("Death")
+		emit_signal("death")
 		state = DEATH
 	else:
 		if state != ATTACK:

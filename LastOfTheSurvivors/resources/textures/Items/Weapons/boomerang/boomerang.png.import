@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx30ylksij77v"
-path="res://.godot/imported/scroll_1.png-fc5627fe459638fa99c24a36a949413a.ctex"
+uid="uid://b6aahbh3sc8u7"
+path="res://.godot/imported/boomerang.png-64a125283cfb53974644aaa5d5828a85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Upgrades/scroll_1.png"
-dest_files=["res://.godot/imported/scroll_1.png-fc5627fe459638fa99c24a36a949413a.ctex"]
+source_file="res://resources/textures/Items/Weapons/boomerang/boomerang.png"
+dest_files=["res://.godot/imported/boomerang.png-64a125283cfb53974644aaa5d5828a85.ctex"]
 
 [params]
 

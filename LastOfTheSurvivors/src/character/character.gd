@@ -3,7 +3,6 @@ extends CharacterBody2D
 var time = 0
 var game_time_limit = 60*7
 
-
 var is_live = true
 
 var movement_speed = 90.0 + Global.get_character_store_upgrades()["speed"]
@@ -14,6 +13,7 @@ var experience = 0
 var experience_level = 1
 var collected_experience = 0
 
+var enemy_death_counter = 0
 var gold = 0
 #Attacks
 var attacks_preload = {
@@ -142,8 +142,7 @@ var enemy_close = []
 @onready var lose_sound = get_node("%LoseSound")
 
 @onready var pause_panel = get_node("%PausePanel")
-@onready var gold_label = get_node("%GoldLabel")
-@onready var version_label = get_node("%VersionLabel")
+
 
 enum {
 	IDLE,
@@ -174,9 +173,8 @@ var state: int = IDLE:
 			RESPAWN:
 				respawn_state()
 
-
 func _ready():
-	version_label.text = "version: " + str(Global.version)
+	%VersionLabel.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
 
@@ -185,7 +183,6 @@ func _ready():
 	_on_hurt_box_hurt(0, 0, 0)
 
 func _physics_process(_delta):
-	
 	$GUILayer/GUI/FPSLabel.text = "PFS: " + str(Engine.get_frames_per_second())
 	if Input.get_action_strength("pause"):
 		state = PAUSE
@@ -462,8 +459,8 @@ func end_state():
 			lose_sound.play()
 		get_tree().paused = true
 		
-		gold_label.text = "Gold collected: " + str(gold)
-		
+		%GoldLabel.text = "Gold collected: " + str(gold)
+		%TotalKilledLabel.text = "Enemy Killed: " + str(enemy_death_counter)
 		print("total: ", gold)
 		Global.update_gold(gold)
 		Global.save_gold()
@@ -624,8 +621,8 @@ func upgrade_character(upgrade):
 				spawn_aura_water()
 			if sticky_green_bullet_level > 0:
 				spawn_sticky_green_bulllet()
-		# ====================================== scroll
-		"scroll1","scroll2","scroll3","scroll4":
+		# ====================================== necklace
+		"necklace1","necklace2","necklace3","necklace4":
 			spell_cooldown += 0.05
 		# ====================================== ring
 		"ring1","ring2", "ring3","ring4":
@@ -809,3 +806,8 @@ func _on_invulnerability_timer_timeout():
 
 func _on_invulnerability_free_timer_timeout():
 	invulnerability = false
+
+
+func enemy_death():
+	enemy_death_counter += 1
+	$GUILayer/GUI/DeathEnemy/DeathEnemyLabel.text = str(enemy_death_counter)

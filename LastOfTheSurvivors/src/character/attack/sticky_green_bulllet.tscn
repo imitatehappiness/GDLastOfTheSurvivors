@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://duc57kfc3hkep"]
+[gd_scene load_steps=19 format=3 uid="uid://duc57kfc3hkep"]
 
 [ext_resource type="Script" path="res://src/character/attack/sticky_green_bulllet.gd" id="1_bwixp"]
 [ext_resource type="Texture2D" uid="uid://ctr75wa47e1qs" path="res://resources/textures/Items/Weapons/slime_green.png" id="2_7p1fi"]
+[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_fasaa"]
 [ext_resource type="AudioStream" uid="uid://corfafv61yjjj" path="res://resources/audio/SoundEffect/attack/ice.wav" id="4_oupog"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkdqx"]
@@ -184,3 +185,10 @@ root_node = NodePath("../CollisionShape2D")
 libraries = {
 "": SubResource("AnimationLibrary_kuqpi")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9.53674e-07, 2.86102e-06)
+scale = Vector2(0.02, 0.02)
+color = Color(0.00392157, 0.87451, 0, 1)
+energy = 2.0
+texture = ExtResource("4_fasaa")

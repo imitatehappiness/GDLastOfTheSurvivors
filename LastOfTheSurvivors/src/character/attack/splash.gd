@@ -4,7 +4,6 @@ var level = 1
 var damage = 5 
 var attack_size = 1.1 
 var direction = 1
-
 @onready var character = get_tree().get_first_node_in_group("character")
 
 func _ready():
@@ -33,7 +32,6 @@ func _ready():
 		$AnimatedSprite2D.flip_h = true
 		
 	$AnimatedSprite2D.play("Idle")
-
 
 func _on_timer_timeout():
 	queue_free()

@@ -2,14 +2,10 @@ extends CharacterBody2D
 
 @export var movement_speed = 80
 @export var max_health = 10
-
-@export var knockback_recovery = 0.5
 @export var damage = 5
 @export var sword_damage = 20
 @export var experience = 1
 @export var coins = 10
-
-var knockback: Vector2 = Vector2.ZERO
 
 var health
 
@@ -49,15 +45,16 @@ var state: int = WALK:
 			DAMAGE: 
 				damage_state()
 
+signal death()
+
 func _ready():
+	connect("death", Callable(character, "enemy_death"))
 	health = max_health 
 	$HitBox.damage = damage
 	$TransformAdjustment/SwordHitBox.damage = sword_damage
 
 func _physics_process(_delta):
 	if state != DEATH:
-		knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
-		
 		if state != DAMAGE and state != ATTACK:
 			state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
 		
@@ -66,7 +63,6 @@ func _physics_process(_delta):
 			direction = global_position.direction_to(character.global_position)
 		
 		velocity = direction * movement_speed
-		velocity += knockback
 		
 		set_character_facing_direction(direction)
 		move_and_slide()
@@ -103,6 +99,7 @@ func damage_state():
 		$HitBox/CollisionShape2D.call_deferred("set", "disabled", true)
 		$CollisionShape2D.call_deferred("set", "disabled", true)
 		animation.play("Death")
+		emit_signal("death")
 		state = DEATH
 
 	else:
@@ -120,7 +117,6 @@ func set_character_facing_direction(direction: Vector2):
 
 
 func _on_hurt_box_hurt(damage, _angle, _knockback_amount):
-	#$GetDamageSound.play()
 	get_damage_label.text = str(damage)
 	get_damage_label.modulate.a = 255
 	health -= damage

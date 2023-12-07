@@ -418,10 +418,10 @@ energy = 0.7
 texture = ExtResource("3_5skfo")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
-autoplay = "Walk"
 libraries = {
 "": SubResource("AnimationLibrary_3dcus")
 }
+autoplay = "Walk"
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
 position = Vector2(3.56126, -63.0596)

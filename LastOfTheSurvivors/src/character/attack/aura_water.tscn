@@ -1,21 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnqufos6yecfm"]
+[gd_scene load_steps=22 format=3 uid="uid://cnqufos6yecfm"]
 
 [ext_resource type="Script" path="res://src/character/attack/aura_water.gd" id="1_2r7gh"]
 [ext_resource type="Texture2D" uid="uid://bc7gdurqwrxsq" path="res://resources/textures/Items/Weapons/aura_water.png" id="2_cv6h7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2wsn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjqju"]
 atlas = ExtResource("2_cv6h7")
 region = Rect2(0, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_50nxb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdvvh"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ckma"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m80mq"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u3uf"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7sk"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc753"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wojxk"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jklh"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmjrn"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2o0o"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr5fh"]
+atlas = ExtResource("2_cv6h7")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7ip5"]
 atlas = ExtResource("2_cv6h7")
 region = Rect2(384, 384, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sl447"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pou5"]
 atlas = ExtResource("2_cv6h7")
 region = Rect2(576, 384, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivlsy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b8hn"]
 atlas = ExtResource("2_cv6h7")
 region = Rect2(768, 384, 192, 192)
 
@@ -23,24 +67,57 @@ region = Rect2(768, 384, 192, 192)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2wsn")
+"texture": SubResource("AtlasTexture_xjqju")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_50nxb")
+"texture": SubResource("AtlasTexture_xdvvh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sl447")
+"texture": SubResource("AtlasTexture_2ckma")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ivlsy")
+"texture": SubResource("AtlasTexture_m80mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u3uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy7sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc753")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wojxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jklh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmjrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2o0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr5fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7ip5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pou5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b8hn")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 14.0
 }]
 
 [sub_resource type="Animation" id="Animation_8uk2s"]
-length = 0.8
+length = 1.07143
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,10 +126,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0714286, 0.142857, 0.214286, 0.285714, 0.357143, 0.428571, 0.5, 0.571429, 0.642857, 0.714286, 0.785714, 0.857143, 0.928571, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -85,7 +162,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8quvn"]
-radius = 21.0238
+radius = 28.0179
 
 [node name="AuraWater" type="Area2D" groups=["attack"]]
 z_index = -1
@@ -94,13 +171,12 @@ collision_mask = 4
 script = ExtResource("1_2r7gh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.596078)
-self_modulate = Color(1, 1, 1, 0.392157)
+modulate = Color(1, 1, 1, 0.290196)
 texture_filter = 2
-scale = Vector2(0.35, 0.348)
+scale = Vector2(0.5, 0.497)
 sprite_frames = SubResource("SpriteFrames_fdky7")
 animation = &"Idle"
-frame_progress = 0.264473
+frame_progress = 0.986745
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

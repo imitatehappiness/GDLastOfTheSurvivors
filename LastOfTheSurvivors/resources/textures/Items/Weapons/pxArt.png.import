@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c02st4ema2rti"
-path="res://.godot/imported/shield_01c.png-37cc8c6c8e1a619acf246b6a337902e1.ctex"
+uid="uid://cglr58p8lps63"
+path="res://.godot/imported/pxArt.png-3a44fc740c306506032549557a848f82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Upgrades/shield_01c.png"
-dest_files=["res://.godot/imported/shield_01c.png-37cc8c6c8e1a619acf246b6a337902e1.ctex"]
+source_file="res://resources/textures/Items/Weapons/pxArt.png"
+dest_files=["res://.godot/imported/pxArt.png-3a44fc740c306506032549557a848f82.ctex"]
 
 [params]
 

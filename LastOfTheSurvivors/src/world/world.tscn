@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=41 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
 [ext_resource type="Texture2D" uid="uid://cyexabbaosgh" path="res://resources/textures/tilemap/decorative.png" id="2_k5ipj"]
 [ext_resource type="Texture2D" uid="uid://ci5knh5ubtgpx" path="res://resources/textures/tilemap/mainlevbuild.png" id="3_5ll6g"]
+[ext_resource type="PackedScene" uid="uid://e7qha3yxyn2x" path="res://src/enemies/massacre.tscn" id="5_7pjbj"]
 [ext_resource type="PackedScene" uid="uid://b6ce28jpp5kkc" path="res://src/utilities/enemy_spawner.tscn" id="5_kwfgq"]
 [ext_resource type="PackedScene" uid="uid://d27avve3evymc" path="res://src/enemies/slime_blue.tscn" id="6_pc68j"]
 [ext_resource type="Script" path="res://src/utilities/spawn_info.gd" id="7_xmxlg"]
@@ -19,6 +20,7 @@
 [ext_resource type="Script" path="res://src/utilities/spawn_circle_info.gd" id="14_sjq2m"]
 [ext_resource type="Script" path="res://src/utilities/spawn_diagonal_info.gd" id="15_jowxg"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="17_gvdv3"]
+[ext_resource type="PackedScene" uid="uid://c2colp3ri7vai" path="res://src/objects/experience_gem.tscn" id="18_b85da"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcvhc"]
 texture = ExtResource("1_cvuiv")
@@ -10097,6 +10099,15 @@ enemy = ExtResource("8_bjnv2")
 enemy_num = 1
 enemy_spawn_delay = 10
 
+[sub_resource type="Resource" id="Resource_ywevk"]
+script = ExtResource("7_xmxlg")
+enemy_name = "Strong Slime"
+time_start = 220
+time_end = 221
+enemy = ExtResource("8_x3c00")
+enemy_num = 5
+enemy_spawn_delay = 1
+
 [sub_resource type="Resource" id="Resource_j2rsf"]
 script = ExtResource("14_sjq2m")
 enemy_name = ""
@@ -10191,11 +10202,15 @@ layer_3/tile_data = PackedInt32Array(-6619058, 262145, 1, -6553522, 262145, 2, -
 
 [node name="Character" parent="." instance=ExtResource("2_abh51")]
 position = Vector2(2, -6)
+metadata/_edit_horizontal_guides_ = [14.0, -110.0]
+
+[node name="Massacre" parent="." instance=ExtResource("5_7pjbj")]
+position = Vector2(-86, -108)
 
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="EnemySpawner" parent="Spawner" instance=ExtResource("5_kwfgq")]
-spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um"), SubResource("Resource_1jehk")])
+spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um"), SubResource("Resource_1jehk"), SubResource("Resource_ywevk")])
 
 [node name="EnemyCircleSpawner120" parent="Spawner" instance=ExtResource("8_s6acm")]
 spawn_info = SubResource("Resource_j2rsf")
@@ -10222,6 +10237,8 @@ spawn_info = SubResource("Resource_18gsh")
 spawn_info = SubResource("Resource_duvbl")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="ExperienceGem" parent="Loot" instance=ExtResource("18_b85da")]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.2

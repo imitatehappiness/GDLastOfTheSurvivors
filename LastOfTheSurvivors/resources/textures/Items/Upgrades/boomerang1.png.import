@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csnihao3kbwrt"
-path="res://.godot/imported/armor_3.png-b0f97b3e712546bb0152a323c6e682bb.ctex"
+uid="uid://dk06kxygl3fqj"
+path="res://.godot/imported/boomerang1.png-8d1085ff9eda30333750ce219862e8f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Upgrades/armor_3.png"
-dest_files=["res://.godot/imported/armor_3.png-b0f97b3e712546bb0152a323c6e682bb.ctex"]
+source_file="res://resources/textures/Items/Upgrades/boomerang1.png"
+dest_files=["res://.godot/imported/boomerang1.png-8d1085ff9eda30333750ce219862e8f1.ctex"]
 
 [params]
 

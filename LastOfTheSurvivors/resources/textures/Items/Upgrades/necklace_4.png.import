@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ivfsyxcvm8ls"
-path="res://.godot/imported/wizard idle.png-d8909ea1421beb139e15124e58eb9868.ctex"
+uid="uid://c4qcalfsixgmf"
+path="res://.godot/imported/necklace_4.png-bd68acfab817d314bd877bf51536b947.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Enemy/Wizard/wizard idle.png"
-dest_files=["res://.godot/imported/wizard idle.png-d8909ea1421beb139e15124e58eb9868.ctex"]
+source_file="res://resources/textures/Items/Upgrades/necklace_4.png"
+dest_files=["res://.godot/imported/necklace_4.png-bd68acfab817d314bd877bf51536b947.ctex"]
 
 [params]
 

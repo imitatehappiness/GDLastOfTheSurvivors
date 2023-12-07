@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6i21bajq2dqy"
-path="res://.godot/imported/scroll_4.png-12352d72ee9fae05d937675540167b3e.ctex"
+uid="uid://cx2e8vxrglttu"
+path="res://.godot/imported/Massacre Sprite Sheet.png-1e60f0ec5cd8bf0172035c80c258ce86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Upgrades/scroll_4.png"
-dest_files=["res://.godot/imported/scroll_4.png-12352d72ee9fae05d937675540167b3e.ctex"]
+source_file="res://resources/textures/Enemy/Massacre/Massacre Sprite Sheet.png"
+dest_files=["res://.godot/imported/Massacre Sprite Sheet.png-1e60f0ec5cd8bf0172035c80c258ce86.ctex"]
 
 [params]
 

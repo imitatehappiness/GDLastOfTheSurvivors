@@ -23,7 +23,7 @@ const UPGRADES = {
 	"icespear3": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Damage +2, health + 1, speed + 50",
+		"details": "Damage +2, health + 2, speed + 50",
 		"level": "Level: 3",
 		"prerequisite": ["icespear2"],
 		"type": "weapon"
@@ -31,7 +31,7 @@ const UPGRADES = {
 	"icespear4": {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Ice Spear",
-		"details": "Damage +2, health + 1",
+		"details": "Damage +2, health + 2",
 		"level": "Level: 4",
 		"prerequisite": ["icespear3"],
 		"type": "weapon"
@@ -56,7 +56,7 @@ const UPGRADES = {
 	"aura_water3": {
 		"icon": WEAPON_PATH + "aura_water.png",
 		"displayname": "Aura Water",
-		"details": "damage + 3, radius + 2",
+		"details": "damage + 2, radius + 2",
 		"level": "Level: 3",
 		"prerequisite": ["aura_water2"],
 		"type": "weapon"
@@ -64,7 +64,7 @@ const UPGRADES = {
 	"aura_water4": {
 		"icon": WEAPON_PATH + "aura_water.png",
 		"displayname": "Aura Water",
-		"details": "damage + 4",
+		"details": "damage + 2",
 		"level": "Level: 4",
 		"prerequisite": ["aura_water3"],
 		"type": "weapon"
@@ -81,7 +81,7 @@ const UPGRADES = {
 	"tornado2": {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
-		"details": "damage + 1",
+		"details": "Damage + 1",
 		"level": "Level: 2",
 		"prerequisite": ["tornado1"],
 		"type": "weapon"
@@ -89,7 +89,7 @@ const UPGRADES = {
 	"tornado3": {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
-		"details": "damage + 2",
+		"details": "Damage + 2, speed + 50",
 		"level": "Level: 3",
 		"prerequisite": ["tornado2"],
 		"type": "weapon"
@@ -97,7 +97,7 @@ const UPGRADES = {
 	"tornado4": {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
-		"details": "damage + 2",
+		"details": "Damage + 2, speed + 50",
 		"level": "Level: 4",
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
@@ -147,7 +147,7 @@ const UPGRADES = {
 	"sticky_green_bullet2": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "Damage + 2, health + 3, finish_radius + 0.3",
+		"details": "Damage + 2, finish_radius + 0.3",
 		"level": "Level: 2",
 		"prerequisite": ["sticky_green_bullet1"],
 		"type": "weapon"
@@ -155,7 +155,7 @@ const UPGRADES = {
 	"sticky_green_bullet3": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "Damage + 2, health + 2, finish_radius + 0.2",
+		"details": "Damage + 2, finish_radius + 0.2",
 		"level": "Level: 3",
 		"prerequisite": ["sticky_green_bullet2"],
 		"type": "weapon"
@@ -163,7 +163,7 @@ const UPGRADES = {
 	"sticky_green_bullet4": {
 		"icon": WEAPON_PATH + "slime_green.png",
 		"displayname": "Sticky Bullet",
-		"details": "Damage + 2, health + 5, finish_radius + 0.2",
+		"details": "Damage + 2, finish_radius + 0.2",
 		"level": "Level: 4",
 		"prerequisite": ["sticky_green_bullet3"],
 		"type": "weapon"
@@ -366,37 +366,37 @@ const UPGRADES = {
 		"prerequisite": ["tome3"],
 		"type": "upgrade"
 	},
-	# =========================================================== scroll
-	"scroll1": {
-		"icon": ICON_PATH + "scroll_1.png",
-		"displayname": "Scroll",
+	# =========================================================== necklace
+	"necklace1": {
+		"icon": ICON_PATH + "necklace_1.png",
+		"displayname": "Necklace",
 		"details": "Decreases of the cooldown of spells + 5 per.",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "upgrade"
 	},
-	"scroll2": {
-		"icon": ICON_PATH + "scroll_2.png",
-		"displayname": "Scroll",
+	"necklace2": {
+		"icon": ICON_PATH + "necklace_2.png",
+		"displayname": "Necklace",
 		"details": "Decreases of the cooldown of spells + 5 per.",
 		"level": "Level: 2",
-		"prerequisite": ["scroll1"],
+		"prerequisite": ["necklace1"],
 		"type": "upgrade"
 	},
-	"scroll3": {
-		"icon": ICON_PATH + "scroll_3.png",
-		"displayname": "Scroll",
+	"necklace3": {
+		"icon": ICON_PATH + "necklace_3.png",
+		"displayname": "Necklace",
 		"details": "Decreases of the cooldown of spells + 5 per.",
 		"level": "Level: 3",
-		"prerequisite": ["scroll2"],
+		"prerequisite": ["necklace2"],
 		"type": "upgrade"
 	},
-	"scroll4": {
-		"icon": ICON_PATH + "scroll_4.png",
-		"displayname": "Scroll",
+	"necklace4": {
+		"icon": ICON_PATH + "necklace_4.png",
+		"displayname": "Necklace",
 		"details": "Decreases of the cooldown of spells + 5 per.",
 		"level": "Level: 4",
-		"prerequisite": ["scroll3"],
+		"prerequisite": ["necklace3"],
 		"type": "upgrade"
 	},
 	# =========================================================== ring

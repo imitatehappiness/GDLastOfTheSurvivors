@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btg536br2c8ym"
-path="res://.godot/imported/scroll_2.png-06482dc747ebf0c8129f5055e2f7aae5.ctex"
+uid="uid://w4rfp2bjyymm"
+path="res://.godot/imported/necklace_2.png-9e57f3fc365c7c349fe826b15423c5c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Upgrades/scroll_2.png"
-dest_files=["res://.godot/imported/scroll_2.png-06482dc747ebf0c8129f5055e2f7aae5.ctex"]
+source_file="res://resources/textures/Items/Upgrades/necklace_2.png"
+dest_files=["res://.godot/imported/necklace_2.png-9e57f3fc365c7c349fe826b15423c5c3.ctex"]
 
 [params]
 

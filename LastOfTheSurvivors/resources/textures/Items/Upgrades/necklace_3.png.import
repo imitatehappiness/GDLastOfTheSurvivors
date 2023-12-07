@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cchwv1vxrnkr1"
-path="res://.godot/imported/wizard death.png-1acc9ddd5e0bcbb67f3b0c23b852475a.ctex"
+uid="uid://bjke0abdi4el1"
+path="res://.godot/imported/necklace_3.png-ea5eca577afea8ab880188983fe3182a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Enemy/Wizard/wizard death.png"
-dest_files=["res://.godot/imported/wizard death.png-1acc9ddd5e0bcbb67f3b0c23b852475a.ctex"]
+source_file="res://resources/textures/Items/Upgrades/necklace_3.png"
+dest_files=["res://.godot/imported/necklace_3.png-ea5eca577afea8ab880188983fe3182a.ctex"]
 
 [params]
 

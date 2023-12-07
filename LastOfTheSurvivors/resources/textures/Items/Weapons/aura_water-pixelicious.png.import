@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du5rifuaqjv4p"
-path="res://.godot/imported/scroll_3.png-4d5d59a2130919081265002266bd2a5d.ctex"
+uid="uid://chwdv0nacbbw"
+path="res://.godot/imported/aura_water-pixelicious.png-099029646a7b2d528251ea304bb13dc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Upgrades/scroll_3.png"
-dest_files=["res://.godot/imported/scroll_3.png-4d5d59a2130919081265002266bd2a5d.ctex"]
+source_file="res://resources/textures/Items/Weapons/aura_water-pixelicious.png"
+dest_files=["res://.godot/imported/aura_water-pixelicious.png-099029646a7b2d528251ea304bb13dc8.ctex"]
 
 [params]
 

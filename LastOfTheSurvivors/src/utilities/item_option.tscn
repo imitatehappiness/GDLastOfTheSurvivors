@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgi5l8rcbpd5h"]
+[gd_scene load_steps=8 format=3 uid="uid://bgi5l8rcbpd5h"]
 
 [ext_resource type="Script" path="res://src/utilities/item_option.gd" id="1_ibt62"]
 [ext_resource type="Texture2D" uid="uid://c2rsk42xrbddl" path="res://resources/textures/GUI/ItemOptionBG.png" id="2_loudv"]
 [ext_resource type="Texture2D" uid="uid://q2brbqx4hebd" path="res://resources/textures/GUI/ItemOptionBG_Pressed.png" id="3_0kkon"]
 [ext_resource type="Texture2D" uid="uid://bjk22hbhxupsa" path="res://resources/textures/GUI/ItemOptionBG_Hover.png" id="4_u4vt5"]
 [ext_resource type="Texture2D" uid="uid://ql06b2g5l40e" path="res://resources/textures/GUI/frames/upgrade_frame1.png" id="5_r3svr"]
+[ext_resource type="Texture2D" uid="uid://s0nwp6pden83" path="res://resources/textures/Items/Upgrades/aura_water.png" id="6_3c4fa"]
 [ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="6_m2h4u"]
 
 [node name="ItemOption" type="ColorRect"]
@@ -14,7 +15,7 @@ anchor_right = 0.141
 anchor_bottom = 0.079
 offset_right = 19.52
 offset_bottom = 9.44
-scale = Vector2(0.911, 1)
+scale = Vector2(1, 1.098)
 color = Color(0.756863, 0.294118, 0.52549, 0)
 script = ExtResource("1_ibt62")
 metadata/_edit_horizontal_guides_ = [19.0]
@@ -31,8 +32,8 @@ texture_pressed = ExtResource("3_0kkon")
 texture_hover = ExtResource("4_u4vt5")
 
 [node name="FrameSprite" type="Sprite2D" parent="."]
-position = Vector2(30.7355, 28.5)
-scale = Vector2(0.720362, 0.671875)
+position = Vector2(31.4075, 29.5993)
+scale = Vector2(0.737265, 0.697291)
 texture = ExtResource("5_r3svr")
 hframes = 5
 vframes = 4
@@ -40,11 +41,11 @@ frame = 1
 
 [node name="ItemIcon" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 13.5
-offset_top = 12.39
-offset_right = 63.5
-offset_bottom = 67.39
-scale = Vector2(0.690855, 0.585927)
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 49.0
+offset_bottom = 46.0
+texture = ExtResource("6_3c4fa")
 
 [node name="DescriptionLabel" type="Label" parent="."]
 layout_mode = 0

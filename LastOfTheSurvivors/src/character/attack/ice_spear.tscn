@@ -127,7 +127,7 @@ script = ExtResource("1_bmian")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -2.35619
-scale = Vector2(0.8, 0.749)
+scale = Vector2(1.2, 1.123)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
 frame_progress = 0.937681
@@ -135,6 +135,7 @@ frame_progress = 0.937681
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.000831346, 0.000831641)
 rotation = -0.785398
+scale = Vector2(2, 1.4)
 shape = SubResource("RectangleShape2D_8ohv7")
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
@@ -144,7 +145,7 @@ pitch_scale = 5.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 autostart = true
 

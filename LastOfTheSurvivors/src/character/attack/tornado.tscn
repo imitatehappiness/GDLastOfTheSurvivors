@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://db3nkuvedhmek"]
+[gd_scene load_steps=10 format=3 uid="uid://db3nkuvedhmek"]
 
 [ext_resource type="Script" path="res://src/character/attack/tornado.gd" id="1_558wc"]
 [ext_resource type="Texture2D" uid="uid://bwikqrhp2hp5k" path="res://resources/textures/Items/Weapons/tornado.png" id="1_kgg33"]
 [ext_resource type="AudioStream" uid="uid://bgseg1eu1uhb3" path="res://resources/audio/SoundEffect/attack/tornado.ogg" id="3_ee7do"]
-[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="4_m2co3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqbty"]
 size = Vector2(11, 19)
@@ -75,7 +74,7 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_iqbty")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 autostart = true
 
 [node name="SoundPlay" type="AudioStreamPlayer" parent="."]
@@ -83,12 +82,6 @@ stream = ExtResource("3_ee7do")
 volume_db = -20.0
 pitch_scale = 1.11
 autoplay = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 1.5)
-scale = Vector2(0.0236116, 0.02875)
-color = Color(0.34902, 0.643137, 0.25098, 0.866667)
-texture = ExtResource("4_m2co3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")

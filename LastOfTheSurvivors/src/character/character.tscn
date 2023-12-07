@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=3 uid="uid://n1xld431jo4h"]
+[gd_scene load_steps=169 format=3 uid="uid://n1xld431jo4h"]
 
 [ext_resource type="Script" path="res://src/character/character.gd" id="1_37qod"]
 [ext_resource type="Texture2D" uid="uid://w5r0cdsuqh4y" path="res://resources/textures/Player/GetHit/spr_NecromancerGetHit_strip9.png" id="2_m67ee"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://djtvdcl18wwnv" path="res://resources/textures/GUI/10 Border 01.png" id="13_0ur7c"]
 [ext_resource type="AudioStream" uid="uid://bx7olwv4c7fi7" path="res://resources/audio/SoundEffect/get_damage.ogg" id="14_p621d"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="15_8yrhf"]
+[ext_resource type="Texture2D" uid="uid://cfng6wt02bnme" path="res://resources/textures/GUI/Bones_SingleSkull_Death.png" id="19_a47hn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrgkl"]
 radius = 4.5
@@ -1156,7 +1157,7 @@ motion_mode = 1
 script = ExtResource("1_37qod")
 transform_adjustment = NodePath("TransformAdjustment")
 metadata/_edit_vertical_guides_ = [640.0]
-metadata/_edit_horizontal_guides_ = [14.0, -110.0]
+metadata/_edit_horizontal_guides_ = [14.0, -110.0, 28.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -1410,6 +1411,18 @@ theme_override_font_sizes/font_size = 12
 text = "GOLD Collected: "
 vertical_alignment = 1
 
+[node name="TotalKilledLabel" type="Label" parent="GUILayer/GUI/DeathPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 41.0
+offset_top = 51.0
+offset_right = 196.0
+offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 12
+text = "Enemy Killed: "
+vertical_alignment = 1
+
 [node name="VictorySound" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
 stream = ExtResource("10_gvmsg")
@@ -1495,9 +1508,9 @@ vertical_alignment = 2
 [node name="Time" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 300.0
+offset_left = 299.0
 offset_top = 9.0
-offset_right = 360.0
+offset_right = 359.0
 offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("7_c5i48")
 theme_override_font_sizes/font_size = 20
@@ -1545,6 +1558,25 @@ theme_override_font_sizes/font_size = 10
 text = "FPS: "
 horizontal_alignment = 2
 
+[node name="DeathEnemy" type="Node2D" parent="GUILayer/GUI"]
+position = Vector2(523, 336)
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/DeathEnemy"]
+position = Vector2(-61, -318)
+scale = Vector2(1.20449, 0.969245)
+texture = ExtResource("19_a47hn")
+hframes = 4
+vframes = 3
+
+[node name="DeathEnemyLabel" type="Label" parent="GUILayer/GUI/DeathEnemy"]
+offset_left = -52.0
+offset_top = -327.0
+offset_right = 1.0
+offset_bottom = -308.0
+theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
 [node name="VersionLabel" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -1569,6 +1601,8 @@ texture = ExtResource("9_5oko8")
 stream = ExtResource("14_p621d")
 volume_db = -20.0
 pitch_scale = 0.85
+
+[node name="Line2D" type="Line2D" parent="."]
 
 [connection signal="timeout" from="Upgrades/MassCollectionTimer" to="." method="_on_mass_collection_timer_timeout"]
 [connection signal="timeout" from="Upgrades/InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]

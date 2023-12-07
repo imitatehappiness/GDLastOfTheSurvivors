@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4mlqhsgkypoe"
-path="res://.godot/imported/Golem_Armor_Full.png-4cd20ae04cdbe739a7e47cbcc9810df0.ctex"
+uid="uid://dsncus7i3f8k"
+path="res://.godot/imported/necklace_1.png-f30133f845b65327090eaf989a6b1ec5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Enemy/Golem/Armored/Golem_Armor_Full.png"
-dest_files=["res://.godot/imported/Golem_Armor_Full.png-4cd20ae04cdbe739a7e47cbcc9810df0.ctex"]
+source_file="res://resources/textures/Items/Upgrades/necklace_1.png"
+dest_files=["res://.godot/imported/necklace_1.png-f30133f845b65327090eaf989a6b1ec5.ctex"]
 
 [params]
 

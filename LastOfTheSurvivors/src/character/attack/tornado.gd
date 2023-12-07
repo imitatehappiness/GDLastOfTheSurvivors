@@ -5,7 +5,6 @@ var level = 1
 var health = 999 
 var speed = 300.0
 var damage = 5 
-var knockback_amount = 50 
 var attack_size = 1.0 
 
 var last_movement = Vector2.ZERO

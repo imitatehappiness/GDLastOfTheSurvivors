@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmnlp1cdgodn4"
-path="res://.godot/imported/Golem_Full.png-e9577b66266150e9c33ca62da2552f01.ctex"
+uid="uid://cfng6wt02bnme"
+path="res://.godot/imported/Bones_SingleSkull_Death.png-9a683b2be9c40fa7708abe57c8ec0973.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Enemy/Golem/No Armor/Golem_Full.png"
-dest_files=["res://.godot/imported/Golem_Full.png-e9577b66266150e9c33ca62da2552f01.ctex"]
+source_file="res://resources/textures/GUI/Bones_SingleSkull_Death.png"
+dest_files=["res://.godot/imported/Bones_SingleSkull_Death.png-9a683b2be9c40fa7708abe57c8ec0973.ctex"]
 
 [params]
 

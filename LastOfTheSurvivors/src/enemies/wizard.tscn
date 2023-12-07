@@ -1,10 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bt4kdcog7xqtt"]
+[gd_scene load_steps=27 format=3 uid="uid://bg430rymffhts"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_k8rai"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_pbyrt"]
-[ext_resource type="Texture2D" uid="uid://cchwv1vxrnkr1" path="res://resources/textures/Enemy/Wizard/wizard death.png" id="3_ham7h"]
-[ext_resource type="AudioStream" uid="uid://d3k5r8vmkject" path="res://resources/audio/SoundEffect/emeny_get_damage.mp3" id="4_2bf5x"]
-[ext_resource type="Texture2D" uid="uid://ivfsyxcvm8ls" path="res://resources/textures/Enemy/Wizard/wizard idle.png" id="4_p2wk7"]
+[ext_resource type="Texture2D" path="res://resources/textures/Enemy/Wizard/wizard death.png" id="3_ham7h"]
+[ext_resource type="Texture2D" path="res://resources/textures/Enemy/Wizard/wizard idle.png" id="4_p2wk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ot27f"]
 size = Vector2(20.8916, 48.1861)
@@ -264,10 +263,10 @@ color = Color(0.933333, 0.933333, 0.933333, 1)
 texture = ExtResource("2_pbyrt")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
-autoplay = "Walk"
 libraries = {
 "": SubResource("AnimationLibrary_3dcus")
 }
+autoplay = "Walk"
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
 position = Vector2(-7.10543e-15, 2.05988)
@@ -296,10 +295,6 @@ offset_left = -8.7877
 offset_top = -32.9581
 offset_right = 31.2123
 offset_bottom = 1.04187
-
-[node name="GetDamageSound" parent="." index="5"]
-stream = ExtResource("4_2bf5x")
-volume_db = -45.0
 
 [editable path="HurtBox"]
 [editable path="HitBox"]
