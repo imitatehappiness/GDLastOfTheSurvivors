@@ -1,10 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=40 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
 [ext_resource type="Texture2D" uid="uid://cyexabbaosgh" path="res://resources/textures/tilemap/decorative.png" id="2_k5ipj"]
 [ext_resource type="Texture2D" uid="uid://ci5knh5ubtgpx" path="res://resources/textures/tilemap/mainlevbuild.png" id="3_5ll6g"]
-[ext_resource type="PackedScene" uid="uid://e7qha3yxyn2x" path="res://src/enemies/massacre.tscn" id="5_7pjbj"]
 [ext_resource type="PackedScene" uid="uid://b6ce28jpp5kkc" path="res://src/utilities/enemy_spawner.tscn" id="5_kwfgq"]
 [ext_resource type="PackedScene" uid="uid://d27avve3evymc" path="res://src/enemies/slime_blue.tscn" id="6_pc68j"]
 [ext_resource type="Script" path="res://src/utilities/spawn_info.gd" id="7_xmxlg"]
@@ -10203,9 +10202,6 @@ layer_3/tile_data = PackedInt32Array(-6619058, 262145, 1, -6553522, 262145, 2, -
 [node name="Character" parent="." instance=ExtResource("2_abh51")]
 position = Vector2(2, -6)
 metadata/_edit_horizontal_guides_ = [14.0, -110.0]
-
-[node name="Massacre" parent="." instance=ExtResource("5_7pjbj")]
-position = Vector2(-86, -108)
 
 [node name="Spawner" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://e7qha3yxyn2x"]
+[gd_scene load_steps=26 format=3 uid="uid://c7igwo5coysop"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_pdc3r"]
 [ext_resource type="Texture2D" uid="uid://cx2e8vxrglttu" path="res://resources/textures/Enemy/Massacre/Massacre Sprite Sheet.png" id="2_qvg7q"]

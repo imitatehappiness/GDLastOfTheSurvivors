@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bg430rymffhts"]
+[gd_scene load_steps=27 format=3 uid="uid://tsflask80bbp"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_k8rai"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_pbyrt"]

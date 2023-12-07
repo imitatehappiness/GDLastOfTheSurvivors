@@ -216,7 +216,10 @@ func set_character_facing_direction(direction: Vector2):
 
 # Обрабатывает полученный урон и уменьшает здоровье персонажа. Если здоровье достигает нуля, устанавливается состояние смерти.
 func _on_hurt_box_hurt(damage, _angle, _knock_back):
-	if !invulnerability:
+	if damage == 0:
+		health_bar.max_value = max_health
+		health_bar.value = health
+	elif !invulnerability: 
 		if damage > 0:
 			state = DAMAGE
 
