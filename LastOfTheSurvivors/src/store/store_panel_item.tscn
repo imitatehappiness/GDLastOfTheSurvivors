@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcoghkpisf3oh"]
+[gd_scene load_steps=7 format=3 uid="uid://bcoghkpisf3oh"]
 
 [ext_resource type="Script" path="res://src/store/store_panel_item.gd" id="1_sq1oh"]
-[ext_resource type="Texture2D" uid="uid://btg536br2c8ym" path="res://resources/textures/Items/Upgrades/scroll_2.png" id="2_l8u7f"]
 [ext_resource type="Texture2D" uid="uid://d342p0jsxllnb" path="res://resources/textures/Items/Weapons/frame.png" id="3_wrl0p"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="5_4iyda"]
 [ext_resource type="FontFile" uid="uid://ck8esxhm34uw6" path="res://resources/font/bionicle-training-card-font-2-4.otf" id="7_chv55"]
@@ -29,7 +28,6 @@ color = Color(0.0941176, 0.0941176, 0.0941176, 0.862745)
 [node name="ItemSprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(39.5, 40)
-texture = ExtResource("2_l8u7f")
 
 [node name="Frame" type="Sprite2D" parent="."]
 position = Vector2(39.25, 40)
@@ -43,7 +41,7 @@ offset_top = 75.0
 offset_right = 2056.0
 offset_bottom = 1099.0
 scale = Vector2(0.0305118, 0.0305118)
-label_text = "BUY"
+label_text = "Upgrade"
 
 [node name="LevelLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -89,7 +87,7 @@ autowrap_mode = 3
 layout_mode = 0
 offset_left = 75.0
 offset_top = 76.0
-offset_right = 152.0
+offset_right = 153.0
 offset_bottom = 109.0
 scale = Vector2(0.963621, 0.843528)
 
@@ -104,5 +102,30 @@ theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
 theme_override_fonts/font = ExtResource("7_chv55")
 theme_override_font_sizes/font_size = 32
 text = "123"
+
+[node name="InformationPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 1.0
+offset_right = 210.0
+offset_bottom = 115.0
+
+[node name="BG" type="ColorRect" parent="InformationPanel"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 115.0
+theme = SubResource("Theme_b0tjg")
+color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="Label" type="Label" parent="InformationPanel"]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 209.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("7_chv55")
+theme_override_font_sizes/font_size = 20
+text = "
+"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="BuyTextureButton" to="." method="_on_buy_texture_button_pressed"]

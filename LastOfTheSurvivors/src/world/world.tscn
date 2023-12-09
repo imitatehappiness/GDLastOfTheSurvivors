@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=45 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://c4jndnsk4iksc" path="res://resources/audio/Music/GameSound.ogg" id="9_hxkjo"]
 [ext_resource type="PackedScene" uid="uid://drcrf1wak4m67" path="res://src/enemies/bringer_of_death.tscn" id="9_qxykq"]
 [ext_resource type="PackedScene" uid="uid://bprv5rt3kcexg" path="res://src/enemies/night_borne.tscn" id="10_pqo0y"]
+[ext_resource type="PackedScene" uid="uid://1vcw1uhga51" path="res://src/enemies/slime_violet.tscn" id="12_t24hm"]
 [ext_resource type="PackedScene" uid="uid://dxd2oyw4os7p7" path="res://src/utilities/enemy_diagonal_spawner.tscn" id="13_hbg4w"]
 [ext_resource type="PackedScene" uid="uid://de053yh13u0dm" path="res://src/enemies/slime_green.tscn" id="13_te82f"]
 [ext_resource type="PackedScene" uid="uid://omhyjw0vvl7n" path="res://src/enemies/slime_red.tscn" id="14_s4tiw"]
@@ -20,6 +21,7 @@
 [ext_resource type="Script" path="res://src/utilities/spawn_diagonal_info.gd" id="15_jowxg"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="17_gvdv3"]
 [ext_resource type="PackedScene" uid="uid://c2colp3ri7vai" path="res://src/objects/experience_gem.tscn" id="18_b85da"]
+[ext_resource type="PackedScene" uid="uid://b02phrh8jktyr" path="res://src/enemies/golem.tscn" id="22_hf1n1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcvhc"]
 texture = ExtResource("1_cvuiv")
@@ -10048,7 +10050,7 @@ sources/2 = SubResource("TileSetAtlasSource_evy0i")
 script = ExtResource("7_xmxlg")
 enemy_name = "Blue Slime"
 time_start = 0
-time_end = 1000
+time_end = 420
 enemy = ExtResource("6_pc68j")
 enemy_num = 3
 enemy_spawn_delay = 1
@@ -10105,6 +10107,33 @@ time_start = 220
 time_end = 221
 enemy = ExtResource("8_x3c00")
 enemy_num = 5
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_8fa81"]
+script = ExtResource("7_xmxlg")
+enemy_name = "Violet Slime"
+time_start = 200
+time_end = 240
+enemy = ExtResource("12_t24hm")
+enemy_num = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_hojky"]
+script = ExtResource("7_xmxlg")
+enemy_name = ""
+time_start = 270
+time_end = 420
+enemy = ExtResource("12_t24hm")
+enemy_num = 3
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_4yjgs"]
+script = ExtResource("7_xmxlg")
+enemy_name = ""
+time_start = 421
+time_end = 422
+enemy = ExtResource("22_hf1n1")
+enemy_num = 1
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_j2rsf"]
@@ -10206,7 +10235,7 @@ metadata/_edit_horizontal_guides_ = [14.0, -110.0]
 [node name="Spawner" type="Node2D" parent="."]
 
 [node name="EnemySpawner" parent="Spawner" instance=ExtResource("5_kwfgq")]
-spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um"), SubResource("Resource_1jehk"), SubResource("Resource_ywevk")])
+spawns = Array[ExtResource("7_xmxlg")]([SubResource("Resource_25d28"), SubResource("Resource_rguer"), SubResource("Resource_yg01l"), SubResource("Resource_sic06"), SubResource("Resource_u06um"), SubResource("Resource_1jehk"), SubResource("Resource_ywevk"), SubResource("Resource_8fa81"), SubResource("Resource_hojky"), SubResource("Resource_4yjgs")])
 
 [node name="EnemyCircleSpawner120" parent="Spawner" instance=ExtResource("8_s6acm")]
 spawn_info = SubResource("Resource_j2rsf")
@@ -10235,6 +10264,7 @@ spawn_info = SubResource("Resource_duvbl")
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("18_b85da")]
+experience = 0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.2

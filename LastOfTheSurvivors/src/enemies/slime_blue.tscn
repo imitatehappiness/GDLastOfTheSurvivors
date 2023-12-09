@@ -219,7 +219,7 @@ autoplay = "Walk"
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
 sprite_frames = SubResource("SpriteFrames_vyb65")
-animation = &"Walk"
+animation = &"Death"
 autoplay = "Walk"
 
 [node name="HurtBox" parent="." index="2"]

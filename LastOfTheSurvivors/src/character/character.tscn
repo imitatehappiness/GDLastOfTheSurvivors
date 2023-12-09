@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://n1xld431jo4h"]
+[gd_scene load_steps=170 format=3 uid="uid://n1xld431jo4h"]
 
 [ext_resource type="Script" path="res://src/character/character.gd" id="1_37qod"]
 [ext_resource type="Texture2D" uid="uid://w5r0cdsuqh4y" path="res://resources/textures/Player/GetHit/spr_NecromancerGetHit_strip9.png" id="2_m67ee"]
@@ -17,10 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://dygri85vc1ehq" path="res://resources/textures/GUI/health_bar_progress.png" id="9_gbuj6"]
 [ext_resource type="AudioStream" uid="uid://gx58xr238mhy" path="res://resources/audio/SoundEffect/Victory.wav" id="10_gvmsg"]
 [ext_resource type="AudioStream" uid="uid://ber5rdwaolgot" path="res://resources/audio/SoundEffect/Lose.ogg" id="11_3bdrj"]
-[ext_resource type="Texture2D" uid="uid://djtvdcl18wwnv" path="res://resources/textures/GUI/10 Border 01.png" id="13_0ur7c"]
 [ext_resource type="AudioStream" uid="uid://bx7olwv4c7fi7" path="res://resources/audio/SoundEffect/get_damage.ogg" id="14_p621d"]
 [ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="15_8yrhf"]
 [ext_resource type="Texture2D" uid="uid://cfng6wt02bnme" path="res://resources/textures/GUI/Bones_SingleSkull_Death.png" id="19_a47hn"]
+[ext_resource type="Texture2D" uid="uid://fbjmk4b1jn40" path="res://resources/textures/GUI/frames/upgrade_frame3.png" id="19_lxh8q"]
+[ext_resource type="Texture2D" uid="uid://b63ec2rmyllah" path="res://resources/textures/Items/Gold/coin_04d.png" id="20_63kqx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrgkl"]
 radius = 4.5
@@ -1211,38 +1212,46 @@ unique_name_in_owner = true
 
 [node name="IceSpearTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 5.0
 
 [node name="IceSpearAttackTimer" type="Timer" parent="Attack/IceSpearTimer"]
 unique_name_in_owner = true
-wait_time = 0.075
+wait_time = 0.3
 
 [node name="SkipjackTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 5.0
 
 [node name="SkipjackAttackTimer" type="Timer" parent="Attack/SkipjackTimer"]
 unique_name_in_owner = true
-wait_time = 0.075
+wait_time = 0.3
 
 [node name="BoomerangTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 5.0
 
 [node name="BoomerangAttackTimer" type="Timer" parent="Attack/BoomerangTimer"]
 unique_name_in_owner = true
-wait_time = 0.075
+wait_time = 0.3
 
 [node name="TrapTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
 
 [node name="TornadoTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 5.0
 
 [node name="TornadoAttackTimer" type="Timer" parent="Attack/TornadoTimer"]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.3
+
+[node name="BangSheepTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="BangSheepAttackTimer" type="Timer" parent="Attack/BangSheepTimer"]
+unique_name_in_owner = true
+wait_time = 0.4
 
 [node name="SplashTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
@@ -1338,16 +1347,6 @@ offset_top = 61.0
 offset_right = 1010.0
 offset_bottom = 311.0
 
-[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/LevelUpPanel"]
-visible = false
-modulate = Color(1, 1, 1, 0.54902)
-position = Vector2(110.5, 132)
-scale = Vector2(4.04688, 4.78125)
-texture = ExtResource("13_0ur7c")
-hframes = 5
-vframes = 4
-frame = 14
-
 [node name="LevelUpLabel" type="Label" parent="GUILayer/GUI/LevelUpPanel"]
 layout_mode = 0
 offset_right = 220.0
@@ -1383,10 +1382,10 @@ offset_bottom = -56.0
 [node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/DeathPanel"]
 position = Vector2(112.75, 125)
 scale = Vector2(4.17969, 4.875)
-texture = ExtResource("13_0ur7c")
+texture = ExtResource("19_lxh8q")
 hframes = 5
 vframes = 4
-frame = 14
+frame = 12
 
 [node name="ResultLabel" type="Label" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
@@ -1454,10 +1453,10 @@ offset_bottom = -58.0
 [node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/PausePanel"]
 position = Vector2(113.25, 125)
 scale = Vector2(4.16406, 4.875)
-texture = ExtResource("13_0ur7c")
+texture = ExtResource("19_lxh8q")
 hframes = 5
 vframes = 4
-frame = 14
+frame = 12
 
 [node name="PauseLabel" type="Label" parent="GUILayer/GUI/PausePanel"]
 layout_mode = 0
@@ -1559,7 +1558,7 @@ text = "FPS: "
 horizontal_alignment = 2
 
 [node name="DeathEnemy" type="Node2D" parent="GUILayer/GUI"]
-position = Vector2(523, 336)
+position = Vector2(503, 336)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/DeathEnemy"]
 position = Vector2(-61, -318)
@@ -1569,6 +1568,23 @@ hframes = 4
 vframes = 3
 
 [node name="DeathEnemyLabel" type="Label" parent="GUILayer/GUI/DeathEnemy"]
+offset_left = -52.0
+offset_top = -327.0
+offset_right = 1.0
+offset_bottom = -308.0
+theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="GoldCollected" type="Node2D" parent="GUILayer/GUI"]
+position = Vector2(576, 336)
+
+[node name="Sprite2D" type="Sprite2D" parent="GUILayer/GUI/GoldCollected"]
+position = Vector2(-62, -317.25)
+scale = Vector2(0.410497, 0.390626)
+texture = ExtResource("20_63kqx")
+
+[node name="GoldCollectedLabel" type="Label" parent="GUILayer/GUI/GoldCollected"]
 offset_left = -52.0
 offset_top = -327.0
 offset_right = 1.0
@@ -1589,6 +1605,20 @@ theme_override_fonts/font = ExtResource("7_c5i48")
 theme_override_font_sizes/font_size = 10
 text = "version: "
 horizontal_alignment = 2
+
+[node name="HealingLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 5
+offset_left = -11.2123
+offset_top = -50.4659
+offset_right = 28.7877
+offset_bottom = -27.4659
+theme_override_colors/font_color = Color(0.254902, 0.780392, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("7_c5i48")
+theme_override_font_sizes/font_size = 14
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(4, -15)
@@ -1616,6 +1646,8 @@ pitch_scale = 0.85
 [connection signal="timeout" from="Attack/TrapTimer" to="." method="_on_trap_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer" to="." method="_on_tornado_timer_timeout"]
 [connection signal="timeout" from="Attack/TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/BangSheepTimer" to="." method="_on_bang_sheep_timer_timeout"]
+[connection signal="timeout" from="Attack/BangSheepTimer/BangSheepAttackTimer" to="." method="_on_bang_sheep_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/SplashTimer" to="." method="_on_splash_timer_timeout"]
 [connection signal="timeout" from="Attack/StickyGreenBulletAttackTimer" to="." method="_on_sticky_green_bullet_attack_timer_timeout"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

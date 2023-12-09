@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://bu51r0xxwdo74"]
+
+[ext_resource type="Script" path="res://src/enemies/attack/golem_hell_bullet.gd" id="1_a1rns"]
+[ext_resource type="Texture2D" uid="uid://dk4hbkx7rfqon" path="res://resources/textures/Enemy/Golem/hell_bullet.png" id="1_mo8bf"]
+[ext_resource type="Texture2D" uid="uid://37pv0y55da8t" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites1.png" id="2_csqm6"]
+[ext_resource type="PackedScene" uid="uid://6qsaq4c7hwg3" path="res://src/utilities/hit_box.tscn" id="3_ipqio"]
+[ext_resource type="Texture2D" uid="uid://c177rr1oobtym" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites2.png" id="3_mp8oi"]
+[ext_resource type="Texture2D" uid="uid://8hakeoab2cfo" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites3.png" id="4_8vw47"]
+[ext_resource type="Texture2D" uid="uid://higj82o1f87x" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites4.png" id="5_o32qd"]
+[ext_resource type="Texture2D" uid="uid://ibc0ltjv4foe" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites5.png" id="6_w0kll"]
+[ext_resource type="Texture2D" uid="uid://wpn12q0revs2" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites6.png" id="7_sx4pf"]
+[ext_resource type="Texture2D" uid="uid://sd88vqwddd3j" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites7.png" id="8_mbcku"]
+[ext_resource type="Texture2D" uid="uid://dbvqclhq067v8" path="res://resources/textures/Enemy/Golem/hell_bullet_sprites8.png" id="9_jyvvp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_74ui0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_csqm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mp8oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8vw47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o32qd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w0kll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sx4pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mbcku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jyvvp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuf40"]
+radius = 15.6338
+
+[node name="GolemHellBullet" type="Area2D"]
+script = ExtResource("1_a1rns")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_74ui0")
+frame_progress = 0.216582
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_mo8bf")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="HitBox" parent="." instance=ExtResource("3_ipqio")]
+position = Vector2(276, -2)
+scale = Vector2(0.770339, 0.754551)
+damage = 10
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-358.284, 2.65058)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_cuf40")
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+
+[editable path="HitBox"]

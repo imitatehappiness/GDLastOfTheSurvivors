@@ -1,0 +1,257 @@
+[gd_scene load_steps=23 format=3 uid="uid://1vcw1uhga51"]
+
+[ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_tpgib"]
+[ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="2_k8o0o"]
+[ext_resource type="Texture2D" uid="uid://cgrnlqrrxkjeo" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/1.png" id="3_53jkm"]
+[ext_resource type="Texture2D" uid="uid://b735d0byhk0fx" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/2.png" id="4_u346f"]
+[ext_resource type="Texture2D" uid="uid://c0o6tikmb4ay7" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/3.png" id="5_gbc2a"]
+[ext_resource type="Texture2D" uid="uid://cicjq64tj2o2" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/4.png" id="6_k0672"]
+[ext_resource type="Texture2D" uid="uid://c3aykvyyjm30s" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/5.png" id="7_4ue2b"]
+[ext_resource type="Texture2D" uid="uid://opot3unper3x" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/6.png" id="8_r258a"]
+[ext_resource type="Texture2D" uid="uid://cm27oslep7s4p" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/7.png" id="9_5v27i"]
+[ext_resource type="Texture2D" uid="uid://cscdlp1m8np41" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/death/8.png" id="10_qiylb"]
+[ext_resource type="Texture2D" uid="uid://1h4ms7tjkadm" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/idle/1.png" id="11_g04at"]
+[ext_resource type="Texture2D" uid="uid://3hhepg54xcub" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/idle/2.png" id="12_cb30k"]
+[ext_resource type="Texture2D" uid="uid://ggxrkcic7j6u" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/idle/3.png" id="13_ewf4h"]
+[ext_resource type="Texture2D" uid="uid://dem8mdjmbima4" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Violet/idle/4.png" id="14_0xqfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86mr2"]
+size = Vector2(13.1515, 14.5676)
+
+[sub_resource type="Animation" id="Animation_p7uji"]
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0823529)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.666667, 0.666667, 1), Color(0, 0.666667, 0.666667, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rxbvk"]
+length = 0.181818
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0909091),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Hit"]
+}
+
+[sub_resource type="Animation" id="Animation_ha4vk"]
+length = 0.571429
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Walk"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dcus"]
+_data = {
+"Death": SubResource("Animation_p7uji"),
+"Hit": SubResource("Animation_rxbvk"),
+"Walk": SubResource("Animation_ha4vk")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyb65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_53jkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u346f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gbc2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k0672")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4ue2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r258a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5v27i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qiylb")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u346f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gbc2a")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_g04at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cb30k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ewf4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0xqfi")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n25l"]
+size = Vector2(14.8606, 14.4939)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl5q"]
+size = Vector2(14.7786, 8.15479)
+
+[node name="SlimeViolet" instance=ExtResource("1_tpgib")]
+scale = Vector2(1.31131, 1.53125)
+movement_speed = 80.0
+health = 30
+damage = 10
+experience = 10
+coins = 10
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(0.52881, 0.521663)
+shape = SubResource("RectangleShape2D_86mr2")
+
+[node name="TransformAdjustment" parent="." index="1"]
+position = Vector2(-1.18709, -23.4709)
+scale = Vector2(1.60027, 1.53126)
+
+[node name="PointLight2D" type="PointLight2D" parent="TransformAdjustment" index="0"]
+visible = false
+position = Vector2(0.741805, 15.3279)
+scale = Vector2(0.0371671, 0.0352089)
+color = Color(0, 0.666667, 0.666667, 1)
+texture = ExtResource("2_k8o0o")
+
+[node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_3dcus")
+}
+autoplay = "Walk"
+
+[node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
+sprite_frames = SubResource("SpriteFrames_vyb65")
+animation = &"Walk"
+autoplay = "Walk"
+
+[node name="HurtBox" parent="." index="2"]
+position = Vector2(0, -3.35298)
+scale = Vector2(0.994483, 0.878935)
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0.437077, 4.19752)
+shape = SubResource("RectangleShape2D_0n25l")
+
+[node name="HitBox" parent="." index="3"]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0.434666, 4)
+shape = SubResource("RectangleShape2D_5xl5q")
+
+[node name="DamageLabel" parent="." index="4"]
+offset_left = -7.75156
+offset_top = -18.8096
+offset_right = 32.2484
+offset_bottom = 15.1904
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

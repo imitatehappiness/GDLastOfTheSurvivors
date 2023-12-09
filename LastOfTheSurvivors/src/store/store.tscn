@@ -70,22 +70,25 @@ offset_top = 65.0
 offset_right = 625.0
 offset_bottom = 353.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-light_mask = 0
-offset_left = 26.0
-offset_top = 25.0
-offset_right = 113.0
-offset_bottom = 65.0
+[node name="Gold" type="Node2D" parent="."]
+position = Vector2(26, 25)
 scale = Vector2(1.21455, 0.939381)
 
-[node name="GoldIcon" type="TextureRect" parent="HBoxContainer"]
+[node name="GoldIcon" type="TextureRect" parent="Gold"]
 light_mask = 0
-layout_mode = 2
+offset_left = -0.82335
+offset_top = 9.58078
+offset_right = 31.1766
+offset_bottom = 41.5808
+scale = Vector2(0.765868, 0.834062)
 texture = ExtResource("7_u3iil")
 
-[node name="GoldLabel" type="Label" parent="HBoxContainer"]
+[node name="GoldLabel" type="Label" parent="Gold"]
 light_mask = 0
-layout_mode = 2
+offset_left = 25.5239
+offset_top = 8.51625
+offset_right = 67.5239
+offset_bottom = 38.5162
 theme_override_fonts/font = ExtResource("8_lux0e")
 theme_override_font_sizes/font_size = 32
 text = "123"

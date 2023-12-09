@@ -20,15 +20,15 @@ func _ready():
 		2:
 			level = 2 
 			radius = 3 * (1 + character.spell_size)
-			damage = 3 
+			damage = 2 
 		3:
 			level = 3 
 			radius = 5 * (1 + character.spell_size)
-			damage = 5 
+			damage = 3 
 		4:
 			level = 4 
 			radius = 5 * (1 + character.spell_size)
-			damage = 7
+			damage = 5
 	
 	scale = Vector2(1.0, 1.0) * radius
 	animation.play("Idle")

@@ -270,7 +270,6 @@ scale = Vector2(0.994483, 0.878935)
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(9.29115e-07, 4.33068)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0n25l")
 
 [node name="HitBox" parent="." index="3"]
@@ -278,7 +277,6 @@ position = Vector2(0, -4)
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-1.31998e-07, 4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5xl5q")
 
 [node name="DamageLabel" parent="." index="4"]

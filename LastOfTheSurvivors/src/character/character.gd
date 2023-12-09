@@ -25,7 +25,8 @@ var attacks_preload = {
 	"skipjack": preload("res://src/character/attack/skipjack.tscn"),
 	"boomerang" : preload("res://src/character/attack/boomerang.tscn"),
 	"trap" : preload("res://src/character/attack/trap.tscn"),
-	"invulnerability" : preload("res://src/character/attack/invulnerability.tscn")
+	"invulnerability" : preload("res://src/character/attack/invulnerability.tscn"),
+	"bang_sheep" : preload("res://src/character/attack/sheep.tscn")
 }
 
 @onready var grab_area = get_node("%GrabArea")
@@ -44,6 +45,9 @@ var attacks_preload = {
 @onready var boomerang_timer = get_node("%BoomerangTimer")
 @onready var boomerang_attack_timer = get_node("%BoomerangAttackTimer")
 @onready var trap_timer = get_node("%TrapTimer")
+@onready var bang_sheep_timer = get_node("%BangSheepTimer")
+@onready var bang_sheep_attack_timer = get_node("%BangSheepAttackTimer")
+@onready var healing_label = get_node("%HealingLabel")
 
 #UpgradesNodes
 @onready var mass_collection_timer = get_node("%MassCollectionTimer")
@@ -63,6 +67,9 @@ var additional_attack = 0
 var grab_area_scale = 0
 var experience_multiplier = 1
 
+var vampirism_probability : float = 0
+var vampirism_recovery : float = 0
+
 # invulnerability
 var invulnerability = false
 var invulnerability_time = 1.2
@@ -72,13 +79,13 @@ var invulnerability_reload = 5
 #IceSpear
 var ice_spear_ammo = 0
 var ice_spear_base_ammo = 1 
-var ice_spear_attack_spead = 1.5
+var ice_spear_attack_speed = 2
 var ice_spear_level = 0
 
 #Tornado
 var tornado_ammo = 0
 var tornado_base_ammo = 1
-var tornado_attack_spead = 3
+var tornado_attack_spead = 2
 var tornado_level = 0
 
 #Aura Water
@@ -91,21 +98,27 @@ var double_splash = Global.get_character_store_upgrades()["double_splash"]
 
 # sticky_green_bullet
 var sticky_green_bullet_level = 0
-var sticky_green_bullet_attack_speed = 3
+var sticky_green_bullet_attack_speed = 4
 var sticky_green_bullet_base_ammo = 5
 var sticky_green_bullet_ammo = sticky_green_bullet_base_ammo
 
 #Skipjack
 var skipjack_ammo = 0
 var skipjack_base_ammo = 1 
-var skipjack_attack_spead = 2
+var skipjack_attack_speed = 2
 var skipjack_level = 0
 
 # Boomerang 
 var boomerang_ammo = 0
 var boomerang_base_ammo = 1 
-var boomerang_attack_spead = 2
+var boomerang_attack_speed = 3
 var boomerang_level = 0
+
+# Bang Sheep
+var bang_sheep_ammo = 0
+var bang_sheep_base_ammo = 1 
+var bang_sheep_attack_speed = 3
+var bang_sheep_level = 0
 
 # Trap 
 var trap_ammo = 0
@@ -216,10 +229,7 @@ func set_character_facing_direction(direction: Vector2):
 
 # Обрабатывает полученный урон и уменьшает здоровье персонажа. Если здоровье достигает нуля, устанавливается состояние смерти.
 func _on_hurt_box_hurt(damage, _angle, _knock_back):
-	if damage == 0:
-		health_bar.max_value = max_health
-		health_bar.value = health
-	elif !invulnerability: 
+	if !invulnerability: 
 		if damage > 0:
 			state = DAMAGE
 
@@ -229,7 +239,24 @@ func _on_hurt_box_hurt(damage, _angle, _knock_back):
 
 		if health <= 0:
 			state = RESPAWN if respawn == 1 else DEATH
+
+func healing(value):
+	healing_label.modulate.a = 255
+	healing_label.text = "+" + str(value)
 	
+	var tween = healing_label.create_tween()
+	tween.tween_property(healing_label, "scale", Vector2(1.5, 1.5), 0.5)
+	tween.play()
+	
+	tween.tween_property(healing_label, "modulate:a", 0, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
+	
+	health += value
+	if health > max_health:
+		health = max_health
+
+	health_bar.max_value = max_health
+	health_bar.value = health
 
 # Возвращает местоположение случайного enemy для атаки.
 func get_random_target():
@@ -255,7 +282,7 @@ func _on_enemy_detection_area_body_exited(body):
 func attack():
 	# ice_spear
 	if ice_spear_level > 0:
-		ice_spear_timer.wait_time = ice_spear_attack_spead * (1 - spell_cooldown)
+		ice_spear_timer.wait_time = ice_spear_attack_speed * (1 - spell_cooldown)
 		if ice_spear_timer.is_stopped():
 			ice_spear_timer.start()
 
@@ -273,15 +300,21 @@ func attack():
 	
 	# skipjack
 	if skipjack_level > 0:
-		skipjack_timer.wait_time = skipjack_attack_spead * (1 - spell_cooldown)
+		skipjack_timer.wait_time = skipjack_attack_speed * (1 - spell_cooldown)
 		if skipjack_timer.is_stopped():
 			skipjack_timer.start()
 	
 	# boomerang
 	if boomerang_level > 0:
-		boomerang_timer.wait_time = boomerang_attack_spead * (1 - spell_cooldown)
+		boomerang_timer.wait_time = boomerang_attack_speed * (1 - spell_cooldown)
 		if boomerang_timer.is_stopped():
 			boomerang_timer.start()
+
+	# bang_sheep
+	if bang_sheep_level > 0:
+		bang_sheep_timer.wait_time = bang_sheep_attack_speed * (1 - spell_cooldown)
+		if bang_sheep_timer.is_stopped():
+			bang_sheep_timer.start()
 			
 	# trap
 	if trap_level > 0:
@@ -401,7 +434,27 @@ func _on_boomerang_attack_timer_timeout():
 			boomerang_attack_timer.start()
 		else:
 			boomerang_attack_timer.stop()
-	
+
+
+func _on_bang_sheep_timer_timeout():
+	bang_sheep_ammo += bang_sheep_base_ammo + additional_attack
+	bang_sheep_attack_timer.start()
+
+
+func _on_bang_sheep_attack_timer_timeout():
+	if bang_sheep_ammo > 0:
+		var bang_sheep_attack = attacks_preload["bang_sheep"].instantiate()
+		bang_sheep_attack.position = position
+		bang_sheep_attack.target = get_random_target()
+		bang_sheep_attack.level = bang_sheep_level
+		add_child(bang_sheep_attack)
+		bang_sheep_ammo -= 1
+		if bang_sheep_ammo >= 0:
+			bang_sheep_attack_timer.start()
+		else:
+			bang_sheep_attack_timer.stop()
+
+
 func _on_trap_timer_timeout():
 	var trap_attack = attacks_preload["trap"].instantiate()
 	trap_attack.level = trap_level
@@ -425,6 +478,8 @@ func damage_state():
 	state = IDLE
 	
 func respawn_state():
+	respawn = 0
+	state = IDLE
 	$TransformAdjustment/AnimatedSprite2D.visible = false
 	$TransformAdjustment/RespawnAnimatedSprite2D.visible = true
 	
@@ -434,11 +489,11 @@ func respawn_state():
 	$TransformAdjustment/AnimatedSprite2D.visible = true
 	$TransformAdjustment/RespawnAnimatedSprite2D.visible = false
 	
-	respawn = 0
-	health = max_health / 2
-	_on_hurt_box_hurt(0, 0, 0)
 
-	state = IDLE
+	
+	var half_health = max_health / 2
+	healing(half_health)
+
 
 # Cостояние win | lose
 func end_state():
@@ -602,6 +657,15 @@ func upgrade_character(upgrade):
 			boomerang_level = 3
 		"boomerang4":
 			boomerang_level = 4
+		# ====================================== bang_sheep
+		"bang_sheep1":
+			bang_sheep_level = 1
+		"bang_sheep2":
+			bang_sheep_level = 2
+		"bang_sheep3":
+			bang_sheep_level = 3
+		"bang_sheep4":
+			bang_sheep_level = 4
 		# ====================================== trap
 		"trap1":
 			trap_level = 1
@@ -651,16 +715,27 @@ func upgrade_character(upgrade):
 		"invulnerability4":
 			invulnerability_level = 4
 			invulnerability_time += 0.2
+		# ====================================== vampirism
+		"vampirism1":
+			vampirism_probability += 0.1
+			vampirism_recovery = 2
+		"vampirism2":
+			vampirism_probability += 0.05
+			vampirism_recovery = 3
+		"vampirism3":
+			vampirism_probability += 0.05
+			vampirism_recovery = 4
+		"vampirism4":
+			vampirism_probability += 0.1
+			vampirism_recovery = 4
 		# ====================================== mass_collection
 		"mass_collection":
 			grab_area.scale = Vector2(50,50)
 			mass_collection_timer.start()
 		# ====================================== food
 		"food":
-			health += 20
-			health = clamp(health,0, max_health)
-			_on_hurt_box_hurt(0, 0, 0)
-			
+			healing(20)
+
 	adjust_gui_collection(upgrade)
 	attack()
 #	var option_children = upgrade_options_vbox.get_children()
@@ -712,6 +787,7 @@ func _on_collect_area_area_entered(area):
 	
 	if area.is_in_group("gold"):
 		gold += area.collect()
+		$GUILayer/GUI/GoldCollected/GoldCollectedLabel.text = str(gold)
 
 # Вычисляет опыт и уровень персонажа на основе собранных опыта и устанавливает его панели опыта.
 func calculate_experience(gem_experience):
@@ -752,8 +828,8 @@ func set_expbar(set_value = 1, set_max_value = 100):
 # Обработчик таймера для отслеживания времени игры и победы при достижении лимита времени.
 func _on_timer_timeout():
 	time += 1
-	if time >= game_time_limit:
-		state = WIN
+	#if time >= game_time_limit:
+	#	state = WIN
 
 	var min = str(time / 60) if time / 60 > 9 else "0" + str(time / 60)
 	var sec = str(time % 60) if time % 60 > 9 else "0" + str(time % 60)
@@ -810,7 +886,13 @@ func _on_invulnerability_timer_timeout():
 func _on_invulnerability_free_timer_timeout():
 	invulnerability = false
 
+func enemy_death(type = "base"):
+	if randi() % 100 + 1 < vampirism_probability * 100:
+		healing(vampirism_recovery)
 
-func enemy_death():
 	enemy_death_counter += 1
 	$GUILayer/GUI/DeathEnemy/DeathEnemyLabel.text = str(enemy_death_counter)
+	
+	if (type == "boss"):
+		state = WIN
+

@@ -149,6 +149,7 @@ func set_tooltip():
 	$BG.tooltip_text = tooltip
 
 func set_upgrade_btn_disabled(value = true):
+	$BuyTextureButton.visible = !value
 	$BuyTextureButton.disabled = value
 	$BuyTextureButton.set_label_text("")
 
@@ -167,8 +168,22 @@ func _on_buy_texture_button_pressed():
 		save_data()
 		load_data()
 		set_new_data()
-
-
+		
 		Global.set_gold(cur_gold)
 		Global.save_gold()
 		Global.emit_signal("purchase")
+		show_information_panel("Upgrade")
+	else:
+		show_information_panel("Not enough gold")
+
+func show_information_panel(message):
+	$InformationPanel.modulate.a = 1.0
+	$InformationPanel.visible = true
+	$InformationPanel/Label.text = message
+	var tween = create_tween()
+	tween.connect("finished", _on_information_panel_tween_completed)
+	tween.tween_property($InformationPanel, "modulate:a", 0, 0.7)
+	tween.play()
+
+func _on_information_panel_tween_completed():
+	$InformationPanel.visible = false

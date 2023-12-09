@@ -48,7 +48,7 @@ const UPGRADES = {
 	"aura_water2": {
 		"icon": WEAPON_PATH + "aura_water.png",
 		"displayname": "Aura Water",
-		"details": "damage + 2",
+		"details": "damage + 1",
 		"level": "Level: 2",
 		"prerequisite": ["aura_water1"],
 		"type": "weapon"
@@ -56,7 +56,7 @@ const UPGRADES = {
 	"aura_water3": {
 		"icon": WEAPON_PATH + "aura_water.png",
 		"displayname": "Aura Water",
-		"details": "damage + 2, radius + 2",
+		"details": "damage + 1, radius + 2",
 		"level": "Level: 3",
 		"prerequisite": ["aura_water2"],
 		"type": "weapon"
@@ -213,7 +213,7 @@ const UPGRADES = {
 	"boomerang2": {
 		"icon": WEAPON_PATH + "boomerang.png",
 		"displayname": "Boomerang",
-		"details": "damage + 2",
+		"details": "Damage + 2",
 		"level": "Level: 2",
 		"prerequisite": ["boomerang1"],
 		"type": "weapon"
@@ -221,7 +221,7 @@ const UPGRADES = {
 	"boomerang3": {
 		"icon": WEAPON_PATH + "boomerang.png",
 		"displayname": "Boomerang",
-		"details": "damage + 3",
+		"details": "Damage + 3",
 		"level": "Level: 3",
 		"prerequisite": ["boomerang2"],
 		"type": "weapon"
@@ -229,9 +229,42 @@ const UPGRADES = {
 	"boomerang4": {
 		"icon": WEAPON_PATH + "boomerang.png",
 		"displayname": "Boomerang",
-		"details": "damage + 2",
+		"details": "Damage + 2",
 		"level": "Level: 4",
 		"prerequisite": ["boomerang3"],
+		"type": "weapon"
+	},
+	# =========================================================== Bang_sheep
+	"bang_sheep1": {
+		"icon": WEAPON_PATH + "bang_sheep.png",
+		"displayname": "Bang sheet",
+		"details": "Runs into a random enemy and then explodes",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"bang_sheep2": {
+		"icon": WEAPON_PATH + "bang_sheep.png",
+		"displayname": "Bang sheet",
+		"details": "Damage + 2, speed + 20",
+		"level": "Level: 2",
+		"prerequisite": ["bang_sheep1"],
+		"type": "weapon"
+	},
+	"bang_sheep3": {
+		"icon": WEAPON_PATH + "bang_sheep.png",
+		"displayname": "Bang sheet",
+		"details": "Damage + 2, speed + 20",
+		"level": "Level: 3",
+		"prerequisite": ["bang_sheep2"],
+		"type": "weapon"
+	},
+	"bang_sheep4": {
+		"icon": WEAPON_PATH + "bang_sheep.png",
+		"displayname": "Bang sheet",
+		"details": "Damage + 3",
+		"level": "Level: 4",
+		"prerequisite": ["bang_sheep3"],
 		"type": "weapon"
 	},
 	# =========================================================== Trap
@@ -529,6 +562,39 @@ const UPGRADES = {
 		"details": "+ 0.2 to invulnerability time",
 		"level": "Level: 1",
 		"prerequisite": ["invulnerability3"],
+		"type": "upgrade"
+	},
+	# =========================================================== vampirism
+	"vampirism1": {
+		"icon": ICON_PATH + "vampirism.png",
+		"displayname": "Vampirism",
+		"details": "There is a chance to restore health after killing an enemy",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "upgrade"
+	},
+	"vampirism2": {
+		"icon": ICON_PATH + "vampirism.png",
+		"displayname": "Vampirism",
+		"details": "probability + 0.05, recovery + 1",
+		"level": "Level: 1",
+		"prerequisite": ["vampirism1"],
+		"type": "upgrade"
+	},
+	"vampirism3": {
+		"icon": ICON_PATH + "vampirism.png",
+		"displayname": "Vampirism",
+		"details": "probability + 0.05, recovery + 1",
+		"level": "Level: 1",
+		"prerequisite": ["vampirism2"],
+		"type": "upgrade"
+	},
+	"vampirism4": {
+		"icon": ICON_PATH + "vampirism.png",
+		"displayname": "Vampirism",
+		"details": "probability + 0.1",
+		"level": "Level: 1",
+		"prerequisite": ["vampirism3"],
 		"type": "upgrade"
 	},
 	# =========================================================== mass_collection

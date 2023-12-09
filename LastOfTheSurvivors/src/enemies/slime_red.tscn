@@ -53,7 +53,6 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rxbvk"]
-length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,14 +178,14 @@ position = Vector2(-1.18709, -23.4709)
 scale = Vector2(1.60027, 1.53126)
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="0"]
-autoplay = "Walk"
 libraries = {
 "": SubResource("AnimationLibrary_3dcus")
 }
+autoplay = "Walk"
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="1"]
 sprite_frames = SubResource("SpriteFrames_vyb65")
-animation = &"Hit"
+animation = &"Death"
 autoplay = "Walk"
 
 [node name="HurtBox" parent="." index="2"]

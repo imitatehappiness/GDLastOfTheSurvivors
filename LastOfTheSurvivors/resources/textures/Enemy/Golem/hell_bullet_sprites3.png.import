@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cglr58p8lps63"
-path="res://.godot/imported/pxArt.png-3a44fc740c306506032549557a848f82.ctex"
+uid="uid://8hakeoab2cfo"
+path="res://.godot/imported/hell_bullet_sprites3.png-3bb3a0a4ba71dc19a2953ef2fb2d9556.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/Items/Weapons/pxArt.png"
-dest_files=["res://.godot/imported/pxArt.png-3a44fc740c306506032549557a848f82.ctex"]
+source_file="res://resources/textures/Enemy/Golem/hell_bullet_sprites3.png"
+dest_files=["res://.godot/imported/hell_bullet_sprites3.png-3bb3a0a4ba71dc19a2953ef2fb2d9556.ctex"]
 
 [params]
 

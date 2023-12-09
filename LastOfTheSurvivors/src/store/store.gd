@@ -3,7 +3,7 @@ extends Node2D
 const menu = "res://src/title_screen/menu.tscn"
 
 var gold
-@onready var gold_label = $HBoxContainer/GoldLabel
+@onready var gold_label = $Gold/GoldLabel
 
 func _ready():
 	Global.connect("purchase", Callable(self, "update_gold"))
