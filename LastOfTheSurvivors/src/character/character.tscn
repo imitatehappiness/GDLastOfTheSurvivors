@@ -1220,7 +1220,7 @@ wait_time = 0.3
 
 [node name="SkipjackTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 10.0
 
 [node name="SkipjackAttackTimer" type="Timer" parent="Attack/SkipjackTimer"]
 unique_name_in_owner = true

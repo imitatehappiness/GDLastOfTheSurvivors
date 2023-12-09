@@ -10264,7 +10264,6 @@ spawn_info = SubResource("Resource_duvbl")
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("18_b85da")]
-experience = 0
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.2

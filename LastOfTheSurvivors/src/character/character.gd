@@ -85,7 +85,7 @@ var ice_spear_level = 0
 #Tornado
 var tornado_ammo = 0
 var tornado_base_ammo = 1
-var tornado_attack_spead = 2
+var tornado_attack_speed = 2
 var tornado_level = 0
 
 #Aura Water
@@ -105,7 +105,7 @@ var sticky_green_bullet_ammo = sticky_green_bullet_base_ammo
 #Skipjack
 var skipjack_ammo = 0
 var skipjack_base_ammo = 1 
-var skipjack_attack_speed = 2
+var skipjack_attack_speed = 8
 var skipjack_level = 0
 
 # Boomerang 
@@ -288,7 +288,7 @@ func attack():
 
 	# tornado	
 	if tornado_level > 0:
-		tornado_timer.wait_time = tornado_attack_spead * (1 - spell_cooldown)
+		tornado_timer.wait_time = tornado_attack_speed * (1 - spell_cooldown)
 		if tornado_timer.is_stopped():
 			tornado_timer.start()
 
@@ -488,8 +488,6 @@ func respawn_state():
 	
 	$TransformAdjustment/AnimatedSprite2D.visible = true
 	$TransformAdjustment/RespawnAnimatedSprite2D.visible = false
-	
-
 	
 	var half_health = max_health / 2
 	healing(half_health)

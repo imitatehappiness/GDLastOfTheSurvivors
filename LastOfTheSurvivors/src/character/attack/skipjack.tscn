@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8daswq8y56gs"]
+[gd_scene load_steps=16 format=3 uid="uid://c8daswq8y56gs"]
 
 [ext_resource type="Script" path="res://src/character/attack/skipjack.gd" id="1_ly3rc"]
 [ext_resource type="Texture2D" uid="uid://cue4oc4401cly" path="res://resources/textures/Items/Weapons/skipjack.png" id="2_rjt6b"]
@@ -77,6 +77,13 @@ _data = {
 "Idle": SubResource("Animation_dgrve")
 }
 
+[sub_resource type="Curve" id="Curve_5jqvi"]
+_data = [Vector2(0.00222222, 1), 0.0, 0.0, 0, 0, Vector2(0.993333, 0.0163044), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jyamf"]
+colors = PackedColorArray(0.976597, 0.565086, 0.779893, 1, 1, 1, 1, 1)
+
 [node name="Skipjack" type="Area2D" groups=["attack"]]
 top_level = true
 scale = Vector2(0.0243338, 0.0279533)
@@ -101,7 +108,7 @@ pitch_scale = 5.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 8.0
 one_shot = true
 autostart = true
 
@@ -122,5 +129,11 @@ stream = ExtResource("5_w6w6k")
 volume_db = -15.0
 max_distance = 1000.0
 attenuation = 1.1487
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+width = 4.0
+width_curve = SubResource("Curve_5jqvi")
+gradient = SubResource("Gradient_jyamf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

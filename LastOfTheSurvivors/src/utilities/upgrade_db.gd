@@ -172,7 +172,7 @@ const UPGRADES = {
 	"skipjack1": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "Bounces off the enemy and flies in a random direction",
+		"details": "Bounces and flies in a random direction",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "weapon"
@@ -180,7 +180,7 @@ const UPGRADES = {
 	"skipjack2": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "Damage + 1, health + 1",
+		"details": "Damage + 1",
 		"level": "Level: 2",
 		"prerequisite": ["skipjack1"],
 		"type": "weapon"
@@ -188,7 +188,7 @@ const UPGRADES = {
 	"skipjack3": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "Damage + 1, health + 1",
+		"details": "Damage + 1, speed + 50",
 		"level": "Level: 3",
 		"prerequisite": ["skipjack2"],
 		"type": "weapon"
@@ -196,7 +196,7 @@ const UPGRADES = {
 	"skipjack4": {
 		"icon": WEAPON_PATH + "skipjack.png",
 		"displayname": "Skipjack",
-		"details": "Damage + 1, health + 1",
+		"details": "Damage + 1, speed + 50",
 		"level": "Level: 4",
 		"prerequisite": ["skipjack3"],
 		"type": "weapon"
