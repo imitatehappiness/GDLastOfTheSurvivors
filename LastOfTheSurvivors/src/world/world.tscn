@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bxwoljhx8f4bu"]
+[gd_scene load_steps=44 format=3 uid="uid://bxwoljhx8f4bu"]
 
 [ext_resource type="Texture2D" uid="uid://cppwhur6qqbf4" path="res://resources/textures/interiors.png" id="1_cvuiv"]
 [ext_resource type="PackedScene" uid="uid://n1xld431jo4h" path="res://src/character/character.tscn" id="2_abh51"]
@@ -20,8 +20,7 @@
 [ext_resource type="Script" path="res://src/utilities/spawn_circle_info.gd" id="14_sjq2m"]
 [ext_resource type="Script" path="res://src/utilities/spawn_diagonal_info.gd" id="15_jowxg"]
 [ext_resource type="Texture2D" uid="uid://krpnxj607yo1" path="res://resources/textures/Light/circle.png" id="17_gvdv3"]
-[ext_resource type="PackedScene" uid="uid://c2colp3ri7vai" path="res://src/objects/experience_gem.tscn" id="18_b85da"]
-[ext_resource type="PackedScene" uid="uid://b02phrh8jktyr" path="res://src/enemies/golem.tscn" id="22_hf1n1"]
+[ext_resource type="PackedScene" uid="uid://d11kngldk800m" path="res://src/enemies/boss/golem.tscn" id="22_7llx1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcvhc"]
 texture = ExtResource("1_cvuiv")
@@ -10132,7 +10131,7 @@ script = ExtResource("7_xmxlg")
 enemy_name = ""
 time_start = 421
 time_end = 422
-enemy = ExtResource("22_hf1n1")
+enemy = ExtResource("22_7llx1")
 enemy_num = 1
 enemy_spawn_delay = 1
 
@@ -10208,7 +10207,7 @@ enemy_num = 14
 time_free = 5
 space = 50
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["world"]]
 metadata/_edit_vertical_guides_ = [1501.0, 5333.0, -1501.0]
 metadata/_edit_horizontal_guides_ = [1504.0, -1504.0]
 
@@ -10262,8 +10261,6 @@ spawn_info = SubResource("Resource_18gsh")
 spawn_info = SubResource("Resource_duvbl")
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
-
-[node name="ExperienceGem" parent="Loot" instance=ExtResource("18_b85da")]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.2
@@ -10350,7 +10347,7 @@ texture = ExtResource("17_gvdv3")
 
 [node name="PointLight2D10" type="PointLight2D" parent="Light"]
 position = Vector2(0.999992, -5)
-scale = Vector2(0.53273, 0.390801)
+scale = Vector2(0.396388, 0.388509)
 color = Color(0.933333, 0.423529, 0.117647, 1)
 energy = 3.0
 texture = ExtResource("17_gvdv3")

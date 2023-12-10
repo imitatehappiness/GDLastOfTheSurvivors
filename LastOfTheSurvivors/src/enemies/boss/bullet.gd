@@ -1,21 +1,22 @@
-
 extends Area2D
 
+var speed = 250
 var damage = 20 
 
 var target = Vector2.ZERO 
 var angle = Vector2.ZERO 
 
 func _ready():
+	$HitBox.damage = damage
 	angle = global_position.direction_to(target)
 	rotation = angle.angle()
-	var tween = create_tween()
-
-	tween.play()
-	$AnimationPlayer.play("Idle")
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta):
-	pass
+	position += angle * speed * delta
 
-func free():
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()
+
+func _on_body_entered(body):
 	queue_free()

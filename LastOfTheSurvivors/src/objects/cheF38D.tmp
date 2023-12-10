@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj7t26ucmy67b"]
+
+[ext_resource type="Script" path="res://src/objects/chest.gd" id="1_3wtwy"]
+[ext_resource type="Texture2D" uid="uid://dlqn4j1owx3du" path="res://resources/textures/Items/Chest/Chests.png" id="1_bc7sj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcry7"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob7ej"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v03jv"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(48, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shgua"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(96, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ipl"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(144, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cna6l"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(192, 96, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgor0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcry7")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob7ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v03jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shgua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ipl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cna6l")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkxyb"]
+radius = 33.0
+
+[node name="Chest" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3wtwy")
+gold_reward = null
+experience_reward = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_bgor0")
+animation = &"Open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hkxyb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

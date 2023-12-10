@@ -1,0 +1,158 @@
+[gd_scene load_steps=14 format=3 uid="uid://cj7t26ucmy67b"]
+
+[ext_resource type="Script" path="res://src/objects/chest.gd" id="1_3wtwy"]
+[ext_resource type="Texture2D" uid="uid://dlqn4j1owx3du" path="res://resources/textures/Items/Chest/Chests.png" id="1_bc7sj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcry7"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob7ej"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v03jv"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(48, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shgua"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(96, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ipl"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(144, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cna6l"]
+atlas = ExtResource("1_bc7sj")
+region = Rect2(192, 96, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgor0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcry7")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob7ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v03jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shgua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ipl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cna6l")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkxyb"]
+radius = 33.0
+
+[sub_resource type="Animation" id="Animation_jeolt"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Default"]
+}
+
+[sub_resource type="Animation" id="Animation_rw8ka"]
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Open"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"give_loot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmfrm"]
+_data = {
+"Default": SubResource("Animation_jeolt"),
+"Open": SubResource("Animation_rw8ka")
+}
+
+[node name="Chest" type="Area2D"]
+scale = Vector2(1.91855, 1.8943)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3wtwy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_bgor0")
+animation = &"Open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hkxyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_qmfrm")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

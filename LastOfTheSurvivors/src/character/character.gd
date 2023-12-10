@@ -79,13 +79,13 @@ var invulnerability_reload = 5
 #IceSpear
 var ice_spear_ammo = 0
 var ice_spear_base_ammo = 1 
-var ice_spear_attack_speed = 2
+var ice_spear_attack_speed = 3
 var ice_spear_level = 0
 
 #Tornado
 var tornado_ammo = 0
 var tornado_base_ammo = 1
-var tornado_attack_speed = 2
+var tornado_attack_speed = 3
 var tornado_level = 0
 
 #Aura Water
@@ -111,13 +111,13 @@ var skipjack_level = 0
 # Boomerang 
 var boomerang_ammo = 0
 var boomerang_base_ammo = 1 
-var boomerang_attack_speed = 3
+var boomerang_attack_speed = 5
 var boomerang_level = 0
 
 # Bang Sheep
 var bang_sheep_ammo = 0
 var bang_sheep_base_ammo = 1 
-var bang_sheep_attack_speed = 3
+var bang_sheep_attack_speed = 4
 var bang_sheep_level = 0
 
 # Trap 
@@ -891,6 +891,5 @@ func enemy_death(type = "base"):
 	enemy_death_counter += 1
 	$GUILayer/GUI/DeathEnemy/DeathEnemyLabel.text = str(enemy_death_counter)
 	
-	if (type == "boss"):
-		state = WIN
-
+func victory():
+	state = WIN

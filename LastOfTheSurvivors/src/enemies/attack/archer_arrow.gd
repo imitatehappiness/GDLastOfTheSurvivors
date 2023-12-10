@@ -5,7 +5,6 @@ var speed = 250
 var damage = 20 
 var attack_size = 1.0 
 
-
 var target = Vector2.ZERO 
 var angle = Vector2.ZERO 
 
