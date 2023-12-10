@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dt7jtr1kydcon"]
+[gd_scene load_steps=31 format=3 uid="uid://dt7jtr1kydcon"]
 
 [ext_resource type="Texture2D" uid="uid://6ym7d5gpk1cw" path="res://resources/textures/Items/Portal/Green Portal Sprite Sheet.png" id="1_oymp6"]
 [ext_resource type="Script" path="res://src/objects/portal.gd" id="1_phdqk"]
@@ -34,6 +34,38 @@ region = Rect2(384, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ku251"]
 atlas = ExtResource("1_oymp6")
 region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e077x"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc6bl"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bmrs"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jcjx"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auvmn"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qc8v"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10bvk"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqoms"]
+atlas = ExtResource("1_oymp6")
+region = Rect2(448, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uv78u"]
 atlas = ExtResource("1_oymp6")
@@ -92,6 +124,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e077x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc6bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bmrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jcjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auvmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qc8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10bvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqoms")
+}],
+"loop": false,
+"name": &"Init",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_uv78u")
 }, {
 "duration": 1.0,
@@ -145,6 +206,33 @@ tracks/1/keys = {
 "values": ["Default"]
 }
 
+[sub_resource type="Animation" id="Animation_ro6ok"]
+length = 1.14286
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429, 0.714286, 0.857143, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Init"]
+}
+
 [sub_resource type="Animation" id="Animation_rof18"]
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -188,6 +276,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_phbg1"]
 _data = {
 "Default": SubResource("Animation_s4rfx"),
+"Init": SubResource("Animation_ro6ok"),
 "Сlosing": SubResource("Animation_rof18")
 }
 
@@ -199,7 +288,7 @@ script = ExtResource("1_phdqk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qo581")
-animation = &"Сlosing"
+animation = &"Default"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -5,6 +5,8 @@ signal victory()
 
 func _ready():
 	connect("victory", Callable(character, "victory"))
+	$AnimationPlayer.play("Init")
+	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("Default")
 
 func _on_body_entered(body):

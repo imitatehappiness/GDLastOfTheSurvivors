@@ -10451,4 +10451,5 @@ energy = 3.0
 texture = ExtResource("17_gvdv3")
 
 [node name="Golem" parent="." instance=ExtResource("22_7llx1")]
-position = Vector2(156, -47)
+position = Vector2(-136, -50)
+max_health = 1
