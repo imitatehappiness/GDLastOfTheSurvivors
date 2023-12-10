@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Paran
 @export var movement_speed : float = 40.0
-@export var max_health : int = 1
+@export var max_health : int = 10000
 @export var damage : int = 10
 @export var experience : int = 1000
 @export var coins : int = 1000
