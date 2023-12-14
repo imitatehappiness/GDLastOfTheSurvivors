@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ohv7"]
-size = Vector2(4.92213, 19.6885)
+size = Vector2(4.92213, 22.851)
 
 [sub_resource type="Animation" id="Animation_dgrve"]
 length = 2.0
@@ -127,13 +127,13 @@ script = ExtResource("1_bmian")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -2.35619
-scale = Vector2(1.2, 1.123)
+scale = Vector2(1.5, 1.123)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
 animation = &"Idle"
 frame_progress = 0.937681
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.000831346, 0.000831641)
+position = Vector2(0.868453, 0.870116)
 rotation = -0.785398
 scale = Vector2(2, 1.4)
 shape = SubResource("RectangleShape2D_8ohv7")

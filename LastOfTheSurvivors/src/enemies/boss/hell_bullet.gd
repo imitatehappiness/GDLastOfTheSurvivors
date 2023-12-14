@@ -2,9 +2,10 @@ extends Area2D
 
 var speed: float = 150
 var direction = Vector2.RIGHT
-
+var damage : int = 15
 
 func _ready():
+	$HitBox.damage = damage
 	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta):

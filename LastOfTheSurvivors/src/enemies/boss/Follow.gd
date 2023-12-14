@@ -14,7 +14,7 @@ func transition():
 	
 	if distance < 30:
 		get_parent().change_state("MeleeAttack")
-	elif distance > 130:
+	elif distance > 50:
 		var chance = randi() % 4
 		if owner.phase_2:
 			chance = randi() % 4

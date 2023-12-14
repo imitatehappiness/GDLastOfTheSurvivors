@@ -11,7 +11,7 @@ func enter():
 	can_transition = true
 
 func shoot():
-	for i in range(-1, 2):
+	for i in range(-2, 3):
 		var bullet = bullet_node.instantiate()
 		bullet.position = owner.position
 		bullet.target = character.global_position

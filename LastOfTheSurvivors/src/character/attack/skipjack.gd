@@ -46,10 +46,18 @@ func _ready():
 func _physics_process(delta):
 	var screen_size = character.get_viewport_rect().size
 
-	if position.x >= character.global_position.x + screen_size.x / 2  or position.x <= character.global_position.x - screen_size.x / 2 or position.y >= character.global_position.y + screen_size.y / 2  or position.y <= character.global_position.y - screen_size.y / 2 + 15:
-		$HitSound.play()
-		angle = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-
+	if position.x >= character.global_position.x + screen_size.x / 2:
+		angle = get_new_angle(-1, randf_range(-1, 1))
+	
+	if position.x <= character.global_position.x - screen_size.x / 2:
+		angle = get_new_angle(1, randf_range(-1, 1))
+		
+	if position.y >= character.global_position.y + screen_size.y / 2:
+		angle = get_new_angle(randf_range(-1, 1), -1)
+		
+	if position.y <= character.global_position.y - screen_size.y / 2 + 15:
+		angle = get_new_angle(randf_range(-1, 1), 1)
+		
 	position += angle * speed * delta
 
 	tail_queue.push_front(position)
@@ -61,11 +69,13 @@ func _physics_process(delta):
 		$Line2D.add_point(point)
 		
 
-
-		
 func enemy_hit(charge = 1):
 	pass
 
 func _on_timer_timeout():
 	emit_signal("remove_from_array", self)
 	queue_free()
+
+func get_new_angle(val1 : float, val2 : float) -> Vector2:
+	$HitSound.play()
+	return Vector2(val1, val2).normalized()

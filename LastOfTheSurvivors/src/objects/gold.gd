@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var gold = 1
+@export var gold : float = 1
 
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D

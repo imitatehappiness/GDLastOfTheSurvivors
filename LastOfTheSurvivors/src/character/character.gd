@@ -79,13 +79,13 @@ var invulnerability_reload = 5
 #IceSpear
 var ice_spear_ammo = 0
 var ice_spear_base_ammo = 1 
-var ice_spear_attack_speed = 3
+var ice_spear_attack_speed = 2.5
 var ice_spear_level = 0
 
 #Tornado
 var tornado_ammo = 0
 var tornado_base_ammo = 1
-var tornado_attack_speed = 3
+var tornado_attack_speed = 2
 var tornado_level = 0
 
 #Aura Water
@@ -105,13 +105,13 @@ var sticky_green_bullet_ammo = sticky_green_bullet_base_ammo
 #Skipjack
 var skipjack_ammo = 0
 var skipjack_base_ammo = 1 
-var skipjack_attack_speed = 8
+var skipjack_attack_speed = 6
 var skipjack_level = 0
 
 # Boomerang 
 var boomerang_ammo = 0
 var boomerang_base_ammo = 1 
-var boomerang_attack_speed = 5
+var boomerang_attack_speed = 4
 var boomerang_level = 0
 
 # Bang Sheep
@@ -190,7 +190,7 @@ func _ready():
 	%VersionLabel.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
-
+	
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)

@@ -176,7 +176,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c51kk"]
-size = Vector2(5.94348, 15.1749)
+size = Vector2(5.94348, 28.5645)
 
 [sub_resource type="Animation" id="Animation_s4rfx"]
 length = 1.33333
@@ -292,7 +292,7 @@ animation = &"Default"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.96046e-08, 0)
+position = Vector2(-5.96046e-08, 4.46321)
 shape = SubResource("RectangleShape2D_c51kk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

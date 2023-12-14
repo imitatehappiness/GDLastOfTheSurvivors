@@ -61,6 +61,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FiniteStateMachine/ArmorBuff")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_scale"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_o1426"]
 
@@ -183,7 +197,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_1vxl6"]
-length = 5.0
+length = 5.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -302,7 +316,7 @@ tracks/2/path = NodePath("FiniteStateMachine/LaserBeam")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -966,7 +980,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yc5an")
 }, {
-"duration": 1.0,
+"duration": 18.0,
 "texture": SubResource("AtlasTexture_jfsf3")
 }],
 "loop": false,
@@ -1102,7 +1116,7 @@ transform_adjustment = NodePath("TransformAdjustment")
 
 [node name="HellBulletAttackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.04
+wait_time = 0.05
 
 [node name="TransformAdjustment" type="Node2D" parent="."]
 
@@ -1145,6 +1159,7 @@ texture = ExtResource("2_wdqi2")
 vframes = 15
 
 [node name="debug" type="Label" parent="."]
+visible = false
 z_index = 3
 offset_left = -20.0
 offset_top = -42.0

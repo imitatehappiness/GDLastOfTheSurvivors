@@ -1251,7 +1251,7 @@ wait_time = 5.0
 
 [node name="BangSheepAttackTimer" type="Timer" parent="Attack/BangSheepTimer"]
 unique_name_in_owner = true
-wait_time = 0.4
+wait_time = 0.3
 
 [node name="SplashTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
@@ -1328,11 +1328,11 @@ tint_progress = Color(0.0509804, 0.45098, 0.517647, 1)
 unique_name_in_owner = true
 z_index = -1
 layout_mode = 0
-offset_left = 305.0
+offset_left = 304.0
 offset_top = 200.0
-offset_right = 337.0
+offset_right = 336.0
 offset_bottom = 211.0
-scale = Vector2(0.900081, 1.1895)
+scale = Vector2(1, 1.321)
 value = 50.0
 texture_under = ExtResource("8_0fplp")
 texture_progress = ExtResource("9_gbuj6")
