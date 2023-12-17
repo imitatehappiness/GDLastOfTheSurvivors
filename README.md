@@ -13,6 +13,13 @@ Last of the Survivors is a casual horror game with rogue—lite elements, in whi
 
 In Last of the Survivors, the player's goal is to survive against the advancing waves of enemies. At the beginning, the player has only one weapon to fight the enemies. By killing enemies, the player gains experience and can level up, which allows you to get additional weapons and passive items or improve existing equipment to cope with the impending greater danger.
 
+## Contributing
+Contributors are welcome!
+
+If you encounter a bug, please  [open an issue.](https://github.com/imitatehappiness/GDLastOfTheSurvivors/issues/new)
+
+
+
 ## Demo
 <a href="https://imitatehappiness.itch.io/last-of-the-survivors">
   <img src="https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/68036dbb-dff8-4754-b10c-2ea11307b884" alt="image">
