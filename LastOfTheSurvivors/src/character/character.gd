@@ -478,6 +478,7 @@ func damage_state():
 	state = IDLE
 	
 func respawn_state():
+	invulnerability = true
 	respawn = 0
 	state = IDLE
 	$TransformAdjustment/AnimatedSprite2D.visible = false
@@ -491,6 +492,7 @@ func respawn_state():
 	
 	var half_health = max_health / 2
 	healing(half_health)
+	invulnerability = false
 
 
 # Cостояние win | lose

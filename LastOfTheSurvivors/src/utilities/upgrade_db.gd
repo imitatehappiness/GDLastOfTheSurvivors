@@ -577,7 +577,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "vampirism.png",
 		"displayname": "Vampirism",
 		"details": "probability + 0.05, recovery + 1",
-		"level": "Level: 1",
+		"level": "Level: 2",
 		"prerequisite": ["vampirism1"],
 		"type": "upgrade"
 	},
@@ -585,7 +585,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "vampirism.png",
 		"displayname": "Vampirism",
 		"details": "probability + 0.05, recovery + 1",
-		"level": "Level: 1",
+		"level": "Level: 3",
 		"prerequisite": ["vampirism2"],
 		"type": "upgrade"
 	},
@@ -593,7 +593,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "vampirism.png",
 		"displayname": "Vampirism",
 		"details": "probability + 0.1",
-		"level": "Level: 1",
+		"level": "Level: 4",
 		"prerequisite": ["vampirism3"],
 		"type": "upgrade"
 	},

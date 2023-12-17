@@ -39,7 +39,7 @@ func collect():
 	sound.play()
 	collision.call_deferred("set", "disabaled", true)
 	sprite.visible = false
-	return experience	
+	return experience
 
 
 func _on_audio_collected_finished():
