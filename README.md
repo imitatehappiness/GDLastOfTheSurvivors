@@ -7,7 +7,7 @@
 ![Top_Down](https://img.shields.io/badge/Top_Down-094047?style=for-the-badge&logo=GitHub-Sponsors&logoColor=EEE&Color=EEE)
 ![Survival](https://img.shields.io/badge/Survival-094047?style=for-the-badge&logo=GitHub-Sponsors&logoColor=EEE&Color=EEE)
 ## Description
-Last of the Survivors is a casual horror game with rogue—lite elements, in which your choice can allow you to quickly surpass the strength of hundreds of monsters that attack you.
+"Last of the Survivors" is an engaging action game with rogue-lite elements, where your choices can empower you to overcome hordes of attacking monsters. 
 
 ## Gameplay
 
