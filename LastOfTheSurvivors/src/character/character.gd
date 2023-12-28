@@ -190,7 +190,7 @@ func _ready():
 	%VersionLabel.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
-	
+
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)
@@ -231,6 +231,7 @@ func set_character_facing_direction(direction: Vector2):
 func _on_hurt_box_hurt(damage, _angle, _knock_back):
 	if !invulnerability: 
 		if damage > 0:
+			healing_label_show(clamp(damage - armor, 1.0, 999.0), true)
 			state = DAMAGE
 
 		health -= clamp(damage - armor, 1.0, 999.0)
@@ -241,15 +242,7 @@ func _on_hurt_box_hurt(damage, _angle, _knock_back):
 			state = RESPAWN if respawn == 1 else DEATH
 
 func healing(value):
-	healing_label.modulate.a = 255
-	healing_label.text = "+" + str(value)
-	
-	var tween = healing_label.create_tween()
-	tween.tween_property(healing_label, "scale", Vector2(1.5, 1.5), 0.5)
-	tween.play()
-	
-	tween.tween_property(healing_label, "modulate:a", 0, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
+	healing_label_show(value, false)
 	
 	health += value
 	if health > max_health:
@@ -257,6 +250,22 @@ func healing(value):
 
 	health_bar.max_value = max_health
 	health_bar.value = health
+
+func healing_label_show(value, damage):
+	healing_label.modulate.a = 255
+	if damage:
+		healing_label.modulate = Color(1, 0, 0)  # Красный цвет
+		healing_label.text = "-" + str(value)
+	else:
+		healing_label.modulate = Color(65, 199, 0)  # Зеленый цвет
+		healing_label.text = "+" + str(value)
+	
+	var tween = healing_label.create_tween()
+	tween.tween_property(healing_label, "scale", Vector2(1.5, 1.5), 0.3)
+	tween.play()
+	
+	tween.tween_property(healing_label, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 
 # Возвращает местоположение случайного enemy для атаки.
 func get_random_target():
@@ -862,7 +871,6 @@ func _on_damage_received(enemy_damage):
 		health -= clamp(enemy_damage - armor, 1.0, 999.0)
 		health_bar.max_value = max_health
 		health_bar.value = health
-
 		if health <= 0:
 			state = RESPAWN if respawn == 1 else DEATH
 

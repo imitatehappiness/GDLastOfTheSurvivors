@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://de053yh13u0dm"]
+[gd_scene load_steps=19 format=3 uid="uid://de053yh13u0dm"]
 
 [ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_xk0o2"]
 [ext_resource type="Texture2D" uid="uid://bwuul2aw68tfr" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death3.png" id="5_hyu02"]
+[ext_resource type="Texture2D" uid="uid://l24iv2alyvf0" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death1.png" id="6_i25aa"]
 [ext_resource type="Texture2D" uid="uid://bl88lypwd3kgv" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death4.png" id="6_r78ig"]
+[ext_resource type="Texture2D" uid="uid://bdccehr6tugxs" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death2.png" id="7_2h6pd"]
 [ext_resource type="Texture2D" uid="uid://baoifudpi2qy8" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death5.png" id="7_yx5aa"]
 [ext_resource type="Texture2D" uid="uid://cw3v2mfunmwgd" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death6.png" id="8_q8u74"]
 [ext_resource type="Texture2D" uid="uid://hngblib7xt70" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Normal/Death/png/Slime_Death7.png" id="9_87wmr"]
@@ -52,6 +54,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rxbvk"]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,10 +62,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -132,11 +135,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_i25aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2h6pd")
+}, {
+"duration": 1.0,
 "texture": ExtResource("5_hyu02")
 }],
 "loop": false,
 "name": &"Hit",
-"speed": 1.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,

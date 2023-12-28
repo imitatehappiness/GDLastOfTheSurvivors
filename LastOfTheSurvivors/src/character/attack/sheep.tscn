@@ -116,9 +116,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b25ro"]
-radius = 24.588
+radius = 30.5119
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_swww0"]
+radius = 14.0824
 
 [sub_resource type="Animation" id="Animation_a8qvk"]
 length = 0.615385
@@ -237,15 +238,18 @@ _data = {
 
 [node name="Sheep" type="Area2D" groups=["attack"]]
 top_level = true
-scale = Vector2(0.287593, 0.287043)
+scale = Vector2(0.426064, 0.435194)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_pi3tk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.2, 1.123)
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(1.62023, 1.50147)
 sprite_frames = SubResource("SpriteFrames_i2q7c")
-animation = &"Preparation"
+animation = &"Bang"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b25ro")

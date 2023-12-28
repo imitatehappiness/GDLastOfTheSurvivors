@@ -106,7 +106,7 @@ const UPGRADES = {
 	"splash1": {
 		"icon": WEAPON_PATH + "splash.png",
 		"displayname": "Splash",
-		"details": "Удар волной перед собой",
+		"details": "The impact of the wave in front of you",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "weapon"
@@ -114,7 +114,7 @@ const UPGRADES = {
 	"splash2": {
 		"icon": WEAPON_PATH + "splash.png",
 		"displayname": "Splash",
-		"details": "damage + 2, attack_size + 0.1",
+		"details": "damage + 2, attack_size + 0.4",
 		"level": "Level: 2",
 		"prerequisite": ["splash1"],
 		"type": "weapon"
@@ -122,7 +122,7 @@ const UPGRADES = {
 	"splash3": {
 		"icon": WEAPON_PATH + "splash.png",
 		"displayname": "Splash",
-		"details": "damage + 5, attack_size + 0.1",
+		"details": "damage + 3, attack_size + 0.3",
 		"level": "Level: 3",
 		"prerequisite": ["splash2"],
 		"type": "weapon"
@@ -130,7 +130,7 @@ const UPGRADES = {
 	"splash4": {
 		"icon": WEAPON_PATH + "splash.png",
 		"displayname": "Splash",
-		"details": "damage + 2, attack_size + 0.1",
+		"details": "damage + 2, attack_size + 0.5",
 		"level": "Level: 4",
 		"prerequisite": ["splash3"],
 		"type": "weapon"

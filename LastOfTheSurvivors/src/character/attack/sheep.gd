@@ -66,7 +66,7 @@ func boost_scale():
 	$BangSoundPlay.play()
 	state = BANG
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(2, 2)*attack_size, 0.4).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(2.5, 2.5)*attack_size, 0.4).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
 	damage = bang_damage
 	$BangSoundPlay.play()

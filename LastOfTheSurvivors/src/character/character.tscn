@@ -1613,7 +1613,7 @@ offset_left = -11.2123
 offset_top = -50.4659
 offset_right = 28.7877
 offset_bottom = -27.4659
-theme_override_colors/font_color = Color(0.254902, 0.780392, 0, 1)
+theme_override_colors/font_color = Color(0.968627, 0.0588235, 0.0980392, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1631,8 +1631,6 @@ texture = ExtResource("9_5oko8")
 stream = ExtResource("14_p621d")
 volume_db = -20.0
 pitch_scale = 0.85
-
-[node name="Line2D" type="Line2D" parent="."]
 
 [connection signal="timeout" from="Upgrades/MassCollectionTimer" to="." method="_on_mass_collection_timer_timeout"]
 [connection signal="timeout" from="Upgrades/InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]

@@ -162,7 +162,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8quvn"]
-radius = 23.0217
+radius = 26.0192
 
 [node name="AuraWater" type="Area2D" groups=["attack"]]
 z_index = -1
@@ -173,7 +173,8 @@ script = ExtResource("1_2r7gh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.290196)
 texture_filter = 2
-scale = Vector2(0.4, 0.398)
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.455208, 0.454208)
 sprite_frames = SubResource("SpriteFrames_fdky7")
 animation = &"Idle"
 frame_progress = 0.986745

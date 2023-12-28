@@ -132,7 +132,7 @@ attenuation = 1.1487
 
 [node name="Line2D" type="Line2D" parent="."]
 top_level = true
-width = 4.0
+width = 2.0
 width_curve = SubResource("Curve_5jqvi")
 gradient = SubResource("Gradient_jyamf")
 

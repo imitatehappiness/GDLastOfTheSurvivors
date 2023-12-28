@@ -14,13 +14,13 @@ func _ready():
 			attack_size = 1.1
 		2:
 			damage = 5
-			attack_size = 1.2
+			attack_size = 1.5
 		3:
 			damage = 8
-			attack_size = 1.3
+			attack_size = 1.8
 		4:
 			damage = 10
-			attack_size = 1.4
+			attack_size = 2.2
 
 	global_position = character.global_position + direction * Vector2(50 * character.transform_adjustment.scale.x * attack_size, 0)
 	
