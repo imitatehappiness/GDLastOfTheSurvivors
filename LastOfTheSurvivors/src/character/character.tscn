@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://n1xld431jo4h"]
+[gd_scene load_steps=180 format=3 uid="uid://n1xld431jo4h"]
 
 [ext_resource type="Script" path="res://src/character/character.gd" id="1_37qod"]
 [ext_resource type="Texture2D" uid="uid://w5r0cdsuqh4y" path="res://resources/textures/Player/GetHit/spr_NecromancerGetHit_strip9.png" id="2_m67ee"]
@@ -22,6 +22,16 @@
 [ext_resource type="Texture2D" uid="uid://cfng6wt02bnme" path="res://resources/textures/GUI/Bones_SingleSkull_Death.png" id="19_a47hn"]
 [ext_resource type="Texture2D" uid="uid://fbjmk4b1jn40" path="res://resources/textures/GUI/frames/upgrade_frame3.png" id="19_lxh8q"]
 [ext_resource type="Texture2D" uid="uid://b63ec2rmyllah" path="res://resources/textures/Items/Gold/coin_04d.png" id="20_63kqx"]
+[ext_resource type="Script" path="res://src/character/FiniteStateMachine.gd" id="23_1n1os"]
+[ext_resource type="Script" path="res://src/character/Idle.gd" id="24_jxwnn"]
+[ext_resource type="Script" path="res://src/character/Walk.gd" id="25_rmc0q"]
+[ext_resource type="Script" path="res://src/character/Damage.gd" id="26_icgwk"]
+[ext_resource type="Script" path="res://src/character/Death.gd" id="27_knmp4"]
+[ext_resource type="Script" path="res://src/character/Win.gd" id="28_1oyod"]
+[ext_resource type="Script" path="res://src/character/Respawn.gd" id="29_kjwhf"]
+[ext_resource type="Script" path="res://src/character/Pause.gd" id="30_qxu6f"]
+[ext_resource type="Script" path="res://src/character/Attack.gd" id="31_h36q2"]
+[ext_resource type="Script" path="res://src/character/LevelUp.gd" id="32_qj33s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrgkl"]
 radius = 4.5
@@ -47,10 +57,21 @@ tracks/1/path = NodePath(".:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["Damage"]
+"values": ["Damage", &"Damage"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../FiniteStateMachine/Death")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_5k1p1"]
@@ -1183,8 +1204,9 @@ libraries = {
 position = Vector2(1, -1)
 scale = Vector2(1.36625, 1.37274)
 sprite_frames = SubResource("SpriteFrames_fs65x")
-animation = &"Walk"
+animation = &"Damage"
 autoplay = "Idle"
+frame = 4
 
 [node name="RespawnAnimatedSprite2D" type="AnimatedSprite2D" parent="TransformAdjustment"]
 visible = false
@@ -1398,7 +1420,7 @@ text = "Result"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoldLabel" type="Label" parent="GUILayer/GUI/DeathPanel"]
+[node name="EndStatLabel" type="Label" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 41.0
@@ -1408,18 +1430,6 @@ offset_bottom = 67.0
 theme_override_fonts/font = ExtResource("7_c5i48")
 theme_override_font_sizes/font_size = 12
 text = "GOLD Collected: "
-vertical_alignment = 1
-
-[node name="TotalKilledLabel" type="Label" parent="GUILayer/GUI/DeathPanel"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 41.0
-offset_top = 51.0
-offset_right = 196.0
-offset_bottom = 82.0
-theme_override_fonts/font = ExtResource("7_c5i48")
-theme_override_font_sizes/font_size = 12
-text = "Enemy Killed: "
 vertical_alignment = 1
 
 [node name="VictorySound" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
@@ -1631,6 +1641,43 @@ texture = ExtResource("9_5oko8")
 stream = ExtResource("14_p621d")
 volume_db = -20.0
 pitch_scale = 0.85
+
+[node name="FiniteStateMachine" type="Node2D" parent="."]
+script = ExtResource("23_1n1os")
+
+[node name="Idle" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("24_jxwnn")
+
+[node name="Walk" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("25_rmc0q")
+
+[node name="Damage" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("26_icgwk")
+
+[node name="Death" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("27_knmp4")
+
+[node name="Win" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("28_1oyod")
+
+[node name="Respawn" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("29_kjwhf")
+
+[node name="Pause" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("30_qxu6f")
+
+[node name="Attack" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("31_h36q2")
+
+[node name="LevelUp" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("32_qj33s")
+
+[node name="debug" type="Label" parent="."]
+visible = false
+offset_left = -44.0
+offset_top = -76.0
+offset_right = 47.0
+offset_bottom = -53.6667
 
 [connection signal="timeout" from="Upgrades/MassCollectionTimer" to="." method="_on_mass_collection_timer_timeout"]
 [connection signal="timeout" from="Upgrades/InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]

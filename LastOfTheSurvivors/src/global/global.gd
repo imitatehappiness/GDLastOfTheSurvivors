@@ -1,116 +1,50 @@
+
 extends Node
 
 signal purchase()
 
-const config_path_file = "res://config.cfg"
-var config = ConfigFile.new()
+const character_data_path = "res://character_data.json"
 
-var gold : int = 0
-var version : int = 0
-
-var character_store_upgrades = {
-	"health": 0,
-	"shield": 0,
-	"respawn": 0,
-	"double_splash": 0,
-	"speed": 0,
-	"spell_cooldown": 0,
-	"spell_size": 0,
-}
+var character_data = {}
 
 func _ready():
-	check_config()
-	load_data()
+	load_character_data()
 
-func load_data():
-	load_character_store_upgrades()
-	load_gold()
-	load_version()
+func load_character_data():
+	var character_data_file = FileAccess.open(character_data_path, FileAccess.READ)
+	if not character_data_file:
+		create_default_character_data()
+		save_character_data()
+	var json = JSON.new()
 
-func save_gold():
-	config.load(config_path_file)
-	config.set_value("GOLD", "gold", str(gold))
-	config.save(config_path_file)
+	if json.parse(character_data_file.get_as_text()) != OK:
+		print("Error: Failed to parse JSON from character_data")
+		json.close()
+		return
 
-func load_gold():
-	config.load(config_path_file)
-	gold = int(config.get_value("GOLD", "gold", "-1"))
+	character_data_file.close()
+	character_data = json.get_data()
+	print(character_data)
 
-func load_version():
-	config.load(config_path_file)
-	version = int(config.get_value("VERSION", "version", "0"))
+func save_character_data():
+	var character_data_file = FileAccess.open(character_data_path, FileAccess.WRITE)
+	if not character_data_file:
+		print("Error: Unable to open character_data_file for writing.")
+		return
+	var json_string = JSON.stringify(character_data, "", false)
+	character_data_file.store_string(json_string)
+	character_data_file.close()
 
-func get_gold():
-	return gold
-	
-func set_gold(value):
-	gold = value
-
-func update_gold(value):
-	gold += value
-
-func get_store_item_level(item_id):
-	config.load(config_path_file)
-	return str(config.get_value("STORE_ITEM_" + item_id, "level", "1"))
-
-func save_store_item_level(item_id, new_level):
-	config.set_value("STORE_ITEM_" + item_id, "level", str(new_level))
-	config.save(config_path_file)
-	
-func get_store_item(item_id):
-	config.load(config_path_file)
-
-	return {
-		"name" : config.get_value("STORE_ITEM_" + item_id, "name", "name"),
-		"level" : config.get_value("STORE_ITEM_" + item_id, "level", "1"),
-		"description": config.get_value("STORE_ITEM_" + item_id, "description", "description"),
-		"icon_path" : config.get_value("STORE_ITEM_" + item_id, "icon_path", ""),
-		"cost" : config.get_value("STORE_ITEM_" + item_id, "cost", "10")
+func create_default_character_data():
+	character_data = {
+		"GOLD": {"gold": 0},
+		"CHARACTER_STORE_UPGRADES": {
+			"health": 0,
+			"shield": 0.5,
+			"respawn": 0,
+			"double_splash": 0,
+			"speed": 0,
+			"spell_cooldown": 0,
+			"spell_size": 0.05
+		}
 	}
-
-func save_store_item(item_id: String, data : Dictionary):
-	config.set_value("STORE_ITEM_" + item_id, "name", data["name"])
-	config.set_value("STORE_ITEM_" + item_id, "level", data["level"])
-	config.set_value("STORE_ITEM_" + item_id, "description", data["description"])
-	config.set_value("STORE_ITEM_" + item_id, "cost", data["cost"])
-	config.set_value("STORE_ITEM_" + item_id, "icon_path", data["icon_path"])
-	config.save(config_path_file)
-
-func load_character_store_upgrades():
-	config.load(config_path_file)
-	for key in character_store_upgrades.keys():
-		character_store_upgrades[key] = config.get_value("CHARACTER_STORE_UPGRADES", key, 0)
-
-func save_character_store_upgrades():
-	for key in character_store_upgrades.keys():
-		config.set_value("CHARACTER_STORE_UPGRADES", key, character_store_upgrades[key])
-	config.save(config_path_file)
-
-func get_character_store_upgrades():
-	return character_store_upgrades
-
-func get_store_item_max_level(item_id):
-	return int(config.get_value("STORE_ITEM_" + item_id, "max_level", "2"))
-
-# Костыль для экспорта
-func check_config():
-	config.load(config_path_file)
-	gold = int(config.get_value("GOLD", "gold", "-1"))
-	if gold == -1: 
-		create_config_file()
-
-func create_config_file():
-	config.set_value("GOLD", "gold", "300")
-	config.set_value("VERSION", "version", "1")
-		
-	for i in range(5):  # STORE_ITEM_0 до STORE_ITEM_4
-		config.set_value( "STORE_ITEM_" + str(i), "level", "1")
-		config.set_value( "STORE_ITEM_" + str(i), "max_level", "5")
-
-	config.set_value("STORE_ITEM_9", "level", "1")
-	config.set_value( "STORE_ITEM_9", "max_level", "1")
-
-	config.set_value("STORE_ITEM_10", "level", "1")
-	config.set_value("STORE_ITEM_10", "max_level", "1")
-
-	config.save(config_path_file)

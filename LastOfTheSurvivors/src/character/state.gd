@@ -2,7 +2,6 @@ extends Node
 
 class_name State
 
-@onready var debug = owner.find_child("debug")
 @onready var character = get_tree().get_first_node_in_group("character")
 @onready var animation_player = owner.find_child("AnimationPlayer")
 
@@ -20,4 +19,3 @@ func transition():
 
 func _physics_process(_delta):
 	transition()
-	debug.text = name

@@ -20,8 +20,9 @@ var item = {
 
 func _ready():
 	$BuyTextureButton.set_label_text()
-	item["level"] = Global.get_store_item_level(item_id)
-	item["max_level"] = Global.get_store_item_max_level(item_id)
+	var title = "STORE_ITEM_" + str(item_id)
+	item["level"] = Store.store_data[title]["level"]
+	item["max_level"] = Store.store_data[title]["max_level"]
 	
 	if is_max_level():
 		set_upgrade_btn_disabled()
@@ -45,7 +46,9 @@ func load_data():
 	item["icon_path"] =StoreDB.ITEMS["STORE_ITEM_" + item_id + "_" + item["level"]]["icon_path"]
 
 func save_data():
-	Global.save_store_item_level(item_id, item["level"])
+	var title = "STORE_ITEM_" + str(item_id)
+	Store.store_data[title]["level"] = item["level"]
+	Store.save_store_data()
 
 func is_max_level():
 	if item["level"] == "MAX":
@@ -59,86 +62,86 @@ func upgrade(item_name, item_level):
 		"Health":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["health"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["health"] += 10
 				"2": 
-					Global.character_store_upgrades["health"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["health"] += 10
 				"3": 
-					Global.character_store_upgrades["health"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["health"] += 10
 				"4": 
-					Global.character_store_upgrades["health"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["health"] += 10
 				"5": 
-					Global.character_store_upgrades["health"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["health"] += 10
 				"MAX":
 					pass
 		"Shiled":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["shield"] += 0.5
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["shield"] += 0.5
 				"2": 
-					Global.character_store_upgrades["shield"] += 0.5
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["shield"] += 0.5
 				"3": 
-					Global.character_store_upgrades["shield"] += 1
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["shield"] += 1
 				"4": 
-					Global.character_store_upgrades["shield"] += 1
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["shield"] += 1
 				"5": 
-					Global.character_store_upgrades["shield"] += 1
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["shield"] += 1
 				"MAX":
 					pass
 		"Speed":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["speed"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["speed"] += 10
 				"2": 
-					Global.character_store_upgrades["speed"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["speed"] += 10
 				"3": 
-					Global.character_store_upgrades["speed"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["speed"] += 10
 				"4": 
-					Global.character_store_upgrades["speed"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["speed"] += 10
 				"5": 
-					Global.character_store_upgrades["speed"] += 10
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["speed"] += 10
 				"MAX":
 					pass
 		"Spell Cooldown":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["spell_cooldown"] += 0.02
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_cooldown"] += 0.02
 				"2": 
-					Global.character_store_upgrades["spell_cooldown"] += 0.02
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_cooldown"] += 0.02
 				"3": 
-					Global.character_store_upgrades["spell_cooldown"] += 0.02
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_cooldown"] += 0.02
 				"4": 
-					Global.character_store_upgrades["spell_cooldown"] += 0.02
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_cooldown"] += 0.02
 				"5": 
-					Global.character_store_upgrades["spell_cooldown"] += 0.02
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_cooldown"] += 0.02
 				"MAX":
 					pass
 		"Spell Size":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["spell_size"] += 0.05
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_size"] += 0.05
 				"2": 
-					Global.character_store_upgrades["spell_size"] += 0.05
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_size"] += 0.05
 				"3": 
-					Global.character_store_upgrades["spell_size"] += 0.05
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_size"] += 0.05
 				"4": 
-					Global.character_store_upgrades["spell_size"] += 0.05
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_size"] += 0.05
 				"5": 
-					Global.character_store_upgrades["spell_size"] += 0.05
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_size"] += 0.05
 				"MAX":
 					pass
 		"Double splash":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["double_splash"] = 1
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["double_splash"] = 1
 				"MAX":
 					pass
 		"Respawn":
 			match item_level:
 				"1":
-					Global.character_store_upgrades["respawn"] = 1
+					Global.character_data["CHARACTER_STORE_UPGRADES"]["respawn"] = 1
 				"MAX":
 					pass
-	Global.save_character_store_upgrades()
+	Global.save_character_data()
 
 func set_tooltip():
 	var tooltip = ""
@@ -155,7 +158,7 @@ func set_upgrade_btn_disabled(value = true):
 
 func _on_buy_texture_button_pressed():
 	$BuyTextureButton.position.y -= -1
-	var cur_gold = Global.get_gold()
+	var cur_gold = int(Global.character_data["GOLD"]["gold"])
 	if cur_gold >= int(item["cost"]):
 		cur_gold -=  int(item["cost"])
 		upgrade(item["name"], item["level"])
@@ -169,9 +172,10 @@ func _on_buy_texture_button_pressed():
 		load_data()
 		set_new_data()
 		
-		Global.set_gold(cur_gold)
-		Global.save_gold()
+		Global.character_data["GOLD"]["gold"] = cur_gold
+		Global.save_character_data()
 		Global.emit_signal("purchase")
+		
 		show_information_panel("Upgrade")
 	else:
 		show_information_panel("Not enough gold")

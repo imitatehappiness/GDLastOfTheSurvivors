@@ -10,13 +10,13 @@ func _ready():
 	update_gold()
 
 func update_gold():
-	Global.load_gold()
-	gold = Global.get_gold()
+	gold = Global.character_data["GOLD"]["gold"]
 	gold_label.text = str(gold)
 
 func set_gold(value):
 	gold = value
 
 func _on_back_texture_button_pressed():
+	Store.save_store_data()
 	get_tree().change_scene_to_file(menu)
 

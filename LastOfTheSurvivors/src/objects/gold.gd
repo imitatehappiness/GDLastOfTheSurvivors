@@ -19,7 +19,7 @@ func _ready():
 		sprite.texture = sprite_silver
 	elif gold < 25:
 		sprite.texture = sprite_gold
-	elif gold < 50:
+	elif gold < 75:
 		sprite.texture = sprite_diamond
 	else:
 		sprite.texture = sprite_mountain_of_gold

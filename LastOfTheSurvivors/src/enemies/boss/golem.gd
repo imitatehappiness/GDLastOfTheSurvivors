@@ -46,6 +46,8 @@ func _ready():
 
 func init():
 	health = max_health
+	$Pivot/LaserAttack.damage = laser_damage
+	$HitBox.damage = damage
 
 func _process(delta):
 	direction = character.position - position

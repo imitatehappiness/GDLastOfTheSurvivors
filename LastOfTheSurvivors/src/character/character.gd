@@ -1,35 +1,11 @@
 extends CharacterBody2D
 
-var time = 0
-var game_time_limit = 60*7
-
-var is_live = true
-
-var movement_speed = 90.0 + Global.get_character_store_upgrades()["speed"]
-var max_health = 50 + Global.get_character_store_upgrades()["health"]
-var health = max_health
-var last_movement = Vector2.UP
-var experience = 0
-var experience_level = 1
-var collected_experience = 0
-
-var enemy_death_counter = 0
-var gold = 0
-#Attacks
-var attacks_preload = {
-	"ice_spear": preload("res://src/character/attack/ice_spear.tscn"),
-	"tornado": preload("res://src/character/attack/tornado.tscn"),
-	"aura_water": preload("res://src/character/attack/aura_water.tscn"),
-	"splash": preload("res://src/character/attack/splash.tscn"),
-	"sticky_green_bullet": preload("res://src/character/attack/sticky_green_bulllet.tscn"),
-	"skipjack": preload("res://src/character/attack/skipjack.tscn"),
-	"boomerang" : preload("res://src/character/attack/boomerang.tscn"),
-	"trap" : preload("res://src/character/attack/trap.tscn"),
-	"invulnerability" : preload("res://src/character/attack/invulnerability.tscn"),
-	"bang_sheep" : preload("res://src/character/attack/sheep.tscn")
-}
+@export_group("internal Nodes")
+@export var transform_adjustment: Node2D
 
 @onready var grab_area = get_node("%GrabArea")
+
+@onready var animation_character = $TransformAdjustment/AnimationPlayer
 
 #AttacksNodes
 @onready var ice_spear_timer = get_node("%IceSpearTimer")
@@ -53,20 +29,70 @@ var attacks_preload = {
 @onready var mass_collection_timer = get_node("%MassCollectionTimer")
 @onready var invulnerability_timer = get_node("%InvulnerabilityTimer")
 @onready var invulnerability_free_timer = get_node("%InvulnerabilityFreeTimer")
-#STORE UPGRADES
-var respawn = Global.get_character_store_upgrades()["respawn"]
+
+#GUI
+@onready var experience_bar = get_node("%ExpBar")
+@onready var level_label = get_node("%LevelLabel")
+@onready var level_panel = get_node("%LevelUpPanel")
+@onready var upgrade_options_vbox = get_node("%UpgradeOptions")
+@onready var level_up_sound = get_node("%LevelUpSound")
+@onready var item_options = preload("res://src/utilities/item_option.tscn")
+@onready var stats_label = get_node("%Stats")
+@onready var health_bar = get_node("%HealthBar")
+@onready var game_time_label = get_node("%Time")
+
+@onready var collected_weapons_grid = get_node("%CollectedWeapons")
+@onready var collected_upgrades_grid = get_node("%CollectedUpgrades")
+@onready var item_container = preload("res://src/character/gui/item_container.tscn")
+
+@onready var death_panel = get_node("%DeathPanel")
+@onready var result_label = get_node("%ResultLabel")
+@onready var victory_sound = get_node("%VictorySound")
+@onready var lose_sound = get_node("%LoseSound")
+
+@onready var pause_panel = get_node("%PausePanel")
+
+
+var is_alive = true
+var time = 0
+var game_time_limit = 60*7
+
+var movement_speed = 90.0 + float(Global.character_data["CHARACTER_STORE_UPGRADES"]["speed"])
+var max_health = 50.0 + float(Global.character_data["CHARACTER_STORE_UPGRADES"]["health"])
+var last_movement = Vector2.UP
+var experience = 0
+var experience_level = 1
+var collected_experience = 0
+var respawn = int(Global.character_data["CHARACTER_STORE_UPGRADES"]["respawn"])
+var enemy_death_counter = 0
+var gold = 0
+
+#Attacks
+var attacks_preload = {
+	"ice_spear": preload("res://src/character/attack/ice_spear.tscn"),
+	"tornado": preload("res://src/character/attack/tornado.tscn"),
+	"aura_water": preload("res://src/character/attack/aura_water.tscn"),
+	"splash": preload("res://src/character/attack/splash.tscn"),
+	"sticky_green_bullet": preload("res://src/character/attack/sticky_green_bulllet.tscn"),
+	"skipjack": preload("res://src/character/attack/skipjack.tscn"),
+	"boomerang" : preload("res://src/character/attack/boomerang.tscn"),
+	"trap" : preload("res://src/character/attack/trap.tscn"),
+	"invulnerability" : preload("res://src/character/attack/invulnerability.tscn"),
+	"bang_sheep" : preload("res://src/character/attack/sheep.tscn")
+}
 
 #UPGRADES
 var collected_upgrades = []
 var upgrade_options = []
-var armor = 0 + Global.get_character_store_upgrades()["shield"]
+var armor = 0.0 + float(Global.character_data["CHARACTER_STORE_UPGRADES"]["shield"])
 
-var spell_cooldown = 0 + Global.get_character_store_upgrades()["spell_cooldown"]
-var spell_size = 0 + Global.get_character_store_upgrades()["spell_size"]
+var spell_cooldown = 0.0 + float(Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_cooldown"])
+var spell_size = 0.0 + float(Global.character_data["CHARACTER_STORE_UPGRADES"]["spell_size"])
 var additional_attack = 0
 var grab_area_scale = 0
 var experience_multiplier = 1
 
+# vampirism
 var vampirism_probability : float = 0
 var vampirism_recovery : float = 0
 
@@ -94,7 +120,7 @@ var aura_water_level = 0
 #Splash
 var splash_level = 1
 var splash_attack_speed = 1
-var double_splash = Global.get_character_store_upgrades()["double_splash"]
+var double_splash = int(Global.character_data["CHARACTER_STORE_UPGRADES"]["double_splash"])
 
 # sticky_green_bullet
 var sticky_green_bullet_level = 0
@@ -129,82 +155,42 @@ var trap_level = 0
 #Enemy Related
 var enemy_close = []
 
-@export_group("internal Nodes")
-@export var transform_adjustment: Node2D
-
-@onready var animation_character = $TransformAdjustment/AnimationPlayer
-
-#GUI
-@onready var experience_bar = get_node("%ExpBar")
-@onready var level_label = get_node("%LevelLabel")
-@onready var level_panel = get_node("%LevelUpPanel")
-@onready var upgrade_options_vbox = get_node("%UpgradeOptions")
-@onready var level_up_sound = get_node("%LevelUpSound")
-@onready var item_options = preload("res://src/utilities/item_option.tscn")
-@onready var stats_label = get_node("%Stats")
-@onready var health_bar = get_node("%HealthBar")
-@onready var game_time_label = get_node("%Time")
-
-@onready var collected_weapons_grid = get_node("%CollectedWeapons")
-@onready var collected_upgrades_grid = get_node("%CollectedUpgrades")
-@onready var item_container = preload("res://src/character/gui/item_container.tscn")
-
-@onready var death_panel = get_node("%DeathPanel")
-@onready var result_label = get_node("%ResultLabel")
-@onready var victory_sound = get_node("%VictorySound")
-@onready var lose_sound = get_node("%LoseSound")
-
-@onready var pause_panel = get_node("%PausePanel")
-
-
-enum {
-	IDLE,
-	WALK,
-	DAMAGE,
-	DEATH,
-	WIN,
-	RESPAWN,
-	PAUSE
-}
-
-var state: int = IDLE:
+var health = max_health:
 	set(value):
-		state = value
-		match state:
-			IDLE:
-				idle_state()
-			WALK:
-				walk_state()
-			DEATH:
-				end_state()
-			WIN:
-				end_state()
-			PAUSE:
-				pause_state()
-			DAMAGE:
-				damage_state()
-			RESPAWN:
-				respawn_state()
+		health = value
+		health_bar.max_value = max_health
+		health_bar.value = health
+		
+		if health > max_health:
+			health = max_health
+		
+		if health <= 0:
+			if respawn == 1:
+				find_child("FiniteStateMachine").change_state("Respawn")
+			else:
+				find_child("FiniteStateMachine").change_state("Death")
 
 func _ready():
-	%VersionLabel.text = "version: " + str(Global.version)
 	$"../AudioStreamPlayer".play()
 	upgrade_character("splash1")
 
-	attack()
+	find_child("FiniteStateMachine").change_state("Attack")
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)
 
 func _physics_process(_delta):
 	$GUILayer/GUI/FPSLabel.text = "PFS: " + str(Engine.get_frames_per_second())
-	if Input.get_action_strength("pause"):
-		state = PAUSE
-	
-	if state != RESPAWN:
-		if state != DEATH and state != WIN:
-			if state != DAMAGE:
-				state = WALK if velocity.x != 0 || velocity.y != 0 else IDLE
-			movement()
+	if find_child("FiniteStateMachine").get_current_state() != "Death" and find_child("FiniteStateMachine").get_current_state() != "Win":
+		if Input.get_action_strength("pause"):
+			find_child("FiniteStateMachine").change_state("Pause")
+		movement()
+		#if find_child("FiniteStateMachine").get_current_state() != "Damage":
+			#movement()
+			#if velocity.x != 0 or velocity.y != 0:
+				#find_child("FiniteStateMachine").change_state("Walk")
+			#else:
+				#find_child("FiniteStateMachine").change_state("Idle")
+		
 
 # Обрабатывает движение персонажа в зависимости от ввода игрока.
 func movement():
@@ -215,6 +201,11 @@ func movement():
 	
 	if move != Vector2.ZERO:
 		last_movement = move
+		if find_child("FiniteStateMachine").get_current_state() != "Damage":
+			find_child("FiniteStateMachine").change_state("Walk")
+	else:
+		if find_child("FiniteStateMachine").get_current_state() != "Damage":
+			find_child("FiniteStateMachine").change_state("Idle")
 		
 	set_character_facing_direction(move)
 
@@ -231,25 +222,15 @@ func set_character_facing_direction(direction: Vector2):
 func _on_hurt_box_hurt(damage, _angle, _knock_back):
 	if !invulnerability: 
 		if damage > 0:
-			healing_label_show(clamp(damage - armor, 1.0, 999.0), true)
-			state = DAMAGE
+			if find_child("FiniteStateMachine").get_current_state() != "Death" and find_child("FiniteStateMachine").get_current_state() != "Win":
+				healing_label_show(clamp(damage - armor, 1.0, 999.0), true)
+				find_child("FiniteStateMachine").change_state("Damage")
 
 		health -= clamp(damage - armor, 1.0, 999.0)
-		health_bar.max_value = max_health
-		health_bar.value = health
-
-		if health <= 0:
-			state = RESPAWN if respawn == 1 else DEATH
 
 func healing(value):
 	healing_label_show(value, false)
-	
 	health += value
-	if health > max_health:
-		health = max_health
-
-	health_bar.max_value = max_health
-	health_bar.value = health
 
 func healing_label_show(value, damage):
 	healing_label.modulate.a = 255
@@ -284,57 +265,6 @@ func _on_enemy_detection_area_body_exited(body):
 	if enemy_close.has(body):
 		enemy_close.erase(body)
 
-
-# =================================================================== INIT ATTACK
-
-#Инициирует атаки персонажа
-func attack():
-	# ice_spear
-	if ice_spear_level > 0:
-		ice_spear_timer.wait_time = ice_spear_attack_speed * (1 - spell_cooldown)
-		if ice_spear_timer.is_stopped():
-			ice_spear_timer.start()
-
-	# tornado	
-	if tornado_level > 0:
-		tornado_timer.wait_time = tornado_attack_speed * (1 - spell_cooldown)
-		if tornado_timer.is_stopped():
-			tornado_timer.start()
-
-	# splash_level
-	if splash_level > 0:
-		splash_timer.wait_time = splash_attack_speed * (1 - spell_cooldown)
-		if splash_timer.is_stopped():
-			splash_timer.start()
-	
-	# skipjack
-	if skipjack_level > 0:
-		skipjack_timer.wait_time = skipjack_attack_speed * (1 - spell_cooldown)
-		if skipjack_timer.is_stopped():
-			skipjack_timer.start()
-	
-	# boomerang
-	if boomerang_level > 0:
-		boomerang_timer.wait_time = boomerang_attack_speed * (1 - spell_cooldown)
-		if boomerang_timer.is_stopped():
-			boomerang_timer.start()
-
-	# bang_sheep
-	if bang_sheep_level > 0:
-		bang_sheep_timer.wait_time = bang_sheep_attack_speed * (1 - spell_cooldown)
-		if bang_sheep_timer.is_stopped():
-			bang_sheep_timer.start()
-			
-	# trap
-	if trap_level > 0:
-		trap_timer.wait_time = trap_attack_speed * (1 - spell_cooldown)
-		if trap_timer.is_stopped():
-			trap_timer.start()
-			
-	if invulnerability_level > 0 and !invulnerability:
-		invulnerability_timer.wait_time = invulnerability_reload * (1 - spell_cooldown)
-		if invulnerability_timer.is_stopped():
-			invulnerability_timer.start()
 
 # Обработчик таймера для атаки ice_spear
 func _on_ice_spear_timer_timeout():
@@ -413,7 +343,6 @@ func _on_skipjack_timer_timeout():
 	skipjack_ammo += skipjack_base_ammo + additional_attack
 	skipjack_attack_timer.start()
 
-
 func _on_skipjack_attack_timer_timeout():
 	if skipjack_ammo > 0:
 		var skipjack_attack = attacks_preload["skipjack"].instantiate()
@@ -444,11 +373,9 @@ func _on_boomerang_attack_timer_timeout():
 		else:
 			boomerang_attack_timer.stop()
 
-
 func _on_bang_sheep_timer_timeout():
 	bang_sheep_ammo += bang_sheep_base_ammo + additional_attack
 	bang_sheep_attack_timer.start()
-
 
 func _on_bang_sheep_attack_timer_timeout():
 	if bang_sheep_ammo > 0:
@@ -463,106 +390,33 @@ func _on_bang_sheep_attack_timer_timeout():
 		else:
 			bang_sheep_attack_timer.stop()
 
-
 func _on_trap_timer_timeout():
 	var trap_attack = attacks_preload["trap"].instantiate()
 	trap_attack.level = trap_level
 	add_child(trap_attack)
 
-# =================================================================== STATE
-# Cостояние idle
-func idle_state():
-	if state != DAMAGE:
-		animation_character.play("Idle")
-	
-# Cостояние walk
-func walk_state():
-	if state != DAMAGE:
-		animation_character.play("Walk")
-
-func damage_state():
-	$GetDamagePlay.play()
-	animation_character.play("Damage")
-	await animation_character.animation_finished
-	state = IDLE
-	
-func respawn_state():
-	invulnerability = true
-	respawn = 0
-	state = IDLE
-	$TransformAdjustment/AnimatedSprite2D.visible = false
-	$TransformAdjustment/RespawnAnimatedSprite2D.visible = true
-	
-	$TransformAdjustment/RespawnAnimatedSprite2D.play("Respawn")
-	await $TransformAdjustment/RespawnAnimatedSprite2D.animation_finished
-	
-	$TransformAdjustment/AnimatedSprite2D.visible = true
-	$TransformAdjustment/RespawnAnimatedSprite2D.visible = false
-	
-	var half_health = max_health / 2
-	healing(half_health)
-	invulnerability = false
-
-
-# Cостояние win | lose
-func end_state():
-	if is_live:
-		is_live = false
-		if state == DEATH:
-			$HurtBox.queue_free()
-			animation_character.play("Death")
-			await animation_character.animation_finished	
-			
+func end_panel(state):
+	if is_alive:
+		is_alive = false
 		death_panel.visible = true
 		
 		var tween = death_panel.create_tween()
 		tween.tween_property(death_panel, "position", Vector2(210, 60), 0.3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.play()
-		if state == WIN:
+		if state == "Win":
 			result_label.text = "You Win"
 			victory_sound.play()
 		else:
 			result_label.text = "You Lose"
 			lose_sound.play()
+
 		get_tree().paused = true
 		
-		%GoldLabel.text = "Gold collected: " + str(gold)
-		%TotalKilledLabel.text = "Enemy Killed: " + str(enemy_death_counter)
-		print("total: ", gold)
-		Global.update_gold(gold)
-		Global.save_gold()
+		%EndStatLabel.text = "Gold collected: " + str(gold) + "\n" + "Enemy Killed: " + str(enemy_death_counter)
 
-# Cостояние pause
-func pause_state():
-	pause_panel.visible = true
-	get_tree().paused = true
-	var tween = pause_panel.create_tween()
-	tween.tween_property(pause_panel, "position", Vector2(210, 60), 0.1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
-
-# =================================================================== LEVEL UP
-
-# Отображает панель повышения уровня, генерирует варианты улучшений и останавливает игру.
-func level_up():
-	level_up_sound.play()
-	level_label.text = str("LV: ", experience_level)
-	var tween = level_panel.create_tween()
-	tween.tween_property(level_panel, "position", Vector2(210, 60), 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
-	level_panel.visible = true
-	var options = 0
-	var options_max = 3
-	
-	for child in upgrade_options_vbox.get_children():
-		child.queue_free()
-	
-	while options < options_max:
-		var option_choice = item_options.instantiate()
-		option_choice.item = get_random_item()
-		upgrade_options_vbox.add_child(option_choice)
-		options += 1
-
-	get_tree().paused = true
+		var cur_gold = int(Global.character_data["GOLD"]["gold"]) + int(gold)
+		Global.character_data["GOLD"]["gold"] = cur_gold
+		Global.save_character_data()
 
 
 # Обновляет интерфейс для отображения собранных улучшений и оружия.
@@ -571,10 +425,6 @@ func adjust_gui_collection(upgrade):
 	var get_type = UpgradeDB.UPGRADES[upgrade]["type"]
 	
 	if get_type != "item":
-#		var get_collected_displaynames = []
-#		for i in collected_upgrades:
-#			get_collected_displaynames.append(UpgradeDB.UPGRADES[i]["displayname"])
-#		if not get_upgraded_displaynames in get_collected_displaynames:
 			var new_item = item_container.instantiate()
 			new_item.upgrade = upgrade
 
@@ -746,10 +596,8 @@ func upgrade_character(upgrade):
 			healing(20)
 
 	adjust_gui_collection(upgrade)
-	attack()
-#	var option_children = upgrade_options_vbox.get_children()
-#	for i in option_children:
-#		i.queue_free()
+	find_child("FiniteStateMachine").change_state("Attack")
+
 	upgrade_options.clear()
 	collected_upgrades.append(upgrade)
 	level_panel.visible = false
@@ -807,7 +655,8 @@ func calculate_experience(gem_experience):
 		experience_level += 1
 		experience = 0
 		exp_required = calculate_experience_cap()
-		level_up()
+		if find_child("FiniteStateMachine").get_current_state() != "Death":
+			find_child("FiniteStateMachine").change_state("LevelUp")
 	else:
 		experience += collected_experience
 		collected_experience = 0
@@ -837,8 +686,6 @@ func set_expbar(set_value = 1, set_max_value = 100):
 # Обработчик таймера для отслеживания времени игры и победы при достижении лимита времени.
 func _on_timer_timeout():
 	time += 1
-	#if time >= game_time_limit:
-	#	state = WIN
 
 	var min = str(time / 60) if time / 60 > 9 else "0" + str(time / 60)
 	var sec = str(time % 60) if time % 60 > 9 else "0" + str(time % 60)
@@ -856,7 +703,7 @@ func _on_resume_button_click_end():
 	tween.play()
 	pause_panel.visible = false
 	get_tree().paused = false
-	state = WALK
+	find_child("FiniteStateMachine").change_state("Idle")
 
 
 func _on_button_menu_click_end():
@@ -866,20 +713,15 @@ func _on_button_menu_click_end():
 func _on_damage_received(enemy_damage):
 	if !invulnerability:
 		if enemy_damage > 0:
-			state = DAMAGE
+			if find_child("FiniteStateMachine").get_current_state() != "Death" and find_child("FiniteStateMachine").get_current_state() != "Win":
+				find_child("FiniteStateMachine").change_state("Damage")
 
 		health -= clamp(enemy_damage - armor, 1.0, 999.0)
-		health_bar.max_value = max_health
-		health_bar.value = health
-		if health <= 0:
-			state = RESPAWN if respawn == 1 else DEATH
-
 
 func _on_mass_collection_timer_timeout():
 	grab_area.scale = Vector2(1,1)
 
 func _on_invulnerability_timer_timeout():
-	
 	invulnerability = true
 
 	var new_invulnerability = attacks_preload["invulnerability"].instantiate()
@@ -902,4 +744,4 @@ func enemy_death(type = "base"):
 	$GUILayer/GUI/DeathEnemy/DeathEnemyLabel.text = str(enemy_death_counter)
 	
 func victory():
-	state = WIN
+	find_child("FiniteStateMachine").change_state("Win")

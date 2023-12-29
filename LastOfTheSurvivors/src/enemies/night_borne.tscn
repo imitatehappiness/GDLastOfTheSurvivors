@@ -621,10 +621,10 @@ color = Color(0.568627, 0.4, 0.866667, 1)
 texture = ExtResource("2_8h2gt")
 
 [node name="AnimationPlayer" parent="TransformAdjustment" index="1"]
-autoplay = "Walk"
 libraries = {
 "": SubResource("AnimationLibrary_3dcus")
 }
+autoplay = "Walk"
 
 [node name="AnimatedSprite2D" parent="TransformAdjustment" index="2"]
 position = Vector2(0, -18.3532)

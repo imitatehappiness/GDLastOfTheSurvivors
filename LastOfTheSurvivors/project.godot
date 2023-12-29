@@ -25,6 +25,7 @@ config/icon="res://resources/icon/icon.png"
 UpgradeDB="*res://src/utilities/upgrade_db.tscn"
 Global="*res://src/global/global.gd"
 StoreDB="*res://src/utilities/store_db.tscn"
+Store="*res://src/global/store.gd"
 
 [display]
 
