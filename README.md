@@ -1,11 +1,16 @@
 
 ![header](https://github.com/imitatehappiness/GDLastOfTheSurvivors/assets/79199956/25be2e2a-028d-402a-a16f-7e3a310835fd)
 
-
 ![Godot Engine](https://img.shields.io/badge/GODOT-094047.svg?style=for-the-badge&logo=godot-engine&Color=EEE&logoColor=EEE)
 ![Itch.io](https://img.shields.io/badge/Itch.IO-094047.svg?style=for-the-badge&logo=Itch.io&logoColor=white&Color=EEE)
 ![Top_Down](https://img.shields.io/badge/Top_Down-094047?style=for-the-badge&logo=GitHub-Sponsors&logoColor=EEE&Color=EEE)
 ![Survival](https://img.shields.io/badge/Survival-094047?style=for-the-badge&logo=GitHub-Sponsors&logoColor=EEE&Color=EEE)
+
+![GitHub stars](https://img.shields.io/github/stars/imitatehappiness/GDLastOfTheSurvivors?style=social)
+![GitHub forks](https://img.shields.io/github/forks/imitatehappiness/GDLastOfTheSurvivors?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/imitatehappiness/GDLastOfTheSurvivors?style=social)
+![GitHub followers](https://img.shields.io/github/followers/imitatehappiness?style=social)
+
 ## Description
 "Last of the Survivors" is an engaging action game with rogue-lite elements, where your choices can empower you to overcome hordes of attacking monsters. 
 
